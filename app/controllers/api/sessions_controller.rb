@@ -5,8 +5,7 @@ class Api::SessionsController < ApplicationController
       render json: ['Invalid email or password'], status: 401
     else
       login!(@user)
-      render json: @user
-      # render 'api/users/show';
+      render :template => "api/users/show"
     end
   end
 
