@@ -15,14 +15,14 @@ class SignupForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.createUser(this.state);
-        
+
     }
 
     render(){
         return(
             <>
                 <h1>Make Your Money Move</h1>
-                <h3>Robinhood lets you invest in people you love/hate, commission-free.</h3>
+                <h3>Robin's Hood lets you invest in people you love/hate, commission-free.</h3>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" placeholder="First name" value={this.state.first_name} onChange={this.update("first_name")}/>
                     <input type="text" placeholder="Last name" value={this.state.last_name} onChange={this.update("last_name")} />

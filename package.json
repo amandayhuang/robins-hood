@@ -25,7 +25,8 @@
     "test": "jest --verbose --silent",
     "test:watch": "jest --verbose --silent --watchAll",
     "build": "webpack",
-    "build:watch": "webpack --watch --mode=development"
+    "build:watch": "webpack --watch --mode=development",
+    "postinstall": "webpack"
   },
   "keywords": [
     "react",
@@ -54,5 +55,9 @@
     "react-test-renderer": "^16.8.6",
     "redux-mock-store": "^1.5.3",
     "webpack-cli": "^3.3.11"
+  },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
   }
 }
