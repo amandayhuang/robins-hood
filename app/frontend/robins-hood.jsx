@@ -12,5 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //TESTING
     window.signup = signup;
+    window.getState = store.getState;
     //TESTING
 })
