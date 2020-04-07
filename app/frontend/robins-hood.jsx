@@ -7,7 +7,19 @@ import {signup, login, logout} from './util/session_api_util'
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    const store = configureStore();
+
+    let preloadedState = undefined;
+    let store;
+    if (window.currentUser) {
+        const preloadedState = {
+            session: window.currentUser
+        };
+        store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    }
+
     ReactDOM.render(<Root store={store} />, root)
 
     //TESTING
