@@ -34,7 +34,7 @@ html, body, div, span,
     align-items: center;
     box-sizing: border-box;
     position: absolute;
-    left:0;
+    left:10;
     top:0;
 }
 
@@ -42,14 +42,13 @@ html, body, div, span,
     display: flex;
     position: relative;
     padding-left:0px;
-    
 }
 
  .nav-bar li{
      list-style: none;
      margin: 0 10px;
      color:black;
-     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+     font-family:  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
 }
 
@@ -58,4 +57,58 @@ html, body, div, span,
  button{
 
  }
+
+ .nav-bar .logo{
+     font-weight: 400;
+     font-size: 25px;
+     letter-spacing: -1px;
+ }
+
+ .signup-container{
+     margin-left:100px;
+     margin-right:auto;
+     margin-top: 100px;
+     display: flex;
+     flex-direction: column;
+     font-family:  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+ }
  
+ .signup-container form{
+     display: flex;
+     flex-direction: column;    
+ }
+
+  .signup-container input{
+      width:685px;
+      border-radius: 6px;
+      border: 1px solid lightgray;
+      padding: 15px;
+      box-sizing: border-box;
+      margin: 15px;
+      font-size: 20px;
+      height: 40px;
+  }
+
+  .signup-container div input{
+      width:332px;
+      margin-right:2px;
+      box-sizing: border-box;
+  }
+
+   .signup-container button{
+      width:685px;
+      background-color:#52CF9A;
+      box-sizing: border-box;
+      margin: 5px;
+      height: 40px;
+      font-size: 20px;
+      color:white;
+      border-radius: 6px;
+      border: none;
+  }
+
+  ::placeholder {
+  color:lightgray;
+}
+
+  

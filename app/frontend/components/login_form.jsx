@@ -15,13 +15,13 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.loginUser(this.state);
-
     }
 
     render() {
         return (
             <>
                 <h1>Welcome to Robin's Hood</h1>
+                <div>{this.props.errors[0]}</div>
                 <form onSubmit={this.handleSubmit}>
                     <label>Email
                     <input type="text" value={this.state.email} onChange={this.update("email")} />

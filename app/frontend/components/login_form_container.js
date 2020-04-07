@@ -3,7 +3,8 @@ import { loginUser } from '../actions/session_actions'
 import LoginForm from './login_form';
 
 const msp = state => ({
-    user: { email: "", password: ""}
+    user: { email: "", password: ""},
+    errors: state.errors.session
 });
 
 const mdp = dispatch => ({

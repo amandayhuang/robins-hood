@@ -14,9 +14,9 @@ class NavBar extends React.Component{
             <li>
                 <ul className='nav-bar-left'>
                 <li className='logo'>Robin's Hood</li>
-                <li>Products <span>^</span></li>
+                {/* <li>Products <span>^</span></li>
                 <li>Learn</li>
-                <li>Support</li>
+                <li>Support</li> */}
                 </ul>
             </li>
             <li>
