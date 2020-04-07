@@ -14,6 +14,9 @@ class NavBar extends React.Component{
             <li>
                 <ul className='nav-bar-left'>
                 <li className='logo'>Robin's Hood</li>
+                <li>
+                    <img className='logo-black' src={window.logoBlackURL} alt="robins hood logo"/>
+                </li>
                 {/* <li>Products <span>^</span></li>
                 <li>Learn</li>
                 <li>Support</li> */}
@@ -31,8 +34,9 @@ class NavBar extends React.Component{
 
             <div className="home-1">
                 <div className="home-1-left">
-                <h1>It's Time to Do Money</h1>
-                <h3>Robin's Hood, a pioneer of spilling the tea, gives you more ways to make your money work harder.</h3>
+                <h1>It's Time to Do Gossip</h1>
+                <h3>Robin's Hood, a pioneer of spilling the tea, gives you more ways to make your money work pettier.</h3>
+                <Link to="/signup"><button>Sign Up </button></Link>
                 </div>
 
                 <div className="home-1-right">

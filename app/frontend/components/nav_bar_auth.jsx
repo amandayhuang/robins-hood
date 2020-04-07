@@ -9,8 +9,33 @@ class NavBarAuth extends React.Component {
     render() {
         return (
             <>
-            <h1>{this.props.currentUser.first_name}</h1>
-            <button onClick={this.props.logout}>Logout</button>
+            
+           
+                <ul className='nav-auth-bar'>
+                    <li>
+                        <ul className='nav-auth-bar-left'>
+                            <li>
+                                <img className='logo-black' src={window.logoBlackURL} alt="robins hood logo" />
+                            </li>
+
+                            <li>
+                                <div className="search">
+                                    <input placeholder="Search" type="text"/>
+                                </div>
+                            </li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul className='nav-auth-bar-right'>
+                            <li>Account</li>
+                            <li> {this.props.currentUser.first_name}</li>
+                            <li><button onClick={this.props.logout}>Logout</button></li>
+                        </ul>
+                    </li>
+                </ul>
             </>
         )
     }

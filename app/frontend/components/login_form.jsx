@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
                     <label>Password </label>
                     <input type="password" value={this.state.password} onChange={this.update("password")} />
                    
-                    <div class='login-error'>{this.props.errors[0]}</div>
+                    <div className='login-error'>{this.props.errors[0]}</div>
                     <button>Sign In</button>
                 </form>
                 </div>

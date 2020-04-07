@@ -25,7 +25,7 @@ html, body, div, span,
 
 .nav-bar{
     width: 100%;
-    height: 70px;
+    height: 66px;
     background-color: white;
     padding: 10px;
     margin: 0;
@@ -48,6 +48,11 @@ html, body, div, span,
     display: flex;
     position: relative;
     padding-left:0px;
+}
+
+.logo-black{
+    width: 28px;
+    margin-left:-13px;
 }
 
 .nav-bar-right button{
@@ -81,7 +86,7 @@ html, body, div, span,
 }
 
 
- .nav-bar li{
+.nav-bar li{
      list-style: none;
      margin: 0 10px;
      color:black;
@@ -99,7 +104,7 @@ html, body, div, span,
  .home-1{
      height:800px;
      background-color: #52CF9A;
-     padding-top:100px;
+     padding-top:130px;
      display: flex;
      justify-content: center;
 
@@ -120,11 +125,28 @@ html, body, div, span,
      color:black;
      font-size: 25px;
      font-weight: 300;
+     margin-top:-10px;
  }
 
  .home-1 img{
      margin:20px;
  }
+
+ .home-1 button{
+     width: 160px;
+     height: 60px;
+     border: none;
+     background-color: #2F4F4F;
+     border-radius: 5px;
+     color:white;
+     font-size: 17px;
+     font-weight: 500;
+ }
+
+  .home-1 button:hover{
+    background-color: black;
+    cursor: pointer;
+  }
 
  .signup-container{
      display: flex;
@@ -349,3 +371,67 @@ html, body, div, span,
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
+
+
+
+.nav-auth-bar{
+    width: 100%;
+    height: 66px;
+    background-color: white;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: fixed;
+    left:10;
+    top:0;
+}
+
+.nav-auth-bar-left, .nav-auth-bar-right{
+    display: flex;
+    position: relative;
+    padding-left:0px;
+}
+
+.logo-black{
+    width: 28px;
+    margin-left:-13px;
+}
+
+.nav-auth-bar-right  button:hover{
+    color:#3FA379;
+    cursor: pointer;
+}
+
+
+.nav-auth-bar-right .demo-login{
+    width: 130px;
+    background-color: #52CF9A;
+    border-radius: 4px;
+}
+
+
+.nav-auth-bar li{
+     list-style: none;
+     margin: 0 10px;
+     color:black;
+     font-family:  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+}
+
+
+ .nav-auth-bar .logo{
+     font-weight: 400;
+     font-size: 25px;
+     letter-spacing: -1px;
+ }
+
+ .search input{
+     width: 480px;
+     height:40px;
+     border: 1px solid #e3e3e3;
+     border-radius: 4px;
+     padding-left: 10px;
+ }
