@@ -33,9 +33,15 @@ html, body, div, span,
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     left:10;
     top:0;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.logo{
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .nav-bar-left, .nav-bar-right{
@@ -43,6 +49,37 @@ html, body, div, span,
     position: relative;
     padding-left:0px;
 }
+
+.nav-bar-right button{
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    color:black;
+    font-size: 16px;
+    border:none;
+    height: 45px;
+}
+
+.demo-login button:hover{
+    background-color: #3FA379;
+    color: white!;
+}
+
+.nav-bar-right  button:hover{
+    color:#3FA379;
+    cursor: pointer;
+}
+
+.nav-bar-right:last-child{
+    color:red;
+}
+
+
+.nav-bar-right .demo-login{
+    width: 130px;
+    background-color: #52CF9A;
+    border-radius: 4px;
+}
+
 
  .nav-bar li{
      list-style: none;
@@ -52,16 +89,41 @@ html, body, div, span,
     font-weight: 300;
 }
 
- }
-
- button{
-
- }
 
  .nav-bar .logo{
      font-weight: 400;
      font-size: 25px;
      letter-spacing: -1px;
+ }
+
+ .home-1{
+     height:800px;
+     background-color: #52CF9A;
+     padding-top:100px;
+     display: flex;
+     justify-content: center;
+
+ }
+
+ .home-1-left{
+     width: 400px;
+ }
+
+ .home-1 h1{
+     font-family:  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+     color:black;
+     font-size: 55px;
+ }
+
+ .home-1 h3{
+     font-family:  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+     color:black;
+     font-size: 25px;
+     font-weight: 300;
+ }
+
+ .home-1 img{
+     margin:20px;
  }
 
  .signup-container{

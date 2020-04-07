@@ -23,10 +23,21 @@ class NavBar extends React.Component{
                 <ul className='nav-bar-right'>
                 <li><Link to="/login"><button>Sign In</button></Link></li>
                 <li><Link to="/signup"><button>Sign Up </button></Link></li>
-                <li><button onClick={() => this.props.login({ email: "amandayhuang@gmail.com", password: "password" })}>Demo Login</button></li>
+                <li><button className='demo-login' onClick={() => this.props.login({ email: "amandayhuang@gmail.com", password: "password" })}>Demo Login</button></li>
                 </ul>
             </li>
             </ul>
+            </div>
+
+            <div className="home-1">
+                <div className="home-1-left">
+                <h1>It's Time to Do Money</h1>
+                <h3>Robin's Hood, a pioneer of spilling the tea, gives you more ways to make your money work harder.</h3>
+                </div>
+
+                <div className="home-1-right">
+                <img src={window.home1URL} alt="phone"/>
+                </div>
             </div>
             </>
         )
