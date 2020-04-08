@@ -26,7 +26,7 @@ class NavBar extends React.Component{
                 <ul className='nav-bar-right'>
                 <li><Link to="/login"><button>Sign In</button></Link></li>
                 <li><Link to="/signup"><button>Sign Up </button></Link></li>
-                <li><button className='demo-login' onClick={() => this.props.login({ email: "amandayhuang@gmail.com", password: "password" })}>Demo Login</button></li>
+                <li><button className='demo-login' onClick={() => this.props.login({ email: "demo@robinhood.com", password: "demopassword" })}>Demo Login</button></li>
                 </ul>
             </li>
             </ul>
