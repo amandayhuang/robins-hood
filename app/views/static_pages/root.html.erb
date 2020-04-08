@@ -1,3 +1,11 @@
-<div id="root">
-  <h1>TESTING</h1>
-</div>
+<% if current_user %>
+   <script type="text/javascript">
+    window.currentUser = <%= render(
+      "api/users/user.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+  </script>
+  
+<% end %>
+
+<main id="root"> </main>

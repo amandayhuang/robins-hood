@@ -1,15 +1,26 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import SignupFormContainer from './signup_form_container'
+import SignupFormContainer from './signup_form_container';
+import NavBarContainer from './nav_bar_container';
+import NavBarContainerAuth from './nav_bar_auth_container';
+import LoginFormContainer from './login_form_container';
+import {AuthRoute,ProtectedRoute} from '../util/route_util'
 
-const App = ({ children }) => (
+const App = () => {
+    return(
     <div>
-        <h1>Robin's Hood</h1>
+        
+        <ProtectedRoute exact path='/me' component={NavBarContainerAuth} />
+        
         <Switch>
             {/* <Route exact path="/" component={App} /> */}
-            <Route path="/signup" component={SignupFormContainer} />
+            <AuthRoute path="/signup" component={SignupFormContainer} />
+            <AuthRoute path="/login" component={LoginFormContainer} />
+            <AuthRoute exact path='/' component={NavBarContainer} />
+            
         </Switch>
     </div>
-);
+    );
+};
 
 export default App;
