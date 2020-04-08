@@ -15,7 +15,7 @@ class NavBarAuth extends React.Component {
                     <li>
                         <ul className='nav-auth-bar-left'>
                             <li>
-                                <img className='logo-black' src={window.logoBlackURL} alt="robins hood logo" />
+                                <img className='logo-black' src={window.logoWhiteURL} alt="robins hood logo" />
                             </li>
 
                             <li>

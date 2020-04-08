@@ -6,7 +6,7 @@ const msp = state =>{
 // debugger
 return {
     user: {email:"",password:"",first_name:"",last_name:""},
-    errors: state.errors.session
+    errors: state.errors.signup
 }};
 
 const mdp = dispatch => ({

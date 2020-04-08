@@ -107,6 +107,8 @@ html, body, div, span,
      padding-top:130px;
      display: flex;
      justify-content: center;
+     height: 100vh;
+     box-sizing: border-box;
 
  }
 
@@ -156,6 +158,7 @@ html, body, div, span,
      width: 800px;
      margin: 20px auto;
       font-weight: 100;
+      margin-bottom: 40px;
  }
 
  .signup-container h1{
@@ -277,6 +280,7 @@ html, body, div, span,
     display:flex;
     align-items: center;
     height: 100vh;
+    box-sizing: border-box;
 }
 
 .login-container h1{
@@ -294,6 +298,7 @@ html, body, div, span,
     z-index: 10;
     justify-content: center;
     padding: 40px;
+     box-sizing: border-box;
 }
 
 .login-form form{
@@ -324,6 +329,8 @@ html, body, div, span,
     margin: 0;
     padding: 0;
     height: 100vh;
+     box-sizing: border-box;
+     overflow: hidden;
 }
 
 .login-form form input:focus{
@@ -377,7 +384,7 @@ html, body, div, span,
 .nav-auth-bar{
     width: 100%;
     height: 66px;
-    background-color: white;
+    background-color: #1B1B1D;
     padding: 10px;
     margin: 0;
     display: flex;

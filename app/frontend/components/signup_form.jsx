@@ -21,7 +21,13 @@ class SignupForm extends React.Component{
     }
 
     render(){
+        let errors = []
+        if (this.props.errors instanceof Array){
+            errors = this.props.errors;
+        }
+        debugger;
         return(
+            
             <>
                 <div className='signup-progress'>
                     <img src={window.logoURL}></img>
@@ -34,7 +40,16 @@ class SignupForm extends React.Component{
                 <div className="signup-container">
                 <h1>Make Your Money Move</h1>
                 <h3>Robin's Hood lets you invest in people you love/hate, commission-free.</h3>
-                <div className="error">{this.props.errors[0]}</div>
+                <div className="error">
+                 <ul>
+                 {
+                // this.props.errors[0]
+                errors.map((error,index) =>(
+                    <li> {errors[index]}</li>
+                ))
+                }
+                </ul>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                     <input type="text" placeholder="First name" value={this.state.first_name} onChange={this.update("first_name")}/>
