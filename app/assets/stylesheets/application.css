@@ -406,16 +406,14 @@ html, body, div, span,
     margin-right: 58px;
 }
 
-.nav-auth-bar-right  button:hover{
-    color:#3FA379;
-    cursor: pointer;
+.nav-auth-bar-right li{
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 600!important;
 }
 
-
-.nav-auth-bar-right .demo-login{
-    width: 130px;
-    background-color: #52CF9A;
-    border-radius: 4px;
+.nav-auth-bar-right  button:hover{
+    cursor: pointer;
 }
 
 
@@ -424,7 +422,7 @@ html, body, div, span,
      margin: 0 10px;
      color:black;
      font-family:  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 300;
+     font-weight: 300;
 }
 
 
@@ -434,10 +432,18 @@ html, body, div, span,
      letter-spacing: -1px;
  }
 
+ .search{
+     display:flex;
+     border: 1px solid #e3e3e3;
+     border-radius: 4px;
+     align-items: center;
+ }
+
  .search:hover{
      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
      border:none;
  }
+
 
  .search:focus{
      outline:none;
@@ -447,10 +453,11 @@ html, body, div, span,
  .search input{
      width: 480px;
      height:37px;
-     border: 1px solid #e3e3e3;
-     border-radius: 4px;
      padding-left: 10px;
+     border: none;
+     font-size: 12px;
  }
+
 
  .search-input::placeholder{
      color: #e3e3e3;
@@ -462,15 +469,76 @@ html, body, div, span,
      outline:none;
  }
 
+
+
+ .dropdown-trigger{
+     position:relative;
+ }
+
+ .dropdown-trigger:hover .dropdown-items{
+    display:block;
+ }
+
+ .dropdown-trigger:hover .account{
+     color:#d44613;
+     text-decoration: underline ;
+     text-decoration-thickness: 3px;
+     padding-bottom: 8px;
+ }
+
+ .dropdown-trigger:hover {
+     cursor: pointer;
+ }
+
+ .dropdown-items li:first-of-type{
+     font-size:16px;
+     font-weight: 300;
+ }
+
+ .dropdown-items li{
+    padding:10px;
+ }
+
+ .dropdown-items button{
+    color:black;
+     border:none;
+     font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 600!important;
+ }
+
+ .dropdown-items img{
+     padding:0;
+ }
+
+
+ .dropdown-items{
+    display:none;
+    position:absolute;
+    height:300px;
+    width: 300px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    right:10px;
+    background-color: white;
+    top: 25px;
+    padding-top:20px;
+ }
+ .dropdown-items li{
+    padding-left:0;
+ }
+
+
  .show-container{
      display:flex;
      justify-content: space-around;
-     margin-top: 130px;
+     margin-top: 115px;
+    margin-left:80px;
+    margin-right:80px;
  }
 
  .show-form{
-     width:280px;
-     height: 360px;
+     width:250px;
+     height: 365px;
      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
      margin-left: -100px;
  }
