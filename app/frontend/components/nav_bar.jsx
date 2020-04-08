@@ -15,7 +15,7 @@ class NavBar extends React.Component{
                 <ul className='nav-bar-left'>
                 <li className='logo'>Robin's Hood</li>
                 <li>
-                    <img className='logo-black' src={window.logoBlackURL} alt="robins hood logo"/>
+                    <Link to="/"><img className='logo-black' src={window.logoBlackURL} alt="robins hood logo"/></Link>
                 </li>
                 {/* <li>Products <span>^</span></li>
                 <li>Learn</li>

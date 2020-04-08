@@ -64,18 +64,14 @@ html, body, div, span,
     height: 45px;
 }
 
-.demo-login button:hover{
-    background-color: #3FA379;
-    color: white!;
+.demo-login:hover{
+    background-color: #1E563F!important;
+    color: white!important;
 }
 
 .nav-bar-right  button:hover{
     color:#3FA379;
     cursor: pointer;
-}
-
-.nav-bar-right:last-child{
-    color:red;
 }
 
 
@@ -179,7 +175,8 @@ html, body, div, span,
  .signup-container form{
      display: flex;
      flex-direction: column; 
-      font-weight: 100;
+    font-weight: 100;
+    margin-top:-20px;
  }
 
   .signup-container input{

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 class SignupForm extends React.Component{
 
@@ -30,7 +31,7 @@ class SignupForm extends React.Component{
             
             <>
                 <div className='signup-progress'>
-                    <img src={window.logoURL}></img>
+                    <Link to="/"><img src={window.logoURL}></img></Link>
                     <div> Account</div>
                     <div>Basic Info </div>
                     <div> Identity</div>
