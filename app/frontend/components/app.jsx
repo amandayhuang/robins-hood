@@ -10,10 +10,11 @@ import StockShowContainer from './stock_show_container'
 const App = () => {
     return(
     <div>
-        
+        <ProtectedRoute path='/stocks' component={NavBarContainerAuth} />
         <ProtectedRoute exact path='/me' component={NavBarContainerAuth} />
-            <Route path='/stocks/:stockId' component={StockShowContainer}/>
+        <ProtectedRoute path='/stocks/:stockId' component={StockShowContainer}/>
         
+
         <Switch>
             {/* <Route exact path="/" component={App} /> */}
             <AuthRoute path="/signup" component={SignupFormContainer} />

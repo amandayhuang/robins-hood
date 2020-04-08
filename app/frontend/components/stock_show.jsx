@@ -13,9 +13,18 @@ class StockShow extends React.Component{
     render(){
         // debugger
         return(
-            <div>
-                <h1>{this.props.stock.display_name}</h1>
-                blah
+            <div className='show-container'>
+                <section className='show-graph'>
+                    <h1>{this.props.stock.display_name}</h1>
+                    <h3>$101.20</h3>
+                <div className='stock-graph'>
+                </div>
+                </section>
+
+                <section className="show-form">
+
+                </section>
+
             </div>
         )
     }

@@ -15,12 +15,12 @@ class NavBarAuth extends React.Component {
                     <li>
                         <ul className='nav-auth-bar-left'>
                             <li>
-                                <img className='logo-black' src={window.logoWhiteURL} alt="robins hood logo" />
+                                <img className='logo-black-auth' src={window.logoBlackURL} alt="robins hood logo" />
                             </li>
 
                             <li>
                                 <div className="search">
-                                    <input placeholder="Search" type="text"/>
+                                    <div className='search-icon'><i class="fas fa-search">hi</i></div><input className='search-input' placeholder="Search" type="text"/>
                                 </div>
                             </li>
                             <li>

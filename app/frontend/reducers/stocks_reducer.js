@@ -5,7 +5,7 @@ const StocksReducer = (state={}, action) =>{
     let newState = {};
     switch(action.type){
         case RECEIVE_STOCK:
-            debugger
+            // debugger
             newState = Object.assign({},state);
             newState[action.stock.id] = action.stock;
             return newState;
