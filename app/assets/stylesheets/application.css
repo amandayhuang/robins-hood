@@ -516,7 +516,7 @@ html, body, div, span,
     display:none;
     position:absolute;
     height:300px;
-    width: 300px;
+    width: 270px;
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
     right:10px;
     background-color: white;
@@ -534,6 +534,7 @@ html, body, div, span,
      margin-top: 115px;
     margin-left:80px;
     margin-right:80px;
+    margin-bottom: 40px;
  }
 
  .show-form{
@@ -560,5 +561,4 @@ html, body, div, span,
  .stock-graph{
      width:700px;
      height: 300px;
-     border: 1px solid lightgray;
  }

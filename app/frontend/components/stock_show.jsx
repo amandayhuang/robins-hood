@@ -1,5 +1,6 @@
 import React from 'react';
 // import { fetchStock } from '../actions/stock_actions'
+import Chart from './chart';
 
 class StockShow extends React.Component{
     constructor(props){
@@ -18,6 +19,7 @@ class StockShow extends React.Component{
                     <h1>{this.props.stock.display_name}</h1>
                     <h3>$101.20</h3>
                 <div className='stock-graph'>
+                    <Chart />
                 </div>
                 </section>
 
