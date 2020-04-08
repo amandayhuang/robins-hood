@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy]
 
+    resources :stocks, only: [:index, :show]
+
     # post '/search', to: 'users#search'
 
   end
