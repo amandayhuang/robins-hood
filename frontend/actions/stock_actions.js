@@ -1,5 +1,5 @@
 import * as StockAPIUtil from '../util/stock_api_util'
-import getTrends from '../util/trends_api_util'
+import getNews from '../util/trends_api_util'
 
 export const RECEIVE_STOCK = "RECEIVE_STOCK";
 export const RECEIVE_TRENDS = "RECEIVE_TRENDS";
@@ -20,6 +20,8 @@ export const fetchStock = stockId => dispatch =>{
 };
 
 export const fetchTrends = displayName => dispatch =>{
-    return getTrends(displayName)
-    .then(trends => receiveTrends(trends))
+    debugger
+    return getNews(displayName)
+    .then(trends => dispatch(receiveTrends({testing:123})))
+
 }

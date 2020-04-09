@@ -10,8 +10,9 @@ const StocksReducer = (state={}, action) =>{
             newState[action.stock.id] = action.stock;
             return newState;
         case RECEIVE_TRENDS:
+            debugger
             newState = Object.assign({}, state);
-            newState[this.props.match.params.stockId]["prices"] = action.trends;
+            newState[this.props.match.params.stockId]["trends"] = action.trends;
             return newState;
         default:
             return state;

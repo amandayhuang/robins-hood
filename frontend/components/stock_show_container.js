@@ -4,14 +4,16 @@ import StockShow from './stock_show'
 
 const msp = (state,ownProps) => {
     const stock = state.entities.stocks[ownProps.match.params.stockId];
-    // const trends = state.entities.stocks[ownProps.match.params.stockId].prices;
     if(stock === undefined){
         return {
-            stock: {id:"",display_name:"", ticker_name:""}
+            stock: {id:"",display_name:"", ticker_name:""},
+            trends: {}
         }
     }else{
+        const trends = state.entities.stocks[ownProps.match.params.stockId].trends;
         return {
-            stock: stock
+            stock: stock,
+            trends: trends
         }
     }
 };

@@ -9,6 +9,7 @@ class StockShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchStock(this.props.match.params.stockId);
+        debugger
         // this.props.fetchTrends('Joe Exotic');
     }
 
