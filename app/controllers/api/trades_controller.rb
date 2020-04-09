@@ -11,7 +11,7 @@ class Api::TradesController < ApplicationController
     def create
         # debugger
         @trade = Trade.new(trade_params)
-        @trade.user_id = params[:user_id]
+        # @trade.user_id = params[:user_id]
         if @trade.save
             render :show
             # render json: @trade
@@ -23,6 +23,6 @@ class Api::TradesController < ApplicationController
 
     private
     def trade_params
-        params.require(:trade).permit(:stock_id, :quantity,:trade_type,:share_price)
+        params.require(:trade).permit(:user_id, :stock_id, :quantity,:trade_type,:share_price)
     end
 end

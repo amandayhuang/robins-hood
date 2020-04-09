@@ -18,7 +18,36 @@ const getTrends = displayName =>{
                 return results;
             };
         })
-    }
+}
 
-export default getTrends;
+
+
+
+export const getNews = displayName =>{
+    var url = 'http://newsapi.org/v2/everything?' +
+        `q=${displayName}&` +
+        `from=${'2020-03-01'}&` +
+        'sortBy=popularity&' +
+        'apiKey=ec885fa30bfd47ea9ca9a19c922c974e';
+    
+    console.log(url);
+
+    $.ajax({
+        url:url,
+        method: "GET",
+        error: function () {
+            console.log("error!");
+        },
+        success: function(data) {
+            console.log(data);
+        }
+    });
+
+
+}
+// export default getTrends;
 // let response = getTrends('Joe Exotic');
+
+// getNews('Joe Exotic');
+// getNews(25);
+
