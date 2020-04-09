@@ -13,8 +13,8 @@ class Api::TradesController < ApplicationController
         @trade = Trade.new(trade_params)
         @trade.user_id = params[:user_id]
         if @trade.save
-            # render :show
-            render json: @trade
+            render :show
+            # render json: @trade
         else
             render json: @trade.errors.full_messages, status: 401
             
