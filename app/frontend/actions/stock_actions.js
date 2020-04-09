@@ -1,7 +1,8 @@
 import * as StockAPIUtil from '../util/stock_api_util'
-import * as TrendsAPIUtil from '../util/trends_api_util'
+import getTrends from '../util/trends_api_util'
 
 export const RECEIVE_STOCK = "RECEIVE_STOCK";
+export const RECEIVE_TRENDS = "RECEIVE_TRENDS";
 
 const receiveStock = (stock) =>({
     type: RECEIVE_STOCK,
@@ -9,7 +10,8 @@ const receiveStock = (stock) =>({
 });
 
 const receiveTrends = (trends) =>({
-
+    type: RECEIVE_TRENDS,
+    trends
 });
 
 export const fetchStock = stockId => dispatch =>{
@@ -18,6 +20,6 @@ export const fetchStock = stockId => dispatch =>{
 };
 
 export const fetchTrends = displayName => dispatch =>{
-    return TrendsAPIUtil.getTrends(displayName)
+    return getTrends(displayName)
     .then(trends => receiveTrends(trends))
 }

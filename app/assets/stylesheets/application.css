@@ -481,8 +481,7 @@ html, body, div, span,
 
  .dropdown-trigger:hover .account{
      color:#d44613;
-     text-decoration: underline ;
-     text-decoration-thickness: 3px;
+     border-bottom: 5px solid #d44613;
      padding-bottom: 8px;
  }
 

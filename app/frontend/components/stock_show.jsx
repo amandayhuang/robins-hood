@@ -1,5 +1,4 @@
 import React from 'react';
-// import { fetchStock } from '../actions/stock_actions'
 import Chart from './chart';
 
 class StockShow extends React.Component{
@@ -9,6 +8,7 @@ class StockShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchStock(this.props.match.params.stockId);
+        this.props.fetchTrends('Joe Exotic');
     }
 
     render(){

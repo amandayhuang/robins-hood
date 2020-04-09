@@ -20,7 +20,8 @@ class NavBarAuth extends React.Component {
 
                             <li>
                                 <div className="search">
-                                    <i class="fa fa-search"></i><input className='search-input' placeholder="Search" type="text"/>
+                                    {/* <i className="fa fa-search"></i> */}
+                                 <input className='search-input' placeholder="Search" type="text"/>
                                 </div>
                             </li>
                             <li>
@@ -31,7 +32,7 @@ class NavBarAuth extends React.Component {
                     <li>
                         <ul className='nav-auth-bar-right'>
                             <div className='dropdown-trigger'>
-                                <li class='account'>Account</li>
+                                <li className='account'>Account</li>
                                 <div className='dropdown-items'>
                                     <ul>
                                         <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>

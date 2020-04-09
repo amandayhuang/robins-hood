@@ -6,8 +6,9 @@ let startTime = new Date;
 startTime = startTime.setDate(startTime.getDate() - LOOKBACK_DAYS);
 startTime = new Date(startTime);
 
-export const getTrends = displayName =>(
-    googleTrends.interestOverTime({ keyword: displayName, startTime: startTime }
+const getTrends = displayName =>{
+    // debugger
+    return googleTrends.interestOverTime({ keyword: displayName, startTime: startTime }
         , (err, results) => {
             if (err) {
                 console.log('error: ', err);
@@ -17,15 +18,7 @@ export const getTrends = displayName =>(
                 return results;
             };
         })
-)
+    }
 
-
-// googleTrends.interestOverTime({ keyword: 'Joe Exotic', startTime: new Date('2020-04-03') }
-//     , function (err, results) {
-//         if (err) console.log('error!', err);
-//         else console.log(results);
-//     });
-
-
-
+export default getTrends;
 // let response = getTrends('Joe Exotic');
