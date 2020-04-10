@@ -1,5 +1,6 @@
 import React from 'react';
-import Chart from './chart';
+// import Chart from './chart';
+import ChartContainer from './chart_container'
 import BuyTradeContainer from './_buy_trade_container'
 
 class StockShow extends React.Component{
@@ -9,27 +10,34 @@ class StockShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchStock(this.props.match.params.stockId);
-        debugger
-        // this.props.fetchTrends('Joe Exotic');
+        this.props.getTrends(this.props.match.params.stockId);
     }
 
     render(){
         // debugger
         return(
+            <>
             <div className='show-container'>
                 <section className='show-graph'>
                     <h1>{this.props.stock.display_name}</h1>
-                    <h3>$100.20</h3>
+                <h3>${this.props.currentPrice}</h3>
                 <div className='stock-graph'>
-                    <Chart />
+                    <ChartContainer stock={this.props.stock}/>
                 </div>
                 </section>
 
                 <section className="show-form">
-                    <BuyTradeContainer stockId={this.props.stock.id} />
+                    <div className='trade-form-header'>
+                        <h1>Buy {this.props.stock.ticker_name}</h1>
+                        <h1>Sell {this.props.stock.ticker_name}</h1>
+                    </div>
+                    <div>
+                        <BuyTradeContainer stockId={this.props.stock.id} marketPrice={this.props.currentPrice} />
+                    </div>
                 </section>
 
             </div>
+            </>
         )
     }
 

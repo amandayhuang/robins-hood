@@ -20,7 +20,7 @@ const receiveTradeErrors = (errors) => ({
 });
 
 export const createTrade = (trade) => dispatch =>{
-    debugger
+    // debugger
     return TradeAPIUtil.createTrade(trade)
     .then(trade => dispatch(receiveTrade(trade)));
 }

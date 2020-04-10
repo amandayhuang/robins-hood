@@ -2,7 +2,6 @@
   "name": "robins-hood",
   "private": true,
   "dependencies": {
-    "google-trends-api": "^4.9.0",
     "jquery": "^3.4.1",
     "jquery-ujs": "^1.2.2",
     "lodash": "^4.17.15",

@@ -1,29 +1,17 @@
-// const googleTrends = require('google-trends-api');
+import {fetchStock} from './stock_api_util'
 
-// // limited to last 30 days by free newsapi account
-// const LOOKBACK_DAYS = 30; //1095
-// let startTime = new Date;
-// startTime = startTime.setDate(startTime.getDate() - LOOKBACK_DAYS);
-// startTime = new Date(startTime);
+const getNews = (stockId) => {
 
-// const getTrends = displayName =>{
-//     // debugger
-//     return googleTrends.interestOverTime({ keyword: displayName, startTime: startTime }
-//         , (err, results) => {
-//             if (err) {
-//                 console.log('error: ', err);
-//             }
-//             else {
-//                 console.log(results);
-//                 return results;
-//             };
-//         })
-// }
+    let displayName = 'testing';
+    fetchStock(stockId).then(response => displayName = response.display_name)
 
-const getNews = displayName =>{
-    let dates = []
+    // debugger
+    // let apiKey = 'ec885fa30bfd47ea9ca9a19c922c974e';
+    let apiKey = '8e1ab7dc651446068017d1d23bbe8cf3';
+    
+    let dates = [];
     let i = 7;
-    let news = {};
+    let news = [];
 
     while (i >= 0) {
         const startTime = new Date;
@@ -33,40 +21,27 @@ const getNews = displayName =>{
         i--;
     }
     
-    // for (let i = 0; i < dates.length; i++) {
-    //     const key = dates[i];
-    //     const url = 'http://newsapi.org/v2/everything?' +
-    //         `q=${displayName}&` +
-    //         `from=${key}&` +
-    //         `to=${key}&` +
-    //         'sortBy=popularity&' +
-    //         'apiKey=ec885fa30bfd47ea9ca9a19c922c974e';
+    for (let i = 0; i < dates.length; i++) {
+        const key = dates[i];
+        const url = 'http://newsapi.org/v2/everything?' +
+            `q=${displayName}&` +
+            `from=${key}&` +
+            `to=${key}&` +
+            'sortBy=publishedAt&' +
+            `apiKey=${apiKey}`;
 
-    //     // console.log(url);
+        $.ajax({
+            url: url,
+            method: "GET",
+            async: false
+        }).then(data => {
+            console.log(`${displayName} : ${key} : ${data.totalResults}`);
+            news.push({name: key, $: data.totalResults});
+        });
+    } 
 
-    //     $.ajax({
-    //         url: url,
-    //         method: "GET",
-    //         error: function () {
-    //             console.log("error!");
-    //             news[key] = 0;
-    //             return "error";
-    //         },
-    //         success: function (data) {
-    //             news[key] = data.totalResults;
-    //         }
-    //     });
-    // }
-    debugger
-    // return news;
-    return {testing:123};
+    return news;
+
 }
-
-
-// export default getTrends;
-// let response = getTrends('Joe Exotic');
-
-// getNews('Joe Exotic');
-// getNews(25);
 
 export default getNews;

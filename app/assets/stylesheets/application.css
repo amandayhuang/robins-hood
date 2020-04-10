@@ -561,3 +561,41 @@ html, body, div, span,
      width:700px;
      height: 300px;
  }
+
+ .trade-form-header{
+     display:flex;
+     justify-content: flex-start;
+     font-family: 'Roboto', sans-serif;
+     font-size: 11px;
+     font-weight:300;
+ }
+
+ .trade-form-header h1{
+     padding-left:20px;
+ }
+
+ .trade-form{
+    padding:15px;
+ }
+
+ .trade-form input{
+     width: 80px;
+     height: 32px;
+     border: 1px solid lightgray;
+     border-radius: 4px;
+     text-align:right;
+     padding:4px;
+    box-sizing: border-box;    
+ }
+
+ .shares, .market-price, .cost{
+     display:flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .trade-form label{
+     font-family: 'Roboto', sans-serif;
+     font-size: 13px;
+     font-weight:300;
+ }

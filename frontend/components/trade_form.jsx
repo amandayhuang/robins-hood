@@ -15,7 +15,7 @@ class TradeForm extends React.Component{
         e.preventDefault();
         this.state.user_id = this.props.userId;
         this.state.stock_id = this.props.stockId;
-        debugger
+        // debugger
         this.props.createTrade(this.state);
     }
 
@@ -26,9 +26,15 @@ class TradeForm extends React.Component{
                 <div className='trade-form'>
 
                     <form onSubmit={this.handleSubmit}>
-                    <label>Shares {}</label>
+                    <div className="shares">
+                    <label>Shares </label>
                         <input type="text" value={this.state.quantity} placeholder='0' onChange={this.update("quantity")} />
+                    </div>
 
+                    <div className="market-price">
+                        <label>Market Price </label>
+                        <h4>$100</h4>
+                    </div>
                         <div className='trade-error'></div>
                         <button>{this.props.formType} Shares</button>
                     </form>
