@@ -5,7 +5,7 @@ const msp = (state, ownProps) =>{
     let articles = state.entities.articles[ownProps.stock.id];
     if(articles === undefined){
         return {
-            articles: [{title:"",urlToImage:"", source:{name:""}}]
+            articles: [{title:"",urlToImage:"", source:{name:""},publishedAt:""}]
         }
     }
     else{

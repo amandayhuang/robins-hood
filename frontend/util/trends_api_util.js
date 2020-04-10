@@ -53,7 +53,7 @@ export const getArticles = stockId =>{
 
     const url = 'https://newsapi.org/v2/everything?' +
         `q=${displayName}&` +
-        'sortBy=publishedAt&' +
+        'sortBy=popularity&' +
         `apiKey=${apiKey}`;
 
     return $.ajax({

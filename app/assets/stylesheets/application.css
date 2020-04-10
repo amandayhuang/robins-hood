@@ -394,6 +394,7 @@ html, body, div, span,
     padding: 0 40px;
     padding-top:10px;
     background-color: white;
+    z-index:20;
 }
 
 .nav-auth-bar-left, .nav-auth-bar-right{
@@ -474,6 +475,7 @@ html, body, div, span,
 
  .dropdown-trigger{
      position:relative;
+     z-index:20;
  }
 
  .dropdown-trigger:hover .dropdown-items{
@@ -666,4 +668,55 @@ html, body, div, span,
 
   .active-tab{
       border-bottom: 3px solid #F3613E;
+  }
+
+  .article-item{
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      height:160px;
+      padding:20px;
+      box-sizing: border-box;
+      border-radius: 2px;
+  }
+
+  .article-item:hover{
+    background-color: lightgray;
+    }
+  .article-item img{
+      width:170px;
+      overflow: hidden;
+      max-height:120px;
+  }
+
+  .article-item-left{
+      max-width: 450px;
+      padding:10px;
+      padding-top:0;
+      margin-left:0;
+      padding-left:0;
+  }
+
+  .article-item-right{
+      height:160px;
+  }
+
+  .article-item h4 {
+      font-family: 'Roboto', sans-serif;
+      font-size:11px;
+      display: inline;
+      margin-left:0;
+      padding-left:0;
+  }
+
+    .article-item h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size:14px;
+      margin-left:0;
+      padding-left:0;
+  }
+
+  hr {
+      /* width:3px; */
+      border: 1px solid black;
   }

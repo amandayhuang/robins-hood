@@ -1,15 +1,18 @@
 import React from 'react';
 
-const ArticleItem = (props) =>(
+const ArticleItem = (props) =>{
+    let jsDate = new Date(props.article.publishedAt);
+    return(
     <div className="article-item">
-        <div>
-            <h4>{props.article.source.name}</h4>
-            <h4>{props.article.title}</h4>
+        <div className="article-item-left">
+            <h4>{props.article.source.name}</h4> <h4>{jsDate.toDateString()}</h4>
+            <h2>{props.article.title}</h2>
         </div>
-        <div>
+        <div className="article-item-right">
         <img src={props.article.urlToImage}/>
         </div>
     </div>
-)
+    )
+}
 
 export default ArticleItem;

@@ -9,14 +9,16 @@ class Articles extends React.Component{
     render(){
         return(
             <>
-            <ul>
+            <div className='articles-container'>
+            <h1 className='news-title'>News</h1>
+                <hr /> 
             {
             this.props.articles.map(article => (
                 <ArticleItem article={article}/>
             )
             )
             }
-            </ul>
+            </div>
             </>
         )
     }
