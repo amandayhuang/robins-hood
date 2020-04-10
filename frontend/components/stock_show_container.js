@@ -17,7 +17,7 @@ const msp = (state,ownProps) => {
         if (trends[trends.length - 1] === undefined){
             currentPrice = 99.99;
         }else{
-            currentPrice = trends[trends.length-1].num
+            currentPrice = trends[trends.length-1].$
         }
         return {
             

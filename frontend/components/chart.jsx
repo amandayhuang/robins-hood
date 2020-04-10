@@ -45,7 +45,7 @@ export default class Chart extends PureComponent {
             >
                 <XAxis dataKey="name"/>
                 <Tooltip separator='' itemStyle={itemStyle} wrapperStyle={wrapperStyle} contentStyle={contentStyle} labelStyle={labelStyle}/>
-                <Line type="monotone"  dot={false} dataKey="num" stroke="#52CF9A" activeDot={{ r: 5 }} />
+                <Line type="monotone"  dot={false} dataKey="$" stroke="#52CF9A" activeDot={{ r: 5 }} />
             </LineChart>
             </>
         );
