@@ -6,8 +6,8 @@ const getNews = (stockId) => {
     fetchStock(stockId).then(response => displayName = response.display_name)
 
     // debugger
-    // let apiKey = 'ec885fa30bfd47ea9ca9a19c922c974e';
-    let apiKey = '8e1ab7dc651446068017d1d23bbe8cf3';
+    let apiKey = 'ec885fa30bfd47ea9ca9a19c922c974e';
+    // let apiKey = '8e1ab7dc651446068017d1d23bbe8cf3';
     
     let dates = [];
     let i = 7;
