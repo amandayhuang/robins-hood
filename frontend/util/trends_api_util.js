@@ -23,7 +23,7 @@ const getNews = (stockId) => {
     
     for (let i = 0; i < dates.length; i++) {
         const key = dates[i];
-        const url = 'http://newsapi.org/v2/everything?' +
+        const url = 'https://newsapi.org/v2/everything?' +
             `q=${displayName}&` +
             `from=${key}&` +
             `to=${key}&` +
