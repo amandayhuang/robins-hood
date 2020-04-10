@@ -1,0 +1,16 @@
+class CreateTrades < ActiveRecord::Migration[5.2]
+  def change
+    create_table :trades do |t|
+      t.integer :user_id, null:false
+      t.integer :stock_id, null:false
+      t.string :type, null:false
+      t.integer :quantity, null:false
+      t.float :share_price, null:false
+      t.timestamps
+    end
+
+      add_index :trades, :user_id
+      add_index :trades, :stock_id
+
+  end
+end

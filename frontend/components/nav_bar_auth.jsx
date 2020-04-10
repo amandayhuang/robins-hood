@@ -15,12 +15,13 @@ class NavBarAuth extends React.Component {
                     <li>
                         <ul className='nav-auth-bar-left'>
                             <li>
-                                <img className='logo-black' src={window.logoWhiteURL} alt="robins hood logo" />
+                                <img className='logo-black-auth' src={window.logoBlackURL} alt="robins hood logo" />
                             </li>
 
                             <li>
                                 <div className="search">
-                                    <input placeholder="Search" type="text"/>
+                                    {/* <i className="fa fa-search"></i> */}
+                                 <input className='search-input' placeholder="Search" type="text"/>
                                 </div>
                             </li>
                             <li>
@@ -30,9 +31,15 @@ class NavBarAuth extends React.Component {
                     </li>
                     <li>
                         <ul className='nav-auth-bar-right'>
-                            <li>Account</li>
-                            <li> {this.props.currentUser.first_name}</li>
-                            <li><button onClick={this.props.logout}>Logout</button></li>
+                            <div className='dropdown-trigger'>
+                                <li className='account'>Account</li>
+                                <div className='dropdown-items'>
+                                    <ul>
+                                        <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>
+                                        <li> <button onClick={this.props.logout}>Log Out</button></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </ul>
                     </li>
                 </ul>

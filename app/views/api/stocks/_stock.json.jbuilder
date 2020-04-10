@@ -1,0 +1,1 @@
+json.extract! stock, :id, :display_name, :ticker_name
