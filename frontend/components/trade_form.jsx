@@ -20,6 +20,7 @@ class TradeForm extends React.Component{
         e.preventDefault();
         this.state.user_id = this.props.userId;
         this.state.stock_id = this.props.stockId;
+        this.state.share_price = this.props.currentPrice;
         // debugger
         this.props.createTrade(this.state);
         this.setState({ quantity: 0, cost: 0, message:"✓ Transaction successful"});
@@ -42,7 +43,7 @@ class TradeForm extends React.Component{
                             <h4>${this.props.currentPrice.toFixed(2)}</h4>
                     </div>
                     <div className="cost">
-                        <label>Estimated Cost</label>
+                        <label>Estimated {this.props.word}</label>
                         <h4>${this.state.cost.toFixed(2)}</h4>
                     </div>
                 

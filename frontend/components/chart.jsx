@@ -4,13 +4,16 @@ import {
 } from 'recharts';
 
 const itemStyle = {
-    color: 'gray',
+    color: 'black',
     'fontFamily':  'Helvetica Neue',
-    'fontSize':'12px'
+    'fontSize':'16px'
 };
 
 const wrapperStyle = {
-    color: 'green'
+    color: 'gray',
+    'fontFamily': 'Helvetica Neue',
+    'fontSize': '12px'
+    
 };
 
 const contentStyle = {
@@ -20,7 +23,7 @@ const contentStyle = {
 };
 
 const labelStyle = {
-    display: 'none'
+    
 };
 
 
@@ -32,7 +35,7 @@ export default class Chart extends PureComponent {
     }
 
     render() {
-        console.log(this.props.trends);
+        // console.log(this.props.trends);
         return (
             <>
             <LineChart
@@ -43,7 +46,7 @@ export default class Chart extends PureComponent {
                     top: 5, right: 30, left: 20, bottom: 20,
                 }}
             >
-                <XAxis dataKey="name"/>
+                <XAxis dataKey="name" hide={true}/>
                 <Tooltip separator='' itemStyle={itemStyle} wrapperStyle={wrapperStyle} contentStyle={contentStyle} labelStyle={labelStyle}/>
                 <Line type="monotone"  dot={false} dataKey="$" stroke="#52CF9A" activeDot={{ r: 5 }} />
             </LineChart>

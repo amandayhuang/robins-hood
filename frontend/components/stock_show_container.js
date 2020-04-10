@@ -12,7 +12,7 @@ const msp = (state,ownProps) => {
             currentPrice: 0
         }
     }else{
-        debugger
+        // debugger
         let currentPrice;
         if (trends[trends.length - 1] === undefined){
             currentPrice = 99.99;

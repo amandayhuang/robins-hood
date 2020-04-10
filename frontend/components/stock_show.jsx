@@ -1,16 +1,33 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 // import Chart from './chart';
 import ChartContainer from './chart_container'
 import BuyTradeContainer from './_buy_trade_container'
+import SellTradeContainer from './_sell_trade_container'
 
 class StockShow extends React.Component{
     constructor(props){
         super(props);
+        this.toggleTabs = this.toggleTabs.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchStock(this.props.match.params.stockId);
         this.props.getTrends(this.props.match.params.stockId);
+    }
+
+    toggleTabs(e){
+        const buyHeader = ReactDOM.findDOMNode(this.refs.buyHeader);
+        buyHeader.classList.toggle('active-tab');
+
+        const sellHeader = ReactDOM.findDOMNode(this.refs.sellHeader);
+        sellHeader.classList.toggle('active-tab');
+
+        const buyForm = ReactDOM.findDOMNode(this.refs.buyForm);
+        buyForm.classList.toggle('active');
+
+        const sellForm = ReactDOM.findDOMNode(this.refs.sellForm);
+        sellForm.classList.toggle('active');
     }
 
     render(){
@@ -28,11 +45,17 @@ class StockShow extends React.Component{
 
                 <section className="show-form">
                     <div className='trade-form-header'>
-                        <h1>Buy {this.props.stock.ticker_name}</h1>
-                        <h1>Sell {this.props.stock.ticker_name}</h1>
+                        <h1 ref="buyHeader" onClick={this.toggleTabs} className="active-tab">Buy {this.props.stock.ticker_name}</h1>
+                        <h1 ref="sellHeader" onClick={this.toggleTabs}> Sell {this.props.stock.ticker_name}</h1>
                     </div>
                     <div className="form-tab">
+                        <div className="sell-form" ref="sellForm">
+                            <SellTradeContainer stockId={this.props.stock.id} currentPrice={this.props.currentPrice} />
+                        </div>
+                        <div className="buy-form active" ref="buyForm">
                             <BuyTradeContainer stockId={this.props.stock.id} currentPrice={this.props.currentPrice} />
+                        </div>
+                        
                     </div>
                 </section>
 
