@@ -4,11 +4,16 @@ class TradeForm extends React.Component{
     constructor(props){
         super(props);
         this.state = this.props.trade;
+        this.state.cost = 0;
+        this.state.message = "";
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     update(field) {
-        return e => this.setState({ [field]: e.currentTarget.value })
+        return e => this.setState({ 
+            [field]: e.currentTarget.value,
+            cost: e.currentTarget.value * this.props.currentPrice
+         })
     }
 
     handleSubmit(e) {
@@ -17,6 +22,7 @@ class TradeForm extends React.Component{
         this.state.stock_id = this.props.stockId;
         // debugger
         this.props.createTrade(this.state);
+        this.setState({ quantity: 0, cost: 0, message:"✓ Transaction successful"});
     }
 
 
@@ -33,15 +39,16 @@ class TradeForm extends React.Component{
 
                     <div className="market-price">
                         <label>Market Price </label>
-                        <h4>$100.00</h4>
+                            <h4>${this.props.currentPrice.toFixed(2)}</h4>
                     </div>
                     <div className="cost">
                         <label>Estimated Cost</label>
-                        <h4>$300.00</h4>
+                        <h4>${this.state.cost.toFixed(2)}</h4>
                     </div>
-                    <div className='trade-error'></div>
+                
                     <button>{this.props.formType} Shares</button>
                     </form>
+                    <div className='trade-message'>{this.state.message}</div>
                 </div>
             </>
         )
