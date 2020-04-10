@@ -37,7 +37,6 @@ class NavBarAuth extends React.Component {
                                     <ul>
                                         <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>
                                         <li> <button onClick={this.props.logout}>Log Out</button></li>
-                                        <li> <button><Link to="/stocks/71"> Sample Stock </Link></button></li>
                                     </ul>
                                 </div>
                             </div>
