@@ -8,13 +8,13 @@ const msp = (state, ownProps) => {
         return {
             trends: [
                 {
-                    name: 'March 1', $: 240
+                    name: 'March 1', num: 240
                 },
                 {
-                    name: 'March 2', $: 139
+                    name: 'March 2', num: 139
                 },
                 {
-                    name: 'March 3', $: 980
+                    name: 'March 3', num: 980
                 },
             ],
             stock: {id:"",display_name:""}

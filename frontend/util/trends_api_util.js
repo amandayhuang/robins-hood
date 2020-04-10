@@ -36,7 +36,7 @@ const getNews = (stockId) => {
             async: false
         }).then(data => {
             console.log(`${displayName} : ${key} : ${data.totalResults}`);
-            news.push({name: key, $: data.totalResults});
+            news.push({name: key, num: data.totalResults});
         });
     } 
 

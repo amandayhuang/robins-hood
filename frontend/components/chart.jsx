@@ -3,30 +3,6 @@ import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
-const data = [
-    {
-        name: 'March 1',  $: 240
-    },
-    {
-        name: 'March 2', $: 139
-    },
-    {
-        name: 'March 3', $: 980
-    },
-    {
-        name: 'March 4', $: 390
-    },
-    {
-        name: 'March 5', $: 480
-    },
-    {
-        name: 'March 6', $: 380
-    },
-    {
-        name: 'March 7', $: 430
-    },
-];
-
 const itemStyle = {
     color: 'gray',
     'fontFamily':  'Helvetica Neue',
@@ -69,7 +45,7 @@ export default class Chart extends PureComponent {
             >
                 <XAxis dataKey="name"/>
                 <Tooltip separator='' itemStyle={itemStyle} wrapperStyle={wrapperStyle} contentStyle={contentStyle} labelStyle={labelStyle}/>
-                <Line type="monotone"  dot={false} dataKey="$" stroke="#52CF9A" activeDot={{ r: 5 }} />
+                <Line type="monotone"  dot={false} dataKey="num" stroke="#52CF9A" activeDot={{ r: 5 }} />
             </LineChart>
             </>
         );
