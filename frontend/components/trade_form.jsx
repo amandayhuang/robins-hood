@@ -33,10 +33,14 @@ class TradeForm extends React.Component{
 
                     <div className="market-price">
                         <label>Market Price </label>
-                        <h4>$100</h4>
+                        <h4>$100.00</h4>
                     </div>
-                        <div className='trade-error'></div>
-                        <button>{this.props.formType} Shares</button>
+                    <div className="cost">
+                        <label>Estimated Cost</label>
+                        <h4>$300.00</h4>
+                    </div>
+                    <div className='trade-error'></div>
+                    <button>{this.props.formType} Shares</button>
                     </form>
                 </div>
             </>
