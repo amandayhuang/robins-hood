@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import ChartContainer from './chart_container'
 import BuyTradeContainer from './_buy_trade_container'
 import SellTradeContainer from './_sell_trade_container'
+import ArticlesContainer from './articles_container'
 
 class StockShow extends React.Component{
     constructor(props){
@@ -14,6 +15,7 @@ class StockShow extends React.Component{
     componentDidMount(){
         this.props.fetchStock(this.props.match.params.stockId);
         this.props.getTrends(this.props.match.params.stockId);
+        this.props.fetchArticles(this.props.match.params.stockId);
     }
 
     toggleTabs(e){
@@ -40,6 +42,9 @@ class StockShow extends React.Component{
                     <h3>${this.props.currentPrice.toFixed(2)}</h3>
                 <div className='stock-graph'>
                     <ChartContainer stock={this.props.stock}/>
+                </div>
+                <div className='news-list'>
+                     <ArticlesContainer stock={this.props.stock}/>
                 </div>
                 </section>
 

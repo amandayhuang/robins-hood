@@ -6,7 +6,8 @@ import {
 const itemStyle = {
     color: 'black',
     'fontFamily':  'Helvetica Neue',
-    'fontSize':'16px'
+    'fontSize':'16px',
+    'fontWeight':"500"
 };
 
 const wrapperStyle = {

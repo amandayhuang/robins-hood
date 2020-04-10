@@ -393,6 +393,7 @@ html, body, div, span,
     top:0;
     padding: 0 40px;
     padding-top:10px;
+    background-color: white;
 }
 
 .nav-auth-bar-left, .nav-auth-bar-right{
@@ -530,11 +531,12 @@ html, body, div, span,
 
  .show-container{
      display:flex;
-     justify-content: space-around;
+     justify-content: initial;
      margin-top: 115px;
     margin-left:80px;
     margin-right:80px;
     margin-bottom: 40px;
+    min-width: 1050px;
  }
 
  .show-form{
@@ -543,6 +545,8 @@ html, body, div, span,
      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
      box-sizing: border-box; 
      min-width:290px;
+     position:fixed;
+     right:120px;
  }
 
  .show-graph h1{

@@ -20,7 +20,7 @@ const msp = (state, ownProps) => {
             stock: {id:"",display_name:""}
         }
     }else{
-        debugger
+        // debugger
         return {
             trends: state.entities.trends[ownProps.stock.id],
             stock: ownProps.stock

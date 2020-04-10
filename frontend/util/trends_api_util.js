@@ -1,13 +1,15 @@
 import {fetchStock} from './stock_api_util'
 
-const getNews = (stockId) => {
+// let apiKey = 'ec885fa30bfd47ea9ca9a19c922c974e';
+// let apiKey = '8e1ab7dc651446068017d1d23bbe8cf3';
+let apiKey = '60b6e71280f24d15a105e0ca63bc8c63';
 
-    let displayName = 'testing';
+export const getNews = (stockId) => {
+
+    let displayName = '';
     fetchStock(stockId).then(response => displayName = response.display_name)
 
-    // debugger
-    let apiKey = 'ec885fa30bfd47ea9ca9a19c922c974e';
-    // let apiKey = '8e1ab7dc651446068017d1d23bbe8cf3';
+    
     
     let dates = [];
     let i = 7;
@@ -44,4 +46,22 @@ const getNews = (stockId) => {
 
 }
 
-export default getNews;
+export const getArticles = stockId =>{
+    debugger
+    let displayName = '';
+    fetchStock(stockId).then(response => displayName = response.display_name);
+
+    const url = 'https://newsapi.org/v2/everything?' +
+        `q=${displayName}&` +
+        'sortBy=publishedAt&' +
+        `apiKey=${apiKey}`;
+
+    return $.ajax({
+        url: url,
+        method: "GET",
+        async: false
+    })
+}
+
+
+// export default getNews;
