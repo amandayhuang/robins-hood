@@ -19,11 +19,21 @@ class TradeForm extends React.Component{
     handleSubmit(e) {
         e.preventDefault();
         this.state.user_id = this.props.userId;
-        this.state.stock_id = this.props.stockId;
+        this.state.stock_id = this.props.stock.id;
         this.state.share_price = this.props.currentPrice;
         // debugger
-        this.props.createTrade(this.state);
-        this.setState({ quantity: 0, cost: 0, message:"✓ Transaction successful"});
+        this.props.createTrade({user_id: this.state.user_id,
+             stock_id: this.state.stock_id,
+              quantity: this.state.quantity,
+               share_price:this.state.share_price,
+                trade_type:this.state.trade_type });
+        if (Number(this.state.quantity) === 1){
+            this.setState({ quantity: "", cost: 0, message: `✓ ${this.state.quantity} share ${this.props.verb}` });
+        }else{
+            this.setState({ quantity: "", cost: 0, message: `✓ ${this.state.quantity} shares ${this.props.verb}` });
+        }
+        
+        setTimeout(() => this.state.message='', 2000);
     }
 
 

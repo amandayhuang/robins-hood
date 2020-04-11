@@ -41,7 +41,8 @@ class NavBarAuth extends React.Component {
                     </li>
                     <li>
                         <ul className='nav-auth-bar-right'>
-                            <div className='dropdown-trigger'>
+                            <li className='portfolio'><Link to='/'> Portfolio</Link></li>
+                            <div className='dropdown-trigger'>    
                                 <li onClick={this.toggleClass} className='account' ref="account">Account</li>
                                 <div className='dropdown-items' ref="menu">
                                     <ul>

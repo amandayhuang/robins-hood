@@ -8,7 +8,9 @@ const msp = (state, ownProps) =>{
     formType: 'Buy',
     userId: state.session.id,
     currentPrice: ownProps.currentPrice,
-    word: 'Cost'
+    word: 'Cost',
+    stock: ownProps.stock,
+    verb: 'bought'
 };}
 
 const mdp = dispatch => ({

@@ -39,9 +39,9 @@ class StockShow extends React.Component{
             <div className='show-container'>
                 <section className='show-graph'>
                     <h1>{this.props.stock.display_name}</h1>
-                    <h3>${this.props.currentPrice.toFixed(2)}</h3>
+                    {/* <h3 className='top-price'>${this.props.currentPrice.toFixed(2)}</h3> */}
                 <div className='stock-graph'>
-                    <ChartContainer stock={this.props.stock}/>
+                    <ChartContainer stock={this.props.stock} currentPrice={this.props.currentPrice}/>
                 </div>
                 <div className='news-list'>
                      <ArticlesContainer stock={this.props.stock}/>
@@ -55,10 +55,10 @@ class StockShow extends React.Component{
                     </div>
                     <div className="form-tab">
                         <div className="sell-form" ref="sellForm">
-                            <SellTradeContainer stockId={this.props.stock.ticker_name} currentPrice={this.props.currentPrice} />
+                            <SellTradeContainer stock={this.props.stock} currentPrice={this.props.currentPrice} />
                         </div>
                         <div className="buy-form active" ref="buyForm">
-                            <BuyTradeContainer stockId={this.props.stock.ticker_name} currentPrice={this.props.currentPrice} />
+                            <BuyTradeContainer stock={this.props.stock} currentPrice={this.props.currentPrice} />
                         </div>
                         
                     </div>
