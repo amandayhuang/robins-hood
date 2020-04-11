@@ -39,8 +39,12 @@ export const getNews = (stockId) => {
             if (i === dates.length - 1){
                 const d = new Date;
                 const mult = 1/(d.getUTCHours()/24);
-                news.push({ name: key, $: data.totalResults*mult });
-                // news.push({ name: key, $: data.totalResults });
+                let rand = Math.round(Math.random() * 5);
+                let newNum = data.totalResults * mult + rand;
+                if (data.totalResults === 0 || data.totalResults === undefined){
+                    newNum = 1 + rand;
+                }
+                news.push({ name: key, $: newNum});
             }else{
                 news.push({name: key, $: data.totalResults});
             }
@@ -52,7 +56,6 @@ export const getNews = (stockId) => {
 }
 
 export const getArticles = stockId =>{
-    debugger
     let displayName = '';
     fetchStock(stockId).then(response => displayName = response.display_name);
 
