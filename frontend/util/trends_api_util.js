@@ -38,7 +38,13 @@ export const getNews = (stockId) => {
             async: false
         }).then(data => {
             console.log(`${displayName} : ${key} : ${data.totalResults}`);
-            news.push({name: key, $: data.totalResults});
+            if (i === dates.length - 1){
+                const d = new Date;
+                const mult = 1/(d.getUTCHours/24);
+                news.push({ name: key, $: data.totalResults*mult });
+            }else{
+                news.push({name: key, $: data.totalResults});
+            }
         });
     } 
 
