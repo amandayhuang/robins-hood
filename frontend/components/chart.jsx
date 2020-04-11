@@ -50,7 +50,7 @@ export default class Chart extends PureComponent {
     }
 
     updatePrice(e){
-        if (e.activePayload !== undefined && e.activePayload[0].$ !== null) {
+        if (e.activePayload !== undefined) {
             this.setState({ topPrice: e.activePayload[0].payload.$ });
         }
     }

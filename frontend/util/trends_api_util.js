@@ -1,9 +1,7 @@
 import {fetchStock} from './stock_api_util'
 
-let apiKey = 'ec885fa30bfd47ea9ca9a19c922c974e';
-// let apiKey = '8e1ab7dc651446068017d1d23bbe8cf3';
-// let apiKey = '60b6e71280f24d15a105e0ca63bc8c63';
-// let apiKey = '17b33ca218d24ad89ef9715a81e6d4fb';
+const keys = ['ec885fa30bfd47ea9ca9a19c922c974e', '8e1ab7dc651446068017d1d23bbe8cf3', '60b6e71280f24d15a105e0ca63bc8c63', '17b33ca218d24ad89ef9715a81e6d4fb'];
+const randomKey = keys[Math.floor(Math.random() * keys.length)];
 
 export const getNews = (stockId) => {
     let displayName = '';
@@ -28,7 +26,7 @@ export const getNews = (stockId) => {
             `from=${key}&` +
             `to=${key}&` +
             'sortBy=publishedAt&' +
-            `apiKey=${apiKey}`;
+            `apiKey=${randomKey}`;
 
         $.ajax({
             url: url,
@@ -62,7 +60,7 @@ export const getArticles = stockId =>{
     const url = 'https://newsapi.org/v2/everything?' +
         `q=${displayName}&` +
         'sortBy=popularity&' +
-        `apiKey=${apiKey}`;
+        `apiKey=${randomKey}`;
 
     return $.ajax({
         url: url,
