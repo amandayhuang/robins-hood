@@ -1,9 +1,19 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom';
 
 class NavBarAuth extends React.Component {
     constructor(props) {
         super(props);
+        this.toggleClass = this.toggleClass.bind(this);
+    }
+
+    toggleClass(e) {
+        const account = ReactDOM.findDOMNode(this.refs.account);
+        account.classList.toggle('active-account');
+
+        const menu = ReactDOM.findDOMNode(this.refs.menu);
+        menu.classList.toggle('active-menu');
     }
 
     render() {
@@ -32,8 +42,8 @@ class NavBarAuth extends React.Component {
                     <li>
                         <ul className='nav-auth-bar-right'>
                             <div className='dropdown-trigger'>
-                                <li className='account'>Account</li>
-                                <div className='dropdown-items'>
+                                <li onClick={this.toggleClass} className='account' ref="account">Account</li>
+                                <div className='dropdown-items' ref="menu">
                                     <ul>
                                         <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>
                                         <li> <button onClick={this.props.logout}>Log Out</button></li>
