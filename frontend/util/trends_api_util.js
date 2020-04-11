@@ -2,15 +2,13 @@ import {fetchStock} from './stock_api_util'
 
 // let apiKey = 'ec885fa30bfd47ea9ca9a19c922c974e';
 // let apiKey = '8e1ab7dc651446068017d1d23bbe8cf3';
-let apiKey = '60b6e71280f24d15a105e0ca63bc8c63';
+// let apiKey = '60b6e71280f24d15a105e0ca63bc8c63';
+let apiKey = '17b33ca218d24ad89ef9715a81e6d4fb';
 
 export const getNews = (stockId) => {
-
     let displayName = '';
     fetchStock(stockId).then(response => displayName = response.display_name)
 
-    
-    
     let dates = [];
     let i = 7;
     let news = [];
@@ -40,8 +38,9 @@ export const getNews = (stockId) => {
             console.log(`${displayName} : ${key} : ${data.totalResults}`);
             if (i === dates.length - 1){
                 const d = new Date;
-                const mult = 1/(d.getUTCHours/24);
+                const mult = 1/(d.getUTCHours()/24);
                 news.push({ name: key, $: data.totalResults*mult });
+                // news.push({ name: key, $: data.totalResults });
             }else{
                 news.push({name: key, $: data.totalResults});
             }
@@ -68,6 +67,3 @@ export const getArticles = stockId =>{
         async: false
     })
 }
-
-
-// export default getNews;

@@ -55,10 +55,10 @@ class StockShow extends React.Component{
                     </div>
                     <div className="form-tab">
                         <div className="sell-form" ref="sellForm">
-                            <SellTradeContainer stockId={this.props.stock.id} currentPrice={this.props.currentPrice} />
+                            <SellTradeContainer stockId={this.props.stock.ticker_name} currentPrice={this.props.currentPrice} />
                         </div>
                         <div className="buy-form active" ref="buyForm">
-                            <BuyTradeContainer stockId={this.props.stock.id} currentPrice={this.props.currentPrice} />
+                            <BuyTradeContainer stockId={this.props.stock.ticker_name} currentPrice={this.props.currentPrice} />
                         </div>
                         
                     </div>

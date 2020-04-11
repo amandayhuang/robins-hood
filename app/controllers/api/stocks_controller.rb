@@ -5,7 +5,7 @@ class Api::StocksController < ApplicationController
     end
 
     def show
-        @stock = Stock.find_by(id:params[:id])
+        @stock = Stock.find_by(ticker_name:params[:id])
         # debugger
         if @stock
             # render :template => "/api/stocks/show"
