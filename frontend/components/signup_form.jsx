@@ -31,7 +31,7 @@ class SignupForm extends React.Component{
             
             <>
                 <div className='signup-progress'>
-                    <Link to="/"><img src={window.logoURL}></img></Link>
+                    <Link to="/"><i class="far fa-laugh-wink signup-logo"></i></Link>
                     <div> Account</div>
                     <div>Basic Info </div>
                     <div> Identity</div>
@@ -58,7 +58,9 @@ class SignupForm extends React.Component{
                     </div>
                     <input type="text" placeholder="Email address" value={this.state.email} onChange={this.update("email")} />
                     <input type="password" placeholder="Password (min. 10 characters)" value={this.state.password} onChange={this.update("password")} />
+                    <div className='buttons'>
                     <button>Sign Up</button>
+                    </div>
                 </form>
                 </div>
             </>

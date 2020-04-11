@@ -37,7 +37,10 @@ class LoginForm extends React.Component {
                     <input type="password" value={this.state.password} onChange={this.update("password")} />
                    
                     <div className='login-error'>{this.props.errors[0]}</div>
+                    <div className='buttons'>
                     <button>Sign In</button>
+                    <button className='demo-login' onClick={() => this.props.loginUser({ email: "demo@robinhood.com", password: "demopassword" })}>Demo Login</button>
+                    </div>
                 </form>
                 </div>
             </div>
