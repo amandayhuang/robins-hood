@@ -1,4 +1,4 @@
-import getNews from '../util/trends_api_util';
+import {getNews} from '../util/trends_api_util';
 
 export const RECEIVE_TRENDS = "RECEIVE_TRENDS";
 

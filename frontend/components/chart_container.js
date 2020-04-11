@@ -3,7 +3,7 @@ import { getTrends } from '../actions/trends_actions'
 import Chart from './chart'
 
 const msp = (state, ownProps) => {
-    let trends = state.entities.trends[ownProps.stock.id];
+    let trends = state.entities.trends[ownProps.stock.ticker_name];
     if(trends === undefined){
         return {
             trends: [
@@ -20,9 +20,9 @@ const msp = (state, ownProps) => {
             stock: {id:"",display_name:""}
         }
     }else{
-        debugger
+        // debugger
         return {
-            trends: state.entities.trends[ownProps.stock.id],
+            trends: state.entities.trends[ownProps.stock.ticker_name],
             stock: ownProps.stock
         }
     }

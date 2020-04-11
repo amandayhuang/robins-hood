@@ -1,14 +1,12 @@
 import {fetchStock} from './stock_api_util'
 
-const getNews = (stockId) => {
+const keys = ['ec885fa30bfd47ea9ca9a19c922c974e', '8e1ab7dc651446068017d1d23bbe8cf3', '60b6e71280f24d15a105e0ca63bc8c63', '17b33ca218d24ad89ef9715a81e6d4fb'];
+const randomKey = keys[Math.floor(Math.random() * keys.length)];
 
-    let displayName = 'testing';
-    fetchStock(stockId).then(response => displayName = response.display_name)
+export const getNews = (stockId) => {
+    let displayName = '';
+    fetchStock(stockId).then(response => displayName = response.display_name);
 
-    // debugger
-    let apiKey = 'ec885fa30bfd47ea9ca9a19c922c974e';
-    // let apiKey = '8e1ab7dc651446068017d1d23bbe8cf3';
-    
     let dates = [];
     let i = 7;
     let news = [];
@@ -28,7 +26,7 @@ const getNews = (stockId) => {
             `from=${key}&` +
             `to=${key}&` +
             'sortBy=publishedAt&' +
-            `apiKey=${apiKey}`;
+            `apiKey=${randomKey}`;
 
         $.ajax({
             url: url,
@@ -36,7 +34,18 @@ const getNews = (stockId) => {
             async: false
         }).then(data => {
             console.log(`${displayName} : ${key} : ${data.totalResults}`);
-            news.push({name: key, $: data.totalResults});
+            if (i === dates.length - 1){
+                const d = new Date;
+                const mult = 1/(d.getUTCHours()/24);
+                let rand = Math.random() * 5;
+                let newNum = Math.round(data.totalResults * mult + rand);
+                if (data.totalResults === 0 || data.totalResults === undefined){
+                    newNum = Math.round(1 + rand);
+                }
+                news.push({ name: key, $: newNum});
+            }else{
+                news.push({name: key, $: data.totalResults});
+            }
         });
     } 
 
@@ -44,4 +53,18 @@ const getNews = (stockId) => {
 
 }
 
-export default getNews;
+export const getArticles = stockId =>{
+    let displayName = '';
+    fetchStock(stockId).then(response => displayName = response.display_name);
+
+    const url = 'https://newsapi.org/v2/everything?' +
+        `q=${displayName}&` +
+        'sortBy=popularity&' +
+        `apiKey=${randomKey}`;
+
+    return $.ajax({
+        url: url,
+        method: "GET",
+        async: false
+    })
+}
