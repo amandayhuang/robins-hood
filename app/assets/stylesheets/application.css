@@ -109,12 +109,12 @@ a {
  }
 
  .home-1{
-     height:800px;
+     height:700px;
      background-color: #52CF9A;
      padding-top:130px;
      display: flex;
      justify-content: center;
-     height: 100vh;
+     /* height: 100vh; */
      box-sizing: border-box;
 
  }
@@ -616,6 +616,10 @@ a {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     margin-top:0px;
+ }
+
+ .show-graph{
+     margin-left:70px;
  }
 
   .top-price{

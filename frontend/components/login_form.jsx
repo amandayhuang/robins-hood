@@ -9,13 +9,13 @@ class LoginForm extends React.Component {
     }
 
     update(field) {
-        return e => this.setState({ [field]: e.currentTarget.value })
+        return e => this.setState({ [field]: e.currentTarget.value });
     }
 
     handleSubmit(e) {
         e.preventDefault();
         this.props.loginUser(this.state);
-        this.setState({email:this.state.email,password:""})
+        this.setState({email:this.state.email,password:""});
     }
 
     render() {
