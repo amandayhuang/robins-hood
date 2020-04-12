@@ -16,18 +16,21 @@ class NavBarAuth extends React.Component {
         menu.classList.toggle('active-menu');
     }
 
+    componentDidMount(){
+        this.props.fetchTrades(this.props.currentUser.id)
+    }
+
+
     render() {
         return (
             <>
-            
-           
                 <ul className='nav-auth-bar'>
                     <li>
                         <ul className='nav-auth-bar-left'>
                             <li>
                                 {/* <img className='logo-black-auth' src={window.logoBlackURL} alt="robins hood logo" />
                                  */}
-                                <Link to='/'><i class="far fa-laugh-wink nav-auth-logo"></i> </Link>
+                                <Link to='/'><i className="far fa-laugh-wink nav-auth-logo"></i> </Link>
                             </li>
 
                             <li>

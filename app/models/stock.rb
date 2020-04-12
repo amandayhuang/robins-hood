@@ -12,5 +12,8 @@ class Stock < ApplicationRecord
     validates :display_name, presence:true
     validates :ticker_name, presence:true, uniqueness:true
 
-    has_many :trades
+    has_many :trades,
+    primary_key: :ticker_name,
+    foreign_key: :ticker_name,
+    class_name: :Trade
 end
