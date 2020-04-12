@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom';
 
 class SignupForm extends React.Component{
 
@@ -7,6 +8,7 @@ class SignupForm extends React.Component{
         super(props);
         this.state = this.props.user;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.update = this.update.bind(this);
     }
 
     update(field){
@@ -14,19 +16,75 @@ class SignupForm extends React.Component{
         return e => this.setState({[field]:e.currentTarget.value})
     }
 
+    componentDidUpdate(){
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        const isEmail = emailPattern.test(this.state.email);
+        const email = ReactDOM.findDOMNode(this.refs.email);
+        const emailInput = ReactDOM.findDOMNode(this.refs.emailInput);
+        const password = ReactDOM.findDOMNode(this.refs.password);
+        const passwordInput = ReactDOM.findDOMNode(this.refs.passwordInput);
+
+        if (this.state.email.length > 0 && isEmail === false) {
+            email.classList.add('active');
+            emailInput.classList.add('red-border');
+        }else{
+            email.classList.remove('active');
+            emailInput.classList.remove('red-border');
+        }
+
+        if (this.state.password.length > 0 && this.state.password.length  < 10){
+            password.classList.add('active');
+            passwordInput.classList.add('red-border');
+        }else{
+            password.classList.remove('active');
+            passwordInput.classList.remove('red-border');
+        }
+    }
+
     handleSubmit(e){
         e.preventDefault();
-        this.props.createUser(this.state);
-        // debugger;
-        this.setState({first_name: this.state.first_name, last_name:this.state.last_name, email:this.state.email, password:""})
+
+        const first = ReactDOM.findDOMNode(this.refs.first);
+        const firstInput = ReactDOM.findDOMNode(this.refs.firstInput);
+        const last = ReactDOM.findDOMNode(this.refs.last);
+        const lastInput = ReactDOM.findDOMNode(this.refs.lastInput);
+        const email = ReactDOM.findDOMNode(this.refs.email);
+        const password = ReactDOM.findDOMNode(this.refs.password);
+
+        debugger
+        if (this.state.first_name.length < 1) {
+            first.classList.add('active');
+            firstInput.classList.add('red-border');
+        }else {
+            first.classList.remove('active');
+            firstInput.classList.remove('red-border');
+        }
+
+        if (this.state.last_name.length < 1) {
+            last.classList.add('active');
+            lastInput.classList.add('red-border');
+        } else {
+            last.classList.remove('active');
+            lastInput.classList.remove('red-border');
+        }
+
+        if (first.classList.contains('active') || last.classList.contains('active') || email.classList.contains('active') || password.classList.contains('active')){
+            console.log('cant sumbit');
+        }else{
+            this.props.createUser(this.state);
+            this.setState({ first_name: this.state.first_name, last_name: this.state.last_name, email: this.state.email, password: "" })
+        }
     }
+
+
 
     render(){
         let errors = []
         if (this.props.errors instanceof Array){
             errors = this.props.errors;
         }
-        debugger;
+        
+
         return(
             
             <>
@@ -52,12 +110,25 @@ class SignupForm extends React.Component{
                 </ul>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                    <input type="text" placeholder="First name" value={this.state.first_name} onChange={this.update("first_name")}/>
-                    <input type="text" placeholder="Last name" value={this.state.last_name} onChange={this.update("last_name")} />
+                    <div class='name-section'>
+                    <section className='signup-first'>
+                    <input type="text" placeholder="First name" ref="firstInput" value={this.state.first_name} onChange={this.update("first_name")}/>
+                                <div className='signup-first-error error-box' ref="first">Please enter your first name.</div>
+                    </section>
+                    <section className='signup-last'>
+                    <input type="text" placeholder="Last name" ref="lastInput" value={this.state.last_name} onChange={this.update("last_name")} />
+                                <div className='signup-last-error error-box' ref="last">Please enter your last name.</div>
+                    </section>
                     </div>
-                    <input type="text" placeholder="Email address" value={this.state.email} onChange={this.update("email")} />
-                    <input type="password" placeholder="Password (min. 10 characters)" value={this.state.password} onChange={this.update("password")} />
+
+                    <section className='signup-email'>
+                    <input className='signup-email-field' ref="emailInput" type="text" placeholder="Email address" value={this.state.email} onChange={this.update("email")} />
+                        <div className='signup-email-error error-box' ref="email">Please enter a valid email address.</div>
+                    </section>
+                    <section className='signup-password'>
+                    <input type="password" placeholder="Password (min. 10 characters)" ref="passwordInput" value={this.state.password} onChange={this.update("password")} />
+                            <div className='signup-password-error error-box' ref="password">Please enter at least 10 chars.</div>
+                    </section>
                     <div className='buttons'>
                     <button>Sign Up</button>
                     </div>

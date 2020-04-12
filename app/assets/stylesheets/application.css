@@ -212,7 +212,11 @@ a {
       width:336px;
       margin-right:2px;
       box-sizing: border-box;
-       font-weight: 100;
+    font-weight: 100;
+  }
+
+  .signup-container .name-section{
+      display: flex;
   }
 
    .signup-container button{
@@ -748,7 +752,7 @@ a {
 
 
   .active{
-      display:inline-block;
+      display:inline-block!important;
   }
 
   .active-tab{
@@ -906,4 +910,29 @@ a {
 .portfolio-container{
     width:100%;
     height: 700px;
+}
+
+.signup-email, .signup-password, .signup-first, .signup-last{
+    position: relative;
+}
+
+.error-box{
+    position: absolute;
+    display:none;
+    top: -30px;
+    left: 25px;
+    width: 245px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color:white;
+    padding:5px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size:15px;
+    border-radius: 4px;
+    padding-top:10px;
+}
+
+.red-border{
+    border: 1px solid #F3613E!important;
 }
