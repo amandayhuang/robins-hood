@@ -21,25 +21,27 @@ joe = Stock.create!(display_name:"Joe Exotic", ticker_name:"JX")
 ali = Stock.create!(display_name:"Ali Wong", ticker_name:"WONG")
 beyonce = Stock.create!(display_name:"Beyonce", ticker_name:"BEY")
 alexandria = Stock.create!(display_name:"Alexandria Ocasio-Cortez", ticker_name:"AOC")
-ta_nehisi = Stock.create!(display_name:"Ta-Nehisi Coates", ticker_name:"TNC")
+lebron = Stock.create!(display_name:"LeBron James", ticker_name:"LBJ")
 grace = Stock.create!(display_name:"Grace Hopper", ticker_name:"HOPP")
 andrew = Stock.create!(display_name:"Andrew Cuomo", ticker_name:"CUO")
+mindy = Stock.create!(display_name:"Mindy Kaling", ticker_name:"MK")
+claire = Stock.create!(display_name:"Claire Saffitz", ticker_name:"SAF")
 
 require 'date'
 trade_date = Date.today - 30
 trade_1 = Trade.create!(user_id:demo.id, stock_id:amanda.id, trade_type:'buy', quantity:4, share_price:12.50, created_at:trade_date, updated_at:trade_date)
 
 trade_date = Date.today - 25
-trade_1 = Trade.create!(user_id:demo.id, stock_id:yoko.id, trade_type:'buy', quantity:2, share_price:14.99, created_at:trade_date, updated_at:trade_date)
+trade_2 = Trade.create!(user_id:demo.id, stock_id:yoko.id, trade_type:'buy', quantity:2, share_price:14.99, created_at:trade_date, updated_at:trade_date)
 
 trade_date = Date.today - 20
-trade_1 = Trade.create!(user_id:demo.id, stock_id:beyonce.id, trade_type:'buy', quantity:1, share_price:208.88, created_at:trade_date, updated_at:trade_date)
+trade_3 = Trade.create!(user_id:demo.id, stock_id:joe.id, trade_type:'buy', quantity:1, share_price:108.88, created_at:trade_date, updated_at:trade_date)
 
 trade_date = Date.today - 15
-trade_1 = Trade.create!(user_id:demo.id, stock_id:yoko.id, trade_type:'sell', quantity:1, share_price:18.50, created_at:trade_date, updated_at:trade_date)
+trade_4 = Trade.create!(user_id:demo.id, stock_id:yoko.id, trade_type:'sell', quantity:1, share_price:18.50, created_at:trade_date, updated_at:trade_date)
 
 trade_date = Date.today - 10
-trade_1 = Trade.create!(user_id:demo.id, stock_id:beyonce.id, trade_type:'buy', quantity:1, share_price:199.21, created_at:trade_date, updated_at:trade_date)
+trade_5 = Trade.create!(user_id:demo.id, stock_id:beyonce.id, trade_type:'buy', quantity:1, share_price:199.21, created_at:trade_date, updated_at:trade_date)
 
 trade_date = Date.today - 1
-trade_1 = Trade.create!(user_id:demo.id, stock_id:amanda.id, trade_type:'sell', quantity:2, share_price:300.33, created_at:trade_date, updated_at:trade_date)
+trade_6 = Trade.create!(user_id:demo.id, stock_id:amanda.id, trade_type:'sell', quantity:2, share_price:300.33, created_at:trade_date, updated_at:trade_date)
