@@ -7,10 +7,8 @@ class Portfolio extends React.Component{
     }
 
     componentDidMount(){
-        debugger
         for (let i = 0; i < this.props.currentUser.owned_stock_ids.length; i++) {
             const tickerName = this.props.currentUser.owned_stock_ids[i];
-            debugger
             const found = this.props.trends[this.props.currentUser.owned_stock_ids[i]];
             if(found === undefined){
                 this.props.fetchStock(tickerName);
@@ -44,7 +42,6 @@ class Portfolio extends React.Component{
                                {
                                    this.props.summaryStock.map( stock => (
                                        <SummaryStockItem stock={stock} stockTrends={this.props.trends}/> 
-                                    //  trends[trends.length - 1].$
                                    ))
                                }
                             </div>

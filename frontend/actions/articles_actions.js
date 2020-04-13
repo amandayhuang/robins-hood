@@ -3,7 +3,7 @@ import { getArticles } from '../util/trends_api_util';
 export const RECEIVE_ARTICLES = "RECEIVE_ARTICLES";
 
 const receiveArticles = (articles, stockId) => {
-    debugger
+    // debugger
     return {
     type: RECEIVE_ARTICLES,
     articles: articles.articles,

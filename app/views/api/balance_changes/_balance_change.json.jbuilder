@@ -1,0 +1,1 @@
+json.extract! balance_change, :id, :user_id, :amount, :balanceable_type, :balanceable_id, :created_at

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
+import * as PortfolioUtil from '../util/portfolio_util';
 
 class NavBarAuth extends React.Component {
     constructor(props) {
@@ -17,11 +18,15 @@ class NavBarAuth extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchTrades(this.props.currentUser.id)
+        this.props.fetchTrades(this.props.currentUser.id);
+        this.props.fetchBalanceChanges(this.props.currentUser.id);
     }
 
 
     render() {
+
+        let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes);
+
         return (
             <>
                 <ul className='nav-auth-bar'>
@@ -53,7 +58,7 @@ class NavBarAuth extends React.Component {
                                     <ul>
                                         <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>
                                         <li> <button onClick={this.props.logout}>Log Out</button></li>
-                                        {/* <li> <Link to='/stocks/JX'>Sample Stock</Link></li> */}
+                                        <li> Buying Power {cash}</li>
                                     </ul>
                                 </div>
                             </div>

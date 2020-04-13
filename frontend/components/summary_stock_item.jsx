@@ -5,7 +5,7 @@ import SparkLine from './spark_line'
 const SummaryStockItem = (props) => {
 
     let share;
-    let stockTrend = props.stockTrends[props.stock[0]];
+    let stockTrend = props.stockTrends[props.stock.ticker_name];
     let currentPrice;
     let lastPrice;
     let change;
@@ -23,7 +23,7 @@ const SummaryStockItem = (props) => {
         // lastPrice = stockTrend[0].$;
         change = currentPrice/lastPrice - 1
     }
-    if(props.stock[1] === 1){
+    if (props.stock.quantity_bought - props.stock.quantity_sold === 1){
         share = 'Share';
     }else{
         share = 'Shares';
@@ -48,11 +48,11 @@ const SummaryStockItem = (props) => {
         <Link to={`/stocks/${props.stock[0]}`}>
             <div className="stock-item">
                 <section className='stock-item-left'> 
-                    <h3>{props.stock[0]}</h3>
-                    <h4>{props.stock[1]} {share}</h4>
+                    <h3>{props.stock.ticker_name}</h3>
+                    <h4>{props.stock.quantity_bought - props.stock.quantity_sold} {share}</h4>
                 </section>
                 <section className='stock-item-middle'>
-                    <SparkLine stock={props.stock} trends={stockTrend} stroke={stroke}/>
+                    <SparkLine trends={stockTrend} stroke={stroke}/>
                 </section>
                 <section className='stock-item-right'>
                     <h4> ${Number(currentPrice).toFixed(2)}</h4>
