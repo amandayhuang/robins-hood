@@ -48,6 +48,10 @@ class Portfolio extends React.Component{
                                    ))
                                }
                             </div>
+
+                        <div className='trade-form-header'>
+                            <h1>Watches</h1>
+                        </div>
                 
                     </section>
 
