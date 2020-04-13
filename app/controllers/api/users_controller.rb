@@ -3,6 +3,9 @@ class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            #initialize an account with $1000 in credit
+            Fund.create(user_id:@user.id, amount:1000.00, fund_type:"in");
+
             login!(@user)
             render :show
         else

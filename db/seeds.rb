@@ -11,8 +11,11 @@
 User.destroy_all
 Stock.destroy_all
 Trade.destroy_all
+Fund.destroy_all
 
 demo = User.create!(email:"demo@robinhood.com", first_name:"Robin", last_name:"Hood", password:"demopassword")
+fund = Fund.create!(user_id:demo.id, amount:1000.00, fund_type:"in");
+bc1 = BalanceChange.create!(user_id:fund.user_id, amount:fund.amount, balanceable: fund)
 
 amanda = Stock.create!(display_name:"Amanda Bynes", ticker_name:"AB")
 yoko = Stock.create!(display_name:"Yoko Ono", ticker_name:"ONO")
