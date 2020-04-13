@@ -5,7 +5,7 @@ const SummaryStockItem = (props) => {
     // let jsDate = new Date(props.article.publishedAt);
     // debugger
     let share;
-    if(props.stock[0] === 1){
+    if(props.stock[1] === 1){
         share = 'Share';
     }else{
         share = 'Shares';
