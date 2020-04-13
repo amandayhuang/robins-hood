@@ -11,6 +11,7 @@ class Portfolio extends React.Component{
         for (let i = 0; i < this.props.currentUser.owned_stock_ids.length; i++) {
             const tickerName = this.props.currentUser.owned_stock_ids[i];
             this.props.fetchStock(tickerName);
+            this.props.getTrends(tickerName);
         }
     }
 
@@ -38,7 +39,8 @@ class Portfolio extends React.Component{
                            <div className="portfolio-stocks">
                                {
                                    this.props.summaryStock.map( stock => (
-                                     <SummaryStockItem stock={stock}/>  
+                                       <SummaryStockItem stock={stock} stockTrends={this.props.trends}/> 
+                                    //  trends[trends.length - 1].$
                                    ))
                                }
                             </div>

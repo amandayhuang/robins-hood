@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 const SummaryStockItem = (props) => {
-    // let jsDate = new Date(props.article.publishedAt);
-    // debugger
+
+    debugger
     let share;
     if(props.stock[1] === 1){
         share = 'Share';
@@ -21,7 +21,7 @@ const SummaryStockItem = (props) => {
 
                 </section>
                 <section className='stock-item-right'>
-
+                {/* <h4> {props.stockTrends[props.stock[0]][0].$}</h4> */}
                 </section>
             </div>
         </Link>
