@@ -1,4 +1,5 @@
 import React from 'react'
+import SummaryStockItem from './summary_stock_item'
 
 class Portfolio extends React.Component{
     constructor(props){
@@ -33,15 +34,15 @@ class Portfolio extends React.Component{
                         <div className='trade-form-header'>
                             <h1>Stocks</h1>
                         </div>
-                        <div className="form-tab">
+      
                            <div className="portfolio-stocks">
                                {
                                    this.props.summaryStock.map( stock => (
-                                     <SummaryStockItem />  
+                                     <SummaryStockItem stock={stock}/>  
                                    ))
                                }
                             </div>
-                        </div>
+                
                     </section>
 
                 </div>

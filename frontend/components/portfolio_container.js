@@ -19,7 +19,6 @@ const msp = state => {
         }
     }
     
-    debugger
     if (Object.keys(summaryStock).length === 0){
         summaryStock = {key:"value"}
     }
