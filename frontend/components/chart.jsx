@@ -29,7 +29,7 @@ const labelStyle = {
 };
 
 function formatLabel(item) {
-    console.log(item);
+    // console.log(item);
     let d = new Date(item);
     d.setDate(d.getDate() + 1);
     let arr = d.toDateString().split(" ");

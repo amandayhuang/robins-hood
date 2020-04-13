@@ -20,13 +20,13 @@ class TradeForm extends React.Component{
     handleSubmit(e) {
         e.preventDefault();
         this.state.user_id = this.props.userId;
-        this.state.stock_id = this.props.stock.id;
+        this.state.ticker_name = this.props.stock.ticker_name;
         this.state.share_price = this.props.currentPrice;
 
         if (Number(this.state.quantity) > 0 ) {
             this.props.createTrade({
                 user_id: this.state.user_id,
-                stock_id: this.state.stock_id,
+                ticker_name: this.state.ticker_name,
                 quantity: this.state.quantity,
                 share_price: this.state.share_price,
                 trade_type: this.state.trade_type

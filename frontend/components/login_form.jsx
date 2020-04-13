@@ -9,13 +9,13 @@ class LoginForm extends React.Component {
     }
 
     update(field) {
-        return e => this.setState({ [field]: e.currentTarget.value })
+        return e => this.setState({ [field]: e.currentTarget.value });
     }
 
     handleSubmit(e) {
         e.preventDefault();
         this.props.loginUser(this.state);
-        this.setState({email:this.state.email,password:""})
+        this.setState({email:this.state.email,password:""});
     }
 
     render() {
@@ -37,7 +37,10 @@ class LoginForm extends React.Component {
                     <input type="password" value={this.state.password} onChange={this.update("password")} />
                    
                     <div className='login-error'>{this.props.errors[0]}</div>
+                    <div className='buttons'>
                     <button>Sign In</button>
+                    <button className='demo-login' onClick={() => this.props.loginUser({ email: "demo@robinhood.com", password: "demopassword" })}>Demo Login</button>
+                    </div>
                 </form>
                 </div>
             </div>

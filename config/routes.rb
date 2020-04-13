@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :show] do
       resources :trades, only: [:index,:create]
+      resources :stocks, only: [:index]
     end
 
     resource :session, only: [:create, :destroy]
 
-    resources :stocks, only: [:index, :show]
+    resources :stocks, only: [:show]
 
     # post '/search', to: 'users#search'
 

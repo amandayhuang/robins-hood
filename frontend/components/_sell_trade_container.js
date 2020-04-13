@@ -4,7 +4,7 @@ import TradeForm from './trade_form'
 
 const msp = (state, ownProps) => {
     return {
-        trade: { user_id: "", stock_id: "", quantity: "", share_price: "", trade_type: "sell" },
+        trade: { user_id: "", ticker_name: "", quantity: "", share_price: "", trade_type: "sell" },
         formType: 'Sell',
         userId: state.session.id,
         currentPrice: ownProps.currentPrice,

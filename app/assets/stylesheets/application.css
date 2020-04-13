@@ -49,6 +49,12 @@ a {
     font-family: 'Roboto', sans-serif;
 }
 
+.nav-logo{
+    font-size: 30px;
+    margin-left:-5px;
+    padding-left: 0x;
+}
+
 .nav-bar-left, .nav-bar-right{
     display: flex;
     position: relative;
@@ -103,12 +109,12 @@ a {
  }
 
  .home-1{
-     height:800px;
+     height:700px;
      background-color: #52CF9A;
      padding-top:130px;
      display: flex;
      justify-content: center;
-     height: 100vh;
+     /* height: 100vh; */
      box-sizing: border-box;
 
  }
@@ -206,7 +212,11 @@ a {
       width:336px;
       margin-right:2px;
       box-sizing: border-box;
-       font-weight: 100;
+    font-weight: 100;
+  }
+
+  .signup-container .name-section{
+      display: flex;
   }
 
    .signup-container button{
@@ -229,6 +239,16 @@ a {
   .signup-container button:hover{
       background-color:#3FA379;
       cursor: pointer;
+  }
+
+  .signup-logo{
+      color: #52CF9A;
+      font-size:45px;
+      margin-left:12px;
+  }
+
+  .signup-logo:hover{
+    cursor: pointer;
   }
 
   
@@ -382,6 +402,9 @@ a {
     font-weight: 500;
 }
 
+.buttons{
+    display:flex;
+}
 
 
 .nav-auth-bar{
@@ -479,7 +502,6 @@ a {
 
  .dropdown-trigger{
      position:relative;
-     z-index:20;
  }
 
 
@@ -520,7 +542,7 @@ a {
     background-color: white;
     top: 25px;
     padding-top:20px;
-    z-index:100;
+    z-index:50;
     border-radius: 4px;
  }
  .dropdown-items li{
@@ -598,6 +620,10 @@ a {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     margin-top:0px;
+ }
+
+ .show-graph{
+     margin-left:70px;
  }
 
   .top-price{
@@ -726,7 +752,7 @@ a {
 
 
   .active{
-      display:inline-block;
+      display:inline-block!important;
   }
 
   .active-tab{
@@ -794,3 +820,162 @@ a {
       color:#6F787E;
       font-weight:400;
   }
+
+
+  .nav-auth-logo{
+    color: black;
+    font-size:40px;
+    margin-right:30px;
+  }
+
+  .nav-auth-logo:hover{
+      color: #52CF9A;
+      cursor: pointer;
+  }
+
+.footer-outer-container{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    z-index: 150!important;
+    position: sticky;
+}
+
+.footer-container{
+      width:100%;
+      height:180px;
+      background-color: black;
+      display: flex;
+      font-family: 'Roboto', sans-serif;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .footer-list{
+      display:flex;
+      justify-content: center;
+      /* width: 100%; */
+      height:180px;
+      /* align-items: center; */
+      /* box-sizing: border-box; */
+      padding-top:30px;
+      color: white;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      margin-left: 50px;
+      
+  }
+
+  .footer-list li{
+      list-style: none;
+      padding:0 10px;
+      margin-bottom:0px;
+  }
+  
+  .footer-sub{
+      font-weight: 300;
+      margin-top:11px;
+  }
+
+  .footer-sub a{
+      color:white;
+  }
+
+.footer-sub a:hover{
+    cursor: pointer;
+    color: #52CF9A;
+}
+
+.amanda{
+    font-size:20px;
+}
+
+.link{
+    font-size:20px;
+    color:white;
+}
+
+.links{
+    margin-top:5px;
+    padding-top:5px;
+    align-self: initial;
+}
+
+.link:hover{
+    cursor: pointer;
+    color: #6F787E;
+}
+
+.portfolio-container{
+    width:100%;
+    height: 700px;
+}
+
+.signup-email, .signup-password, .signup-first, .signup-last{
+    position: relative;
+}
+
+.error-box{
+    position: absolute;
+    display:none;
+    top: -30px;
+    left: 25px;
+    width: 245px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color:white;
+    padding:5px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size:15px;
+    border-radius: 4px;
+    padding-top:10px;
+}
+
+.red-border{
+    border: 1px solid #F3613E!important;
+}
+
+
+.portfolio-stocks{
+    overflow-y: auto;
+    padding: 0px;
+    width:100%
+}
+
+.stock-item{
+    width:100%;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 22px;
+    margin:0;
+}
+
+.stock-item:hover{
+    background-color: #6F787E;
+}
+
+.stock-item h3{
+    margin:0;
+    padding:0;
+    font-size:14px;
+}
+
+.stock-item h4{
+    margin:0;
+    padding:0;
+    font-size:14px;
+}
+
+.stock-item-left{
+    width:25%;
+}
+
+.stock-item-middle{
+    width:50%;
+}
+
+.stock-item-right{
+    width:25%;
+}
