@@ -41,7 +41,7 @@ class StockShow extends React.Component{
                     <h1>{this.props.stock.display_name}</h1>
                     {/* <h3 className='top-price'>${this.props.currentPrice.toFixed(2)}</h3> */}
                 <div className='stock-graph'>
-                    <ChartContainer stock={this.props.stock} currentPrice={this.props.currentPrice}/>
+                            <ChartContainer stock={this.props.stock} currentPrice={this.props.currentPrice} type="show"/>
                 </div>
                 <div className='news-list'>
                      <ArticlesContainer stock={this.props.stock}/>

@@ -1,6 +1,7 @@
-import React from 'react'
-import SummaryStockItem from './summary_stock_item'
+import React from 'react';
+import SummaryStockItem from './summary_stock_item';
 import * as PortfolioUtil from '../util/portfolio_util';
+import ChartContainer from './chart_container';
 
 class Portfolio extends React.Component{
     constructor(props){
@@ -20,28 +21,16 @@ class Portfolio extends React.Component{
 
     render() {
         let currentPortfolioValue = PortfolioUtil.getPortfolioValue(this.props.summaryStock);
-        let portfolio = [];
-
-        const keys = Object.keys(this.props.trends);
-        if (keys.length > 0){
-            const obj = this.props.trends[keys[0]];
-            
-            for (let i = 0; i < Object.values(obj).length; i++) {
-                const element = Object.values(obj).values[i];
-                endDate = new Date(element.name);
-                debugger
-            }
-        }
-
+        let fakeStock = {display_name:"", ticker_name:""};
 
         return (
             <>
                 <div className='show-container'>
                     <section className='show-graph'>
-                        <h1>Portfolio {currentPortfolioValue}</h1>
+                        {/* <h1>Portfolio {currentPortfolioValue}</h1> */}
                         {/* <h3 className='top-price'>${this.props.currentPrice.toFixed(2)}</h3> */}
                         <div className='stock-graph'>
-                            {/* <ChartContainer stock={this.props.stock} currentPrice={this.props.currentPrice} /> */}
+                            <ChartContainer stock={fakeStock} currentPrice={currentPortfolioValue} portfolioTrends={this.props.portfolio} type="portfolio" />
                         </div>
                         <div className='news-list'>
                             {/* <ArticlesContainer stock={this.props.stock} /> */}
@@ -56,7 +45,7 @@ class Portfolio extends React.Component{
                            <div className="portfolio-stocks">
                                {
                                    this.props.summaryStock.map( stock => (
-                                       <SummaryStockItem stock={stock} stockTrends={this.props.trends}/> 
+                                       <SummaryStockItem key={stock.ticker_name} stock={stock} stockTrends={this.props.trends}/> 
                                    ))
                                }
                             </div>

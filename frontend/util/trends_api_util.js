@@ -9,7 +9,7 @@ export const getNews = (stockId) => {
     fetchStock(stockId).then(response => displayName = response.display_name);
 
     let dates = [];
-    let i = 1; // number of days to lookback
+    let i = 7; // number of days to lookback
     let news = [];
 
     while (i >= 0) {

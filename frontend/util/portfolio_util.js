@@ -49,13 +49,13 @@ export const getStockSummaryFromTrades = (trades, trends, endDate) =>{
 
 // takes in the return object from getStockSummaryFromTrades to summarize total portfolio 
 // value across all stocks
-export const getPortfolioValue = stockSummary =>{
+export const getPortfolioValue = summaryStock =>{
     let value = 0;
-    if(stockSummary === undefined){
+    if(summaryStock === undefined){
         return value;
     }else{
-        for (let i = 0; i < stockSummary.length; i++) {
-            const element = stockSummary[i];
+        for (let i = 0; i < summaryStock.length; i++) {
+            const element = summaryStock[i];
             value += (element.quantity_bought-element.quantity_sold)*element.current_share_price;
         }
     }

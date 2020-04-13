@@ -4,6 +4,9 @@ import Chart from './chart'
 
 const msp = (state, ownProps) => {
     let trends = state.entities.trends[ownProps.stock.ticker_name];
+    if(ownProps.type === 'portfolio'){
+        trends = ownProps.portfolioTrends;
+    }
     if(trends === undefined){
         return {
             trends: [
@@ -22,7 +25,7 @@ const msp = (state, ownProps) => {
     }else{
         // debugger
         return {
-            trends: state.entities.trends[ownProps.stock.ticker_name],
+            trends: trends,
             stock: ownProps.stock
         }
     }

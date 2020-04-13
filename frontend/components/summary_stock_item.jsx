@@ -56,7 +56,7 @@ const SummaryStockItem = (props) => {
                 </section>
                 <section className='stock-item-right'>
                     <h4> ${Number(currentPrice).toFixed(2)}</h4>
-                    <h4 class={textClass}> {pre}{Number(change*100).toFixed(2)}%</h4>
+                    <h4 className={textClass}> {pre}{Number(change*100).toFixed(2)}%</h4>
                 </section>
             </div>
         </Link>
