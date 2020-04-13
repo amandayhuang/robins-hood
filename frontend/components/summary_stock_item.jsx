@@ -45,7 +45,7 @@ const SummaryStockItem = (props) => {
     }
 
     return (
-        <Link to={`/stocks/${props.stock[0]}`}>
+        <Link to={`/stocks/${props.stock.ticker_name}`}>
             <div className="stock-item">
                 <section className='stock-item-left'> 
                     <h3>{props.stock.ticker_name}</h3>

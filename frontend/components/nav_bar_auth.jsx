@@ -24,8 +24,8 @@ class NavBarAuth extends React.Component {
 
 
     render() {
-
-        let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes);
+        let endDate = new Date;
+        let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes, endDate);
 
         return (
             <>
@@ -58,7 +58,7 @@ class NavBarAuth extends React.Component {
                                     <ul>
                                         <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>
                                         <li> <button onClick={this.props.logout}>Log Out</button></li>
-                                        <li> Buying Power {cash}</li>
+                                        <li> Buying Power {cash.toFixed(2)}</li>
                                     </ul>
                                 </div>
                             </div>
