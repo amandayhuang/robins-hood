@@ -34,7 +34,8 @@ const msp = state => {
         currentUser: state.session,
         summaryStock: Object.values(summaryStock),
         trends: trends,
-        portfolio: portfolio
+        portfolio: portfolio,
+        balance_changes: state.entities.balance_changes
 
     }
 };

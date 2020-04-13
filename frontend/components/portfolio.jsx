@@ -21,6 +21,8 @@ class Portfolio extends React.Component{
 
     render() {
         let currentPortfolioValue = PortfolioUtil.getPortfolioValue(this.props.summaryStock);
+        let endDate = new Date;
+        let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes,endDate)
         let fakeStock = {display_name:"", ticker_name:""};
 
         return (
@@ -30,7 +32,7 @@ class Portfolio extends React.Component{
                         {/* <h1>Portfolio {currentPortfolioValue}</h1> */}
                         {/* <h3 className='top-price'>${this.props.currentPrice.toFixed(2)}</h3> */}
                         <div className='stock-graph'>
-                            <ChartContainer stock={fakeStock} currentPrice={currentPortfolioValue} portfolioTrends={this.props.portfolio} type="portfolio" />
+                            <ChartContainer stock={fakeStock} currentPrice={currentPortfolioValue+cash} portfolioTrends={this.props.portfolio} type="portfolio" />
                         </div>
                         <div className='news-list'>
                             {/* <ArticlesContainer stock={this.props.stock} /> */}
