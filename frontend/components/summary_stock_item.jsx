@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import SparkLine from './spark_line'
 
 const SummaryStockItem = (props) => {
 
@@ -10,6 +11,7 @@ const SummaryStockItem = (props) => {
     let change;
     let textClass;
     let pre;
+    let stroke;
 
     if (stockTrend === undefined){
         currentPrice = 0;
@@ -18,6 +20,7 @@ const SummaryStockItem = (props) => {
     }else{
         currentPrice = stockTrend[stockTrend.length-1].$;
         lastPrice = stockTrend[stockTrend.length - 2].$;
+        // lastPrice = stockTrend[0].$;
         change = currentPrice/lastPrice - 1
     }
     if(props.stock[1] === 1){
@@ -34,9 +37,11 @@ const SummaryStockItem = (props) => {
     if(change >=0 ){
         textClass='green-text';
         pre='+';
+        stroke = "#52CF9A";
     }else{
         textClass='red-text';
         pre='';
+        stroke = "#F25431";
     }
 
     return (
@@ -47,7 +52,7 @@ const SummaryStockItem = (props) => {
                     <h4>{props.stock[1]} {share}</h4>
                 </section>
                 <section className='stock-item-middle'>
-
+                    <SparkLine stock={props.stock} trends={stockTrend} stroke={stroke}/>
                 </section>
                 <section className='stock-item-right'>
                     <h4> ${Number(currentPrice).toFixed(2)}</h4>

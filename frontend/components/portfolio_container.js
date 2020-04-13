@@ -28,9 +28,12 @@ const msp = state => {
         trends = { key: [{ name: "", $: "" }, { name: "", $: "" }]};
     }
 
+    summaryStock = Object.entries(summaryStock);
+    summaryStock = summaryStock.filter(item => item[1] > 0);
+
     return {
         currentUser: state.session,
-        summaryStock: Object.entries(summaryStock),
+        summaryStock: summaryStock,
         trends: trends
     }
 };

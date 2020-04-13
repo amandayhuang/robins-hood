@@ -995,3 +995,7 @@ a {
 .red-text{
     color:#F25431;
 }
+
+.scrollable{
+    overflow-y:auto;
+}
