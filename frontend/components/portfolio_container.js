@@ -25,7 +25,7 @@ const msp = state => {
     }
 
     if (Object.keys(trends).length === 0){
-        trends = {key:[{name:"",$:""}]};
+        trends = { key: [{ name: "", $: "" }, { name: "", $: "" }]};
     }
 
     return {

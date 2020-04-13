@@ -770,7 +770,7 @@ a {
   }
 
   .article-item:hover{
-    background-color: #FAFAFA;
+    background-color: rgb(243, 243, 243);
     cursor: pointer;
     }
 
@@ -948,8 +948,9 @@ a {
     width:100%;
     display: flex;
     font-family: 'Roboto', sans-serif;
-    padding: 10px 22px;
+    padding: 12px 22px;
     margin:0;
+    box-sizing: border-box;
 }
 
 .stock-item:hover{
@@ -959,13 +960,14 @@ a {
 .stock-item h3{
     margin:0;
     padding:0;
-    font-size:14px;
+    font-size:13px;
 }
 
 .stock-item h4{
     margin:0;
     padding:0;
-    font-size:14px;
+    font-size:13px;
+    font-weight:300;
 }
 
 .stock-item-left{
@@ -978,4 +980,18 @@ a {
 
 .stock-item-right{
     width:25%;
+    text-align: right;
+}
+
+ .stock-item:hover{
+    background-color: rgb(243, 243, 243);
+    cursor: pointer;
+    }
+
+.green-text{
+    color:#52CF9A;
+}
+
+.red-text{
+    color:#F25431;
 }

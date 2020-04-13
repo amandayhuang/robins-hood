@@ -10,8 +10,11 @@ class Portfolio extends React.Component{
         debugger
         for (let i = 0; i < this.props.currentUser.owned_stock_ids.length; i++) {
             const tickerName = this.props.currentUser.owned_stock_ids[i];
-            this.props.fetchStock(tickerName);
-            this.props.getTrends(tickerName);
+            const found = this.props.trends[this.props.currentUser.owned_stock_ids[i]]
+            if(found === undefined){
+                this.props.fetchStock(tickerName);
+                this.props.getTrends(tickerName);
+            }
         }
     }
 
