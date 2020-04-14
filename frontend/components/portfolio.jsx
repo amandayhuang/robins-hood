@@ -40,8 +40,8 @@ class Portfolio extends React.Component{
                     </section>
 
                     <section className="show-form scrollable">
-                        <div className='trade-form-header'>
-                            <h1>Stocks</h1>
+                        <div className='trade-form-header portfolio-header'>
+                            <h1 className='portfolio-h1'>Stocks</h1>
                         </div>
       
                            <div className="portfolio-stocks">
@@ -52,8 +52,8 @@ class Portfolio extends React.Component{
                                }
                             </div>
 
-                        <div className='trade-form-header'>
-                            <h1>Watchlist</h1>
+                        <div className='trade-form-header portfolio-header'>
+                            <h1 className='portfolio-h1'>Watchlist</h1>
                         </div>
                 
                     </section>

@@ -62,15 +62,31 @@ export default class Chart extends PureComponent {
 
 
     render() {
+        debugger
         let showPrice;
+        let todayPrice = this.props.trends[this.props.trends.length - 1].$;
+        let yesterdayPrice = this.props.trends[this.props.trends.length - 2].$;
+        let deltaPer = (todayPrice/yesterdayPrice - 1)*100;
+        let delta = todayPrice - yesterdayPrice;
+
         if (Number(this.props.currentPrice) !== 0 && this.state.topPrice === -1) {
             showPrice = this.props.currentPrice;
         } else {
             showPrice = this.state.topPrice;
+            
         }
+        
+        let sign;
+        if(delta >= 0){
+            sign = '+';
+        }else{
+            sign = '-';
+        }
+
         return (
             <>
-            <h3 className='top-price'>${showPrice.toFixed(2)}</h3>
+                <h3 className='top-price bold'>${showPrice.toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
+            <h5 className='chart-delta'> {sign}${parseFloat(Math.abs(delta)).toFixed(2)} ({sign}{parseFloat(Math.abs(deltaPer)).toFixed(2)}%)<span className='gray-text'> vs yesterday</span></h5>
             <LineChart
                 width={700}
                 height={300}

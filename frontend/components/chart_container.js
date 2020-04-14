@@ -7,7 +7,8 @@ const msp = (state, ownProps) => {
     if(ownProps.type === 'portfolio'){
         trends = ownProps.portfolioTrends;
     }
-    if(trends === undefined){
+    debugger
+    if(trends === undefined || trends.length === 0){
         return {
             trends: [
                 {
@@ -23,7 +24,6 @@ const msp = (state, ownProps) => {
             stock: {id:"",display_name:""}
         }
     }else{
-        // debugger
         return {
             trends: trends,
             stock: ownProps.stock

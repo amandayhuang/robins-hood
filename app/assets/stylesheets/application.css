@@ -645,7 +645,7 @@ a {
      font-size: 11px;
      font-weight:300;
      padding:10px;
-     border-bottom: 1px solid rgb(184, 184, 184);
+     border-bottom: 1px solid rgb(230, 230, 230);
  }
 
  .trade-form-header h1{
@@ -941,7 +941,7 @@ a {
 .portfolio-stocks{
     overflow-y: auto;
     padding: 0px;
-    width:100%
+    width:100%;
 }
 
 .stock-item{
@@ -951,6 +951,7 @@ a {
     padding: 12px 22px;
     margin:0;
     box-sizing: border-box;
+    align-items: center;
 }
 
 .stock-item:hover{
@@ -996,6 +997,33 @@ a {
     color:#F25431;
 }
 
+.gray-text{
+    color:#B1C0C4;
+    font-weight: 300;
+}
+
 .scrollable{
     overflow-y:auto;
+}
+
+.bold{
+    font-weight:600;
+}
+
+.trade-form-header .portfolio-h1{
+    margin-left:10px;
+}
+
+.portfolio-header{
+    height:40px;
+}
+
+.chart-delta{
+    font-family: 'Roboto', sans-serif;
+    color:black;
+    font-size:13px;   
+    margin: 0;
+    margin-bottom: 15px;
+    margin-top:-20px;
+    margin-left:5px;
 }

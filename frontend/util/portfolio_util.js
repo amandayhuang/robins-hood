@@ -18,7 +18,7 @@ export const getCashFromBalanceChange = (balance_changes, endDate) =>{
 // and current value per share as of endDate
 export const getStockSummaryFromTrades = (trades, trends, endDate) =>{
     let summaryStock = {};
-
+    // debugger
     for (let i = 0; i < Object.values(trades).length; i++) {
         const trade = Object.values(trades)[i];
         const tradeDate = new Date(trade.created_at);
