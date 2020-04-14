@@ -67,6 +67,9 @@ export default class Chart extends PureComponent {
         let todayPrice = this.props.trends[this.props.trends.length - 1].$;
         let yesterdayPrice = this.props.trends[this.props.trends.length - 2].$;
         let deltaPer = (todayPrice/yesterdayPrice - 1)*100;
+        if(yesterdayPrice === 0){
+            deltaPer = 100;
+        }
         let delta = todayPrice - yesterdayPrice;
 
         if (Number(this.props.currentPrice) !== 0 && this.state.topPrice === -1) {
