@@ -1,0 +1,1 @@
+json.extract! watch, :id, :user_id, :ticker_name, :is_deleted, :created_at

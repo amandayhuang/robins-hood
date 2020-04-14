@@ -16,4 +16,9 @@ class Stock < ApplicationRecord
     primary_key: :ticker_name,
     foreign_key: :ticker_name,
     class_name: :Trade
+
+    has_many :watches,
+    primary_key: :ticker_name,
+    foreign_key: :ticker_name,
+    class_name: :Watch
 end
