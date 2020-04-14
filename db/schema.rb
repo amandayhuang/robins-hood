@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_191325) do
+ActiveRecord::Schema.define(version: 2020_04_13_160524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "balance_changes", force: :cascade do |t|
+    t.float "amount", null: false
+    t.string "balanceable_type"
+    t.bigint "balanceable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["balanceable_type", "balanceable_id"], name: "index_balance_changes_on_balanceable_type_and_balanceable_id"
+  end
+
+  create_table "funds", force: :cascade do |t|
+    t.string "fund_type", null: false
+    t.float "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_funds_on_user_id"
+  end
 
   create_table "stocks", force: :cascade do |t|
     t.string "display_name", null: false

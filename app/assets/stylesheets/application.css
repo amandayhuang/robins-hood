@@ -645,7 +645,7 @@ a {
      font-size: 11px;
      font-weight:300;
      padding:10px;
-     border-bottom: 1px solid rgb(184, 184, 184);
+     border-bottom: 1px solid rgb(230, 230, 230);
  }
 
  .trade-form-header h1{
@@ -770,7 +770,7 @@ a {
   }
 
   .article-item:hover{
-    background-color: #FAFAFA;
+    background-color: rgb(243, 243, 243);
     cursor: pointer;
     }
 
@@ -941,15 +941,17 @@ a {
 .portfolio-stocks{
     overflow-y: auto;
     padding: 0px;
-    width:100%
+    width:100%;
 }
 
 .stock-item{
     width:100%;
     display: flex;
     font-family: 'Roboto', sans-serif;
-    padding: 10px 22px;
+    padding: 12px 22px;
     margin:0;
+    box-sizing: border-box;
+    align-items: center;
 }
 
 .stock-item:hover{
@@ -959,13 +961,14 @@ a {
 .stock-item h3{
     margin:0;
     padding:0;
-    font-size:14px;
+    font-size:13px;
 }
 
 .stock-item h4{
     margin:0;
     padding:0;
-    font-size:14px;
+    font-size:13px;
+    font-weight:300;
 }
 
 .stock-item-left{
@@ -978,4 +981,49 @@ a {
 
 .stock-item-right{
     width:25%;
+    text-align: right;
+}
+
+ .stock-item:hover{
+    background-color: rgb(243, 243, 243);
+    cursor: pointer;
+    }
+
+.green-text{
+    color:#52CF9A;
+}
+
+.red-text{
+    color:#F25431;
+}
+
+.gray-text{
+    color:#B1C0C4;
+    font-weight: 300;
+}
+
+.scrollable{
+    overflow-y:auto;
+}
+
+.bold{
+    font-weight:600;
+}
+
+.trade-form-header .portfolio-h1{
+    margin-left:10px;
+}
+
+.portfolio-header{
+    height:40px;
+}
+
+.chart-delta{
+    font-family: 'Roboto', sans-serif;
+    color:black;
+    font-size:13px;   
+    margin: 0;
+    margin-bottom: 15px;
+    margin-top:-20px;
+    margin-left:5px;
 }

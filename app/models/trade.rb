@@ -19,5 +19,6 @@ class Trade < ApplicationRecord
         foreign_key: :ticker_name,
         class_name: :Stock
     belongs_to :user
+    has_many :balance_changes, as: :balanceable 
 
 end

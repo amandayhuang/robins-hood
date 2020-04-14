@@ -1,36 +1,50 @@
 import { connect } from 'react-redux';
 import Portfolio from './portfolio'
 import {fetchStock} from '../actions/stock_actions'
+import { getTrends } from '../actions/trends_actions'
+import * as PortfolioUtil from '../util/portfolio_util';
+import { fetchTopArticles } from '../actions/articles_actions'
 
 const msp = state => {
-    
-    let summaryStock = {};
+    let trends = state.entities.trends;
+    let endDate = new Date;
+    let summaryStock = PortfolioUtil.getStockSummaryFromTrades(state.entities.trades, state.entities.trends, endDate);
 
-    for (let i = 0; i < Object.values(state.entities.trades).length; i++) {
-        const trade = Object.values(state.entities.trades)[i];
-        if(summaryStock[trade.ticker_name] === undefined){
-            summaryStock[trade.ticker_name] = trade.quantity
-        }else{
-            if(trade.trade_type === 'buy'){
-                summaryStock[trade.ticker_name] += trade.quantity
-            }else{
-                summaryStock[trade.ticker_name] -= trade.quantity
+    let portfolio = [];
+    const keys = Object.keys(state.entities.trends);
+    if(keys.length > 0) {
+        const obj = state.entities.trends[keys[0]];
+        for (let i = 0; i < Object.values(obj).length; i++) {
+            const element = Object.values(obj)[i];
+            let endDate2 = new Date(element.name);
+            endDate2 = endDate2.setDate(endDate2.getDate() + 1);
+            endDate2 = new Date(endDate2);
+            if (i === Object.values(obj).length -1){
+                endDate2 = new Date;
             }
+            let summaryStock = PortfolioUtil.getStockSummaryFromTrades(state.entities.trades, state.entities.trends, endDate2);
+            // debugger
+            let value = PortfolioUtil.getPortfolioValue(Object.values(summaryStock));
+            let cash = PortfolioUtil.getCashFromBalanceChange(state.entities.balance_changes,endDate2);
+            console.log(`end date: ${endDate2} value: ${value+cash}`);
+            portfolio.push({ name: element.name, $: value+cash });
         }
-    }
-    
-    if (Object.keys(summaryStock).length === 0){
-        summaryStock = {key:"value"}
     }
 
     return {
-    currentUser: state.session,
-    summaryStock: Object.entries(summaryStock)
+        currentUser: state.session,
+        summaryStock: Object.values(summaryStock),
+        trends: trends,
+        portfolio: portfolio,
+        balance_changes: state.entities.balance_changes
+
     }
 };
 
 const mdp = dispatch => ({
-    fetchStock: (tickerName) => dispatch(fetchStock(tickerName))
+    fetchStock: (tickerName) => dispatch(fetchStock(tickerName)),
+    getTrends: (tickerName) => dispatch(getTrends(tickerName)),
+    fetchTopArticles: () => dispatch(fetchTopArticles())
 });
 
 export default connect(msp, mdp)(Portfolio);

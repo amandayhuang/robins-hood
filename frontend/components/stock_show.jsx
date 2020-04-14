@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Chart from './chart';
 import ChartContainer from './chart_container'
 import BuyTradeContainer from './_buy_trade_container'
 import SellTradeContainer from './_sell_trade_container'
@@ -41,7 +40,7 @@ class StockShow extends React.Component{
                     <h1>{this.props.stock.display_name}</h1>
                     {/* <h3 className='top-price'>${this.props.currentPrice.toFixed(2)}</h3> */}
                 <div className='stock-graph'>
-                    <ChartContainer stock={this.props.stock} currentPrice={this.props.currentPrice}/>
+                            <ChartContainer stock={this.props.stock} currentPrice={this.props.currentPrice} type="show"/>
                 </div>
                 <div className='news-list'>
                      <ArticlesContainer stock={this.props.stock}/>

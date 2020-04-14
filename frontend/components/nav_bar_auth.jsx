@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
+import * as PortfolioUtil from '../util/portfolio_util';
 
 class NavBarAuth extends React.Component {
     constructor(props) {
@@ -17,11 +18,15 @@ class NavBarAuth extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchTrades(this.props.currentUser.id)
+        this.props.fetchTrades(this.props.currentUser.id);
+        this.props.fetchBalanceChanges(this.props.currentUser.id);
     }
 
 
     render() {
+        let endDate = new Date;
+        let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes, endDate);
+
         return (
             <>
                 <ul className='nav-auth-bar'>
@@ -30,7 +35,7 @@ class NavBarAuth extends React.Component {
                             <li>
                                 {/* <img className='logo-black-auth' src={window.logoBlackURL} alt="robins hood logo" />
                                  */}
-                                <Link to='/'><i className="far fa-laugh-wink nav-auth-logo"></i> </Link>
+                                <Link to='/me'><i className="far fa-laugh-wink nav-auth-logo"></i> </Link>
                             </li>
 
                             <li>
@@ -46,14 +51,14 @@ class NavBarAuth extends React.Component {
                     </li>
                     <li>
                         <ul className='nav-auth-bar-right'>
-                            <li className='portfolio'><Link to='/'> Portfolio</Link></li>
+                            <li className='portfolio'><Link to='/me'> Portfolio</Link></li>
                             <div className='dropdown-trigger'>    
                                 <li onClick={this.toggleClass} className='account' ref="account">Account</li>
                                 <div className='dropdown-items' ref="menu">
                                     <ul>
                                         <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>
                                         <li> <button onClick={this.props.logout}>Log Out</button></li>
-                                        {/* <li> <Link to='/stocks/JX'>Sample Stock</Link></li> */}
+                                        <li> Buying Power {cash.toFixed(2)}</li>
                                     </ul>
                                 </div>
                             </div>

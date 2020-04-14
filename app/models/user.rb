@@ -21,6 +21,8 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     has_many :trades
+    has_many :funds
+    has_many :balance_changes
 
     has_many :owned_stocks, -> { distinct }, through: :trades,
     source: :stock

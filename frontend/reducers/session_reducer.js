@@ -4,6 +4,7 @@ const _nullSession = {}
 
 export default (state = _nullSession, action) => {
     Object.freeze(state);
+    // let newState
     switch (action.type) {
         case RECEIVE_USER:
             return action.user;
