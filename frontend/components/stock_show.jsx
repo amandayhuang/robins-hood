@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Chart from './chart';
 import ChartContainer from './chart_container'
 import BuyTradeContainer from './_buy_trade_container'
 import SellTradeContainer from './_sell_trade_container'

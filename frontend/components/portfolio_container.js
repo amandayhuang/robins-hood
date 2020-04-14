@@ -3,6 +3,7 @@ import Portfolio from './portfolio'
 import {fetchStock} from '../actions/stock_actions'
 import { getTrends } from '../actions/trends_actions'
 import * as PortfolioUtil from '../util/portfolio_util';
+import { fetchTopArticles } from '../actions/articles_actions'
 
 const msp = state => {
     let trends = state.entities.trends;
@@ -42,7 +43,8 @@ const msp = state => {
 
 const mdp = dispatch => ({
     fetchStock: (tickerName) => dispatch(fetchStock(tickerName)),
-    getTrends: (tickerName) => dispatch(getTrends(tickerName))
+    getTrends: (tickerName) => dispatch(getTrends(tickerName)),
+    fetchTopArticles: () => dispatch(fetchTopArticles())
 });
 
 export default connect(msp, mdp)(Portfolio);

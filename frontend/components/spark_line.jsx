@@ -1,42 +1,7 @@
 import React, { PureComponent } from 'react';
 import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+    LineChart, Line
 } from 'recharts';
-
-const itemStyle = {
-    color: 'black',
-    'fontFamily': 'Helvetica Neue',
-    'fontSize': '16px',
-    'fontWeight': "500",
-    'display': 'none'
-};
-
-const wrapperStyle = {
-    color: 'gray',
-    'fontFamily': 'Helvetica Neue',
-    'fontSize': '14px'
-
-};
-
-const contentStyle = {
-    border: 'none',
-    padding: '0',
-    backgroundColor: 'none'
-};
-
-const labelStyle = {
-
-};
-
-function formatLabel(item) {
-    // console.log(item);
-    let d = new Date(item);
-    d.setDate(d.getDate() + 1);
-    let arr = d.toDateString().split(" ");
-    return `${arr[1]} ${arr[2]}`;
-}
-
-
 
 export default class SparkLine extends PureComponent {
 

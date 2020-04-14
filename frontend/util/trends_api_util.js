@@ -3,13 +3,14 @@ import {fetchStock} from './stock_api_util'
 const keys = ['ec885fa30bfd47ea9ca9a19c922c974e', '8e1ab7dc651446068017d1d23bbe8cf3', '60b6e71280f24d15a105e0ca63bc8c63', '17b33ca218d24ad89ef9715a81e6d4fb', 'be5218bb2a91424fa1755577ede6fde1', '3bcf3c8abafc4786be68bd74e90677a2'];
 let randomKey = keys[Math.floor(Math.random() * keys.length)];
 randomKey = 'bde33e3500614684b270fa5a75c27d2a'; //delete
+randomKey = '098c2851ae1a455faf7c69b1ac2bc7e2';
 
 export const getNews = (stockId) => {
     let displayName = '';
     fetchStock(stockId).then(response => displayName = response.display_name);
 
     let dates = [];
-    let i = 7; // number of days to lookback
+    let i = 1; // number of days to lookback
     let news = [];
 
     while (i >= 0) {
@@ -61,6 +62,19 @@ export const getArticles = stockId =>{
     const url = 'https://newsapi.org/v2/everything?' +
         `q=${displayName}&` +
         'sortBy=popularity&' +
+        `apiKey=${randomKey}`;
+
+    return $.ajax({
+        url: url,
+        method: "GET",
+        async: false
+    })
+}
+
+export const getTopArticles = () => {
+    const url = 'https://newsapi.org/v2/top-headlines?' +
+        `country=us&` +
+        'category=entertainment&' +
         `apiKey=${randomKey}`;
 
     return $.ajax({

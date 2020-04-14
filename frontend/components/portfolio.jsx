@@ -2,6 +2,7 @@ import React from 'react';
 import SummaryStockItem from './summary_stock_item';
 import * as PortfolioUtil from '../util/portfolio_util';
 import ChartContainer from './chart_container';
+import TopArticlesContainer from './top_articles_container'
 
 class Portfolio extends React.Component{
     constructor(props){
@@ -17,6 +18,7 @@ class Portfolio extends React.Component{
                 this.props.getTrends(tickerName);
             }
         }
+        this.props.fetchTopArticles();
     }
 
     render() {
@@ -29,13 +31,11 @@ class Portfolio extends React.Component{
             <>
                 <div className='show-container'>
                     <section className='show-graph'>
-                        {/* <h1>Portfolio {currentPortfolioValue}</h1> */}
-                        {/* <h3 className='top-price'>${this.props.currentPrice.toFixed(2)}</h3> */}
                         <div className='stock-graph'>
                             <ChartContainer stock={fakeStock} currentPrice={currentPortfolioValue+cash} portfolioTrends={this.props.portfolio} type="portfolio" />
                         </div>
                         <div className='news-list'>
-                            {/* <ArticlesContainer stock={this.props.stock} /> */}
+                            <TopArticlesContainer />
                         </div>
                     </section>
 
@@ -53,7 +53,7 @@ class Portfolio extends React.Component{
                             </div>
 
                         <div className='trade-form-header'>
-                            <h1>Watches</h1>
+                            <h1>Watchlist</h1>
                         </div>
                 
                     </section>
