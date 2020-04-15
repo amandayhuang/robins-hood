@@ -33,6 +33,7 @@ class StockShow extends React.Component{
 
     render(){
         // debugger
+
         return(
             <>
             <div className='show-container'>

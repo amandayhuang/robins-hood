@@ -41,8 +41,12 @@ export const getNews = (stockId) => {
             if (i === dates.length - 1){
                 const d = new Date;
                 const mult = 1/(d.getUTCHours()/24);
+                if (d.getUTCHours === 0){
+                    mult = 24;
+                }
                 let rand = Math.random() * 5;
                 let newNum = Math.round(data.totalResults * mult);
+                debugger
                 if (data.totalResults === 0 || data.totalResults === undefined){
                     newNum = Math.round(1 + rand);
                 }

@@ -71,7 +71,7 @@ export const getWatchSummaryFromWatches = (watches,trends) => {
         const watch = Object.values(watches)[i];
         
         if (summaryStock[watch.ticker_name] === undefined && watch.is_deleted === false) {
-            debugger
+            // debugger
             let trendsArray = Object.values(trends[watch.ticker_name]);
             let currentSharePrice = 100;
             currentSharePrice = trendsArray[trendsArray.length-1].$;

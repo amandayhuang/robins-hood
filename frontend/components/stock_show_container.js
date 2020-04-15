@@ -11,13 +11,15 @@ const msp = (state,ownProps) => {
     if(trends === undefined){
         return {
             stock: {id:"",display_name:"", ticker_name:""},
-            currentPrice: 0
+            currentPrice: 0,
+            currentUser: state.session
         }
     }else{
         // debugger
         return {
             stock: stock,
-            currentPrice: trends[trends.length - 1].$
+            currentPrice: trends[trends.length - 1].$,
+            currentUser: state.session
         }
     }
 };
