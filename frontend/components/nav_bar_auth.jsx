@@ -2,11 +2,14 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import * as PortfolioUtil from '../util/portfolio_util';
+import SearchItem from './search_item';
 
 class NavBarAuth extends React.Component {
     constructor(props) {
         super(props);
         this.toggleClass = this.toggleClass.bind(this);
+        this.state = {suggestions: []};
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
     toggleClass(e) {
@@ -18,6 +21,7 @@ class NavBarAuth extends React.Component {
     }
 
     componentDidMount(){
+        this.props.fetchAllStocks();
         this.props.fetchTrades(this.props.currentUser.id);
         this.props.fetchBalanceChanges(this.props.currentUser.id);
         this.props.fetchWatches(this.props.currentUser.id);
@@ -29,10 +33,32 @@ class NavBarAuth extends React.Component {
             const tickerName = allStocks[i];
             const found = this.props.trends[tickerName];
             if (found === undefined) {
-                this.props.fetchStock(tickerName);
+                // this.props.fetchStock(tickerName);
                 this.props.getTrends(tickerName);
             }
         }
+    }
+
+    handleSearch(e){
+        let input = e.currentTarget.value.toLowerCase();
+        let suggestions = [];
+        let stocks = Object.values(this.props.stocks);
+        for (let i = 0; i < stocks.length; i++) {
+            const stock = stocks[i];
+            if (stock.ticker_name.toLowerCase().includes(input) || stock.display_name.toLowerCase().includes(input)){
+                suggestions.push(stock)
+            }
+        }
+        debugger
+        if(input === ''){
+            this.setState({ suggestions: [] });
+        }else if(suggestions.length === 0){
+            this.setState({ suggestions:[{ticker_name:"We were unable to find any results for your search."}] });
+        }
+        else{
+            this.setState({suggestions:suggestions});
+        }
+        debugger
     }
 
 
@@ -55,10 +81,20 @@ class NavBarAuth extends React.Component {
                             </li>
 
                             <li>
-                                <div className="search">
-                                    {/* <i className="fa fa-search"></i> */}
-                                 <input className='search-input' placeholder="Search" type="text"/>
-                                </div>
+                                    <div className = 'search-container'>
+                                    <div className="search">
+                                        <i className="fa fa-search"></i><input className='search-input' placeholder="Search" type="text" onChange={this.handleSearch}/>
+                                    </div>
+                                    <div className='search-suggestions'>
+                                        <ul>
+                                            {
+                                                this.state.suggestions.map(ele => (
+                                                    <SearchItem stock={ele}/>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
+                                    </div>
                             </li>
                             <li>
                                 

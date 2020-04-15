@@ -6,7 +6,9 @@
     "jquery-ujs": "^1.2.2",
     "lodash": "^4.17.15",
     "node-loader": "^0.6.0",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-autosuggest": "^10.0.0",
     "react-dom": "^16.13.1",
     "react-mock-router": "^1.0.15",
     "react-redux": "^5.1.2",
@@ -61,5 +63,13 @@
   "engines": {
     "node": "10.13.0",
     "npm": "6.4.1"
-  }
+  },
+  "plugins": [
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
+  ]
 }

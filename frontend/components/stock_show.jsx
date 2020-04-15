@@ -13,11 +13,16 @@ class StockShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchStock(this.props.match.params.stockId);
-        debugger
         if (this.props.trends[this.props.match.params.stockId] === undefined){
             this.props.getTrends(this.props.match.params.stockId);
         }
         this.props.fetchArticles(this.props.match.params.stockId);
+    }
+
+    componentDidUpdate(){
+        if (this.props.trends[this.props.match.params.stockId] === undefined) {
+            this.props.getTrends(this.props.match.params.stockId);
+        }
     }
 
     toggleTabs(e){

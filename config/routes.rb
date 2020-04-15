@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy]
 
-    resources :stocks, only: [:show]
+    resources :stocks, only: [:show, :index]
     resources :watches, only: [:destroy]
 
     # post '/search', to: 'users#search'

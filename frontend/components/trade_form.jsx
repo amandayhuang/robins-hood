@@ -57,7 +57,10 @@ class TradeForm extends React.Component{
             setTimeout(() => this.state.message = '', 2000);
         }
         else{
-            if(this.props.formType === 'Buy'){
+            if((Number(this.state.quantity) > 0) === false){
+                this.setState({ message: '✖ Enter a valid number' });
+            }
+            else if(this.props.formType === 'Buy'){
                 this.setState({ message: '✖ Not Enough Buying Power' });
             }else{
                 this.setState({ message: '✖ Not Enough Shares' });
@@ -95,6 +98,7 @@ class TradeForm extends React.Component{
         let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes, endDate);
         let stockSummary = PortfolioUtil.getStockSummaryFromTrades(this.props.trades, this.props.trends, new Date);
         let numOwned;
+        let desc = this.props.desc;
         if (stockSummary[this.props.stock.ticker_name] === undefined){
             numOwned = 0;
         }else{
@@ -109,6 +113,9 @@ class TradeForm extends React.Component{
             available = `$${cash.toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
         }else{
             available = numOwned;
+            if(available === 1){
+                desc = 'Share';
+            }
         }
 
 
@@ -136,7 +143,7 @@ class TradeForm extends React.Component{
                     <button>{this.props.formType} Shares</button>
                     
                     </form>
-                    <div className='trade-message available'>{available} {this.props.desc} Available</div>
+                    <div className='trade-message available'>{available} {desc} Available</div>
                     
 
                     <div className = 'watch'>
