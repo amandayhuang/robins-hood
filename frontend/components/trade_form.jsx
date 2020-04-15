@@ -7,6 +7,7 @@ class TradeForm extends React.Component{
         this.state.cost = 0;
         this.state.message = "";
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.makeWatch = this.makeWatch.bind(this);
     }
 
     update(field) {
@@ -44,8 +45,18 @@ class TradeForm extends React.Component{
         }
     }
 
+    makeWatch(){
+        const newWatch = { ticker_name: this.props.stock.ticker_name, user_id: this.props.currentUser.id };
+        this.props.createWatch(newWatch);
+        this.setState({ message: 'Watched!' });
+    }
+
 
     render(){
+        const is_owned = this.props.currentUser.owned_stock_ids.includes(this.props.stock.ticker_name);
+        const is_watched = this.props.currentUser.watched_stock_ids.includes(this.props.stock.ticker_name);
+        
+        debugger
         return(
             <>
                 <div className='trade-form'>
@@ -68,6 +79,13 @@ class TradeForm extends React.Component{
                     <button>{this.props.formType} Shares</button>
                     </form>
                     <div className='trade-message'>{this.state.message}</div>
+
+                    <div className = 'watch'>
+                        { 
+                        is_owned === false && is_watched == false &&
+                            <button onClick={this.makeWatch}> Add to Watchlist </button>
+                        }
+                    </div>
                 </div>
             </>
         )

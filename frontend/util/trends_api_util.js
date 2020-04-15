@@ -46,7 +46,6 @@ export const getNews = (stockId) => {
                 }
                 let rand = Math.random() * 5;
                 let newNum = Math.round(data.totalResults * mult);
-                debugger
                 if (data.totalResults === 0 || data.totalResults === undefined){
                     newNum = Math.round(1 + rand);
                 }
