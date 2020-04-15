@@ -16,7 +16,11 @@ const msp = (state, ownProps) =>{
     stock: stock,
     verb: 'bought',
     currentUser: state.session,
-    watches: state.entities.watches
+    watches: state.entities.watches,
+    balance_changes: state.entities.balance_changes,
+    trends: state.entities.trends,
+    trades: state.entities.trades,
+    desc: 'Buying Power'
 };}
 
 const mdp = dispatch => ({

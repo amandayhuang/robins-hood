@@ -684,7 +684,7 @@ a {
  }
 
  .market-price {
-     border-bottom: 1px solid rgb(184, 184, 184);
+     border-bottom: 1px solid rgb(230, 230, 230);
       color: #F3613E;
       font-weight: 400;
 
@@ -729,7 +729,7 @@ a {
       border-radius:4px;
       padding:0;
       margin:0;
-    margin-top:20px;
+    margin-top:0px;
   }
 
 
@@ -743,8 +743,12 @@ a {
       font-family: 'Roboto', sans-serif;
     font-size: 14px;
      font-weight:500;
-     margin-top:20px;
+     margin:10px;
+     padding-left:0;
+     margin-left:0;
+     margin-top:0px;
      color: #52CF9A;
+    color: #6F787E;
   }
 
   .form-tab{
@@ -1060,4 +1064,13 @@ a {
 .watch .watch-button:hover{
     background-color: transparent;
     cursor: pointer;
+}
+
+.available{
+    color:  #F25431;
+    padding:0px;
+    margin:0;
+    width:100%;
+    font-size:13px;
+    margin: 20px 0 30px 0;
 }

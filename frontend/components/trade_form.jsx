@@ -1,9 +1,12 @@
 import React from 'react'
+import * as PortfolioUtil from '../util/portfolio_util'
 
 class TradeForm extends React.Component{
     constructor(props){
         super(props);
         this.state = this.props.trade;
+        this.state.shares = 0;
+        this.state.buying_power = 0;
         this.state.cost = 0;
         this.state.message = "";
         this.state.is_owned = this.props.currentUser.owned_stock_ids.includes(this.props.stock.ticker_name);
@@ -26,8 +29,18 @@ class TradeForm extends React.Component{
         this.state.user_id = this.props.userId;
         this.state.ticker_name = this.props.stock.ticker_name;
         this.state.share_price = this.props.currentPrice;
+        let allow_trade = false;
 
-        if (Number(this.state.quantity) > 0 ) {
+        debugger
+        if(this.props.formType === 'Buy' && this.state.buying_power >= Number(this.state.quantity)*this.state.share_price){
+            allow_trade = true;
+        }
+
+        if (this.props.formType === 'Sell' && this.state.shares >= Number(this.state.quantity)) {
+            allow_trade = true;
+        }
+
+        if (Number(this.state.quantity) > 0 && allow_trade) {
             this.props.createTrade({
                 user_id: this.state.user_id,
                 ticker_name: this.state.ticker_name,
@@ -44,7 +57,11 @@ class TradeForm extends React.Component{
             setTimeout(() => this.state.message = '', 2000);
         }
         else{
-            this.setState({ message: 'Enter a valid number' });
+            if(this.props.formType === 'Buy'){
+                this.setState({ message: '✖ Not Enough Buying Power' });
+            }else{
+                this.setState({ message: '✖ Not Enough Shares' });
+            }
         }
     }
 
@@ -73,7 +90,28 @@ class TradeForm extends React.Component{
 
 
     render(){
-  
+
+        let endDate = new Date;
+        let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes, endDate);
+        let stockSummary = PortfolioUtil.getStockSummaryFromTrades(this.props.trades, this.props.trends, new Date);
+        let numOwned;
+        if (stockSummary[this.props.stock.ticker_name] === undefined){
+            numOwned = 0;
+        }else{
+            numOwned = stockSummary[this.props.stock.ticker_name].quantity_bought - stockSummary[this.props.stock.ticker_name].quantity_sold;
+        }
+
+        this.state.shares = numOwned;
+        this.state.buying_power = cash;
+
+        let available;
+        if(this.props.formType == 'Buy'){
+            available = `$${cash.toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
+        }else{
+            available = numOwned;
+        }
+
+
         return(
             <>
                 <div className='trade-form'>
@@ -92,10 +130,14 @@ class TradeForm extends React.Component{
                         <label>Estimated {this.props.word}</label>
                         <h4>${this.state.cost.toFixed(2)}</h4>
                     </div>
+
+                    <div className='trade-message' ref="message">{this.state.message}</div>
                 
                     <button>{this.props.formType} Shares</button>
+                    
                     </form>
-                    <div className='trade-message'>{this.state.message}</div>
+                    <div className='trade-message available'>{available} {this.props.desc} Available</div>
+                    
 
                     <div className = 'watch'>
                         { 
