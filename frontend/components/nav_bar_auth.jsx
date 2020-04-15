@@ -20,12 +20,28 @@ class NavBarAuth extends React.Component {
     componentDidMount(){
         this.props.fetchTrades(this.props.currentUser.id);
         this.props.fetchBalanceChanges(this.props.currentUser.id);
+        this.props.fetchWatches(this.props.currentUser.id);
+
+        const allStocks = this.props.currentUser.owned_stock_ids.concat(this.props.currentUser.watched_stock_ids);
+        // debugger
+        //get stocks trends
+        for (let i = 0; i < allStocks.length; i++) {
+            const tickerName = allStocks[i];
+            const found = this.props.trends[tickerName];
+            if (found === undefined) {
+                this.props.fetchStock(tickerName);
+                this.props.getTrends(tickerName);
+            }
+        }
     }
 
 
     render() {
         let endDate = new Date;
         let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes, endDate);
+        let watchSummary = PortfolioUtil.getWatchSummaryFromWatches(this.props.watches,this.props.trends);
+        let stockSummary = PortfolioUtil.getStockSummaryFromTrades(this.props.trades, this.props.trends, new Date);
+        let stockValue = PortfolioUtil.getPortfolioValue(Object.values(stockSummary));
 
         return (
             <>
@@ -59,6 +75,7 @@ class NavBarAuth extends React.Component {
                                         <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>
                                         <li> <button onClick={this.props.logout}>Log Out</button></li>
                                         <li> Buying Power {cash.toFixed(2)}</li>
+                                        <li> Portfolio {(cash+stockValue).toFixed(2)}</li>
                                     </ul>
                                 </div>
                             </div>

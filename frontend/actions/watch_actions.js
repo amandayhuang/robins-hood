@@ -1,0 +1,25 @@
+import * as WatchAPIUtil from '../util/watch_api_util';
+
+export const RECEIVE_WATCHES = "RECEIVE_WATCHES";
+export const RECEIVE_WATCH = "RECEIVE_WATCH";
+
+const receiveWatches = watches => ({
+    type: RECEIVE_WATCHES,
+    watches
+})
+
+const receiveWatch = watch => ({
+    type: RECEIVE_WATCH,
+    watch
+})
+
+
+export const createWatch = (watch) => dispatch => {
+    return WatchAPIUtil.createWatch(watch)
+        .then(watch => dispatch(receiveWatch(watch)));
+}
+
+export const fetchWatches = userId => dispatch => (
+    WatchAPIUtil.fetchWatches(userId)
+        .then(watches => dispatch(receiveWatches(watches)))
+)

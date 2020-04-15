@@ -62,3 +62,21 @@ export const getPortfolioValue = summaryStock =>{
 
     return value;
 }
+
+
+export const getWatchSummaryFromWatches = (watches,trends) => {
+    let summaryStock = {};
+    for (let i = 0; i < Object.values(watches).length; i++) {
+        
+        const watch = Object.values(watches)[i];
+        
+        if (summaryStock[watch.ticker_name] === undefined && watch.is_deleted === false) {
+            debugger
+            let trendsArray = Object.values(trends[watch.ticker_name]);
+            let currentSharePrice = 100;
+            currentSharePrice = trendsArray[trendsArray.length-1].$;
+            summaryStock[watch.ticker_name] = { ticker_name: watch.ticker_name, current_share_price: currentSharePrice };
+        }
+    }
+    return summaryStock;
+}

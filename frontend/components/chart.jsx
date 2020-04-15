@@ -62,7 +62,7 @@ export default class Chart extends PureComponent {
 
 
     render() {
-        debugger
+        // debugger
         let showPrice;
         let todayPrice = this.props.trends[this.props.trends.length - 1].$;
         let yesterdayPrice = this.props.trends[this.props.trends.length - 2].$;

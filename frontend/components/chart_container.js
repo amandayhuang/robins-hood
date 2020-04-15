@@ -7,7 +7,7 @@ const msp = (state, ownProps) => {
     if(ownProps.type === 'portfolio'){
         trends = ownProps.portfolioTrends;
     }
-    debugger
+    // debugger
     if(trends === undefined || trends.length === 0){
         return {
             trends: [
