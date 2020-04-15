@@ -8,11 +8,13 @@ Rails.application.routes.draw do
       resources :trades, only: [:index,:create]
       resources :stocks, only: [:index]
       resources :balance_changes, only: [:index]
+      resources :watches, only: [:index,:create]
     end
 
     resource :session, only: [:create, :destroy]
 
-    resources :stocks, only: [:show]
+    resources :stocks, only: [:show, :index]
+    resources :watches, only: [:destroy]
 
     # post '/search', to: 'users#search'
 

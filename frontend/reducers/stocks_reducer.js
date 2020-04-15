@@ -1,4 +1,4 @@
-import {RECEIVE_STOCK, RECEIVE_TRENDS} from '../actions/stock_actions';
+import {RECEIVE_STOCK, RECEIVE_ALL_STOCKS} from '../actions/stock_actions';
 
 const StocksReducer = (state={}, action) =>{
     Object.freeze(state);
@@ -9,6 +9,8 @@ const StocksReducer = (state={}, action) =>{
             newState = Object.assign({},state);
             newState[action.stock.ticker_name] = action.stock;
             return newState;
+        case RECEIVE_ALL_STOCKS:
+            return action.stocks;
         default:
             return state;
     }

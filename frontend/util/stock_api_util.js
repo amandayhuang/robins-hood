@@ -6,3 +6,11 @@ export const fetchStock = stockId =>(
         data: stockId
     })
 )
+
+export const fetchAllStocks = () => (
+    $.ajax({
+        url: `/api/stocks/`,
+        method: 'GET',
+        async: false
+    })
+)

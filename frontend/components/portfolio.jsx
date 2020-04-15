@@ -10,22 +10,27 @@ class Portfolio extends React.Component{
     }
 
     componentDidMount(){
-        for (let i = 0; i < this.props.currentUser.owned_stock_ids.length; i++) {
-            const tickerName = this.props.currentUser.owned_stock_ids[i];
-            const found = this.props.trends[this.props.currentUser.owned_stock_ids[i]];
-            if(found === undefined){
-                this.props.fetchStock(tickerName);
-                this.props.getTrends(tickerName);
-            }
-        }
+        // for (let i = 0; i < this.props.currentUser.owned_stock_ids.length; i++) {
+        //     const tickerName = this.props.currentUser.owned_stock_ids[i];
+        //     const found = this.props.trends[this.props.currentUser.owned_stock_ids[i]];
+        //     if(found === undefined){
+        //         this.props.fetchStock(tickerName);
+        //         this.props.getTrends(tickerName);
+        //     }
+        // }
         this.props.fetchTopArticles();
     }
 
     render() {
         let currentPortfolioValue = PortfolioUtil.getPortfolioValue(this.props.summaryStock);
-        let endDate = new Date;
-        let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes,endDate)
+        let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes, new Date)
         let fakeStock = {display_name:"", ticker_name:""};
+
+        let summaryWatch = PortfolioUtil.getWatchSummaryFromWatches(this.props.watches,this.props.trends);
+        summaryWatch = Object.values(summaryWatch);
+        if(summaryWatch.length === 0){
+            summaryWatch = [];
+        }
 
         return (
             <>
@@ -44,16 +49,24 @@ class Portfolio extends React.Component{
                             <h1 className='portfolio-h1'>Stocks</h1>
                         </div>
       
-                           <div className="portfolio-stocks">
-                               {
-                                   this.props.summaryStock.map( stock => (
-                                       <SummaryStockItem key={stock.ticker_name} stock={stock} stockTrends={this.props.trends}/> 
-                                   ))
-                               }
-                            </div>
+                        <div className="portfolio-stocks">
+                            {
+                                this.props.summaryStock.map( stock => (
+                                    <SummaryStockItem key={stock.ticker_name} stock={stock} stockTrends={this.props.trends}/> 
+                                ))
+                            }
+                        </div>
 
                         <div className='trade-form-header portfolio-header'>
                             <h1 className='portfolio-h1'>Watchlist</h1>
+                        </div>
+
+                        <div className="portfolio-stocks">
+                            {
+                                summaryWatch.map(stock => (
+                                    <SummaryStockItem key={stock.ticker_name} stock={stock} stockTrends={this.props.trends} />
+                                ))
+                            }
                         </div>
                 
                     </section>

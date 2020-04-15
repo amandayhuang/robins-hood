@@ -13,8 +13,16 @@ class StockShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchStock(this.props.match.params.stockId);
-        this.props.getTrends(this.props.match.params.stockId);
+        if (this.props.trends[this.props.match.params.stockId] === undefined){
+            this.props.getTrends(this.props.match.params.stockId);
+        }
         this.props.fetchArticles(this.props.match.params.stockId);
+    }
+
+    componentDidUpdate(){
+        if (this.props.trends[this.props.match.params.stockId] === undefined) {
+            this.props.getTrends(this.props.match.params.stockId);
+        }
     }
 
     toggleTabs(e){
@@ -33,6 +41,7 @@ class StockShow extends React.Component{
 
     render(){
         // debugger
+
         return(
             <>
             <div className='show-container'>
@@ -47,7 +56,7 @@ class StockShow extends React.Component{
                 </div>
                 </section>
 
-                <section className="show-form">
+                <section className="show-form scrollable">
                     <div className='trade-form-header'>
                         <h1 ref="buyHeader" onClick={this.toggleTabs} className="active-tab">Buy {this.props.stock.ticker_name}</h1>
                         <h1 ref="sellHeader" onClick={this.toggleTabs}> Sell {this.props.stock.ticker_name}</h1>

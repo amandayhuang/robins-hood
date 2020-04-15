@@ -13,6 +13,7 @@ Stock.destroy_all
 Trade.destroy_all
 Fund.destroy_all
 BalanceChange.destroy_all
+Watch.destroy_all
 
 txn_date = Date.today - 35
 demo = User.create!(email:"demo@robinhood.com", first_name:"Robin", last_name:"Hood", password:"demopassword", created_at:txn_date, updated_at:txn_date)
@@ -53,6 +54,9 @@ trade_date = Date.today - 10
 trade_5 = Trade.create!(user_id:demo.id, ticker_name:beyonce.ticker_name, trade_type:'buy', quantity:1, share_price:199.21, created_at:trade_date, updated_at:trade_date)
 BalanceChange.create!(user_id:trade_5.user_id, amount:trade_5.share_price*trade_5.quantity*-1, balanceable: trade_5, created_at:trade_date, updated_at:trade_date)
 
-trade_date = Date.today - 1
-trade_6 = Trade.create!(user_id:demo.id, ticker_name:amanda.ticker_name, trade_type:'sell', quantity:2, share_price:300.33, created_at:trade_date, updated_at:trade_date)
-BalanceChange.create!(user_id:trade_6.user_id, amount:trade_6.share_price*trade_6.quantity, balanceable: trade_6, created_at:trade_date, updated_at:trade_date)
+#make this trade now
+trade_6 = Trade.create!(user_id:demo.id, ticker_name:amanda.ticker_name, trade_type:'sell', quantity:2, share_price:300.33)
+BalanceChange.create!(user_id:trade_6.user_id, amount:trade_6.share_price*trade_6.quantity, balanceable: trade_6)
+
+watch_1 = Watch.create!(user_id:demo.id, ticker_name:mindy.ticker_name)
+watch_2 = Watch.create!(user_id:demo.id, ticker_name:alexandria.ticker_name)

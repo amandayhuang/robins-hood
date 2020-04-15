@@ -468,17 +468,23 @@ a {
      border-radius: 4px;
      align-items: center;
      overflow:hidden;
+     position:relative;
  }
 
  .search:hover{
      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
      border:none;
+     cursor: text;
  }
 
 
  .search:focus{
      outline:none;
      border:none;
+ }
+
+ .search input:focus .search{
+     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
  }
 
  .search input{
@@ -489,6 +495,9 @@ a {
      font-size: 12px;
  }
 
+ .search:hover .fa-search{
+     color:black;
+ }
 
  .search-input::placeholder{
      color: #e3e3e3;
@@ -496,9 +505,35 @@ a {
      font-family: 'Roboto', sans-serif;
      font-weight: 350;
  }
- .search-input:focus{
+ .search-input:focus {
      outline:none;
  }
+
+ .fa-search{
+    color: #e3e3e3;
+    margin-left:10px;
+}
+
+.search-container{
+    position:relative;
+}
+
+.search-suggestions{
+    position: absolute;
+    z-index: 50;
+    padding:0;
+    margin-top:0;
+    
+}
+.search-suggestions ul{
+    margin-left:-40px;
+    margin-top:10px;
+    background-color: white;
+}
+
+.search-item:hover{
+    background-color: rgb(243, 243, 243);
+}
 
  .dropdown-trigger{
      position:relative;
@@ -516,7 +551,13 @@ a {
  }
 
  .dropdown-items li{
-    padding:10px;
+    padding:10px 0px;
+ }
+
+ .dropdown-trigger ul{
+     width:100%;
+     margin:0;
+     padding:10px;
  }
 
  .dropdown-items button{
@@ -535,7 +576,7 @@ a {
  .dropdown-items{
     display:none;
     position:absolute;
-    height:300px;
+    height:200px;
     width: 270px;
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
     right:10px;
@@ -646,6 +687,8 @@ a {
      font-weight:300;
      padding:10px;
      border-bottom: 1px solid rgb(230, 230, 230);
+     border-top: 1px solid rgb(230, 230, 230);
+     
  }
 
  .trade-form-header h1{
@@ -676,7 +719,7 @@ a {
  }
 
  .market-price {
-     border-bottom: 1px solid rgb(184, 184, 184);
+     border-bottom: 1px solid rgb(230, 230, 230);
       color: #F3613E;
       font-weight: 400;
 
@@ -721,7 +764,7 @@ a {
       border-radius:4px;
       padding:0;
       margin:0;
-    margin-top:20px;
+    margin-top:0px;
   }
 
 
@@ -735,8 +778,12 @@ a {
       font-family: 'Roboto', sans-serif;
     font-size: 14px;
      font-weight:500;
-     margin-top:20px;
+     margin:10px;
+     padding-left:0;
+     margin-left:0;
+     margin-top:0px;
      color: #52CF9A;
+    color: #6F787E;
   }
 
   .form-tab{
@@ -1027,3 +1074,39 @@ a {
     margin-top:-20px;
     margin-left:5px;
 }
+
+.nav-stats{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-stats div{
+    padding-right:20px;
+}
+
+.lighter{
+    font-weight: 400;
+}
+
+.watch .watch-button{
+    background-color: transparent;
+    border: 1px solid #F25431;
+    margin-bottom: 30px;
+    margin-top: -10px;
+    color: #F25431;
+}
+
+.watch .watch-button:hover{
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.available{
+    color:  #F25431;
+    padding:0px;
+    margin:0;
+    width:100%;
+    font-size:13px;
+    margin: 20px 0 30px 0;
+}
+

@@ -23,8 +23,12 @@ class User < ApplicationRecord
     has_many :trades
     has_many :funds
     has_many :balance_changes
+    has_many :watches
 
     has_many :owned_stocks, -> { distinct }, through: :trades,
+    source: :stock
+
+    has_many :watched_stocks, -> { distinct }, through: :watches,
     source: :stock
 
     def self.find_by_credentials(email,password)

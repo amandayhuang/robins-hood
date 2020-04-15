@@ -44,12 +44,19 @@ const SummaryStockItem = (props) => {
         stroke = "#F25431";
     }
 
+    let numShares = props.stock.quantity_bought - props.stock.quantity_sold;
+    if (numShares > 0){
+        numShares = `${numShares} ${share}`;
+    }else{
+        numShares="";
+    }
+
     return (
         <Link to={`/stocks/${props.stock.ticker_name}`}>
             <div className="stock-item">
                 <section className='stock-item-left'> 
                     <h3>{props.stock.ticker_name}</h3>
-                    <h4>{props.stock.quantity_bought - props.stock.quantity_sold} {share}</h4>
+                    <h4>{numShares}</h4>
                 </section>
                 <section className='stock-item-middle'>
                     <SparkLine trends={stockTrend} stroke={stroke}/>
