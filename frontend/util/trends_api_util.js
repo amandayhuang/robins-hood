@@ -7,14 +7,14 @@ let randomKey = keys[Math.floor(Math.random() * keys.length)];
 // randomKey = 'bde33e3500614684b270fa5a75c27d2a'; //delete
 // randomKey = '098c2851ae1a455faf7c69b1ac2bc7e2';
 // randomKey = '7fc2e8cc4e63454e92ed536947860baf';
-randomKey = 'd0f31208935e4270be18bd0d72595166';
+// randomKey = 'd0f31208935e4270be18bd0d72595166';
 
 export const getNews = (stockId) => {
     let displayName = '';
     fetchStock(stockId).then(response => displayName = response.display_name);
 
     let dates = [];
-    let i = 1; // number of days to lookback
+    let i = 7; // number of days to lookback
     let news = [];
 
     while (i >= 0) {
