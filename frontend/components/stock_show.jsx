@@ -22,6 +22,12 @@ class StockShow extends React.Component{
     componentDidUpdate(){
         if (this.props.trends[this.props.match.params.stockId] === undefined) {
             this.props.getTrends(this.props.match.params.stockId);
+            
+        }
+        if(this.props.articles !== undefined){
+            if (this.props.articles[this.props.match.params.stockId] === undefined){
+                this.props.fetchArticles(this.props.match.params.stockId);
+            }
         }
     }
 

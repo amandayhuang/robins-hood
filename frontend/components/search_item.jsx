@@ -6,7 +6,7 @@ const SearchItem = (props) => {
     let stock = props.stock;
     return (
         <li className='search-item'>
-            <Link to={`/stocks/${stock.ticker_name}`}>{stock.ticker_name} {stock.display_name}</Link>
+            <Link to={`/stocks/${stock.ticker_name}`}><span className='search-ticker'>{stock.ticker_name}</span><span className='search-display'> {stock.display_name}</span></Link>
         </li>
     )
 }

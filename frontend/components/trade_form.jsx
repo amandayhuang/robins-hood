@@ -17,7 +17,6 @@ class TradeForm extends React.Component{
     }
 
     update(field) {
-
         return e => this.setState({ 
             [field]: e.currentTarget.value,
             cost: e.currentTarget.value * this.props.currentPrice
@@ -93,7 +92,8 @@ class TradeForm extends React.Component{
 
 
     render(){
-
+        this.state.is_owned = this.props.currentUser.owned_stock_ids.includes(this.props.stock.ticker_name);
+        this.state.is_watched = this.props.currentUser.watched_stock_ids.includes(this.props.stock.ticker_name);
         let endDate = new Date;
         let cash = PortfolioUtil.getCashFromBalanceChange(this.props.balance_changes, endDate);
         let stockSummary = PortfolioUtil.getStockSummaryFromTrades(this.props.trades, this.props.trends, new Date);
