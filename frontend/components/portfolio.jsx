@@ -27,7 +27,6 @@ class Portfolio extends React.Component{
         let fakeStock = {display_name:"", ticker_name:""};
 
         let summaryWatch = PortfolioUtil.getWatchSummaryFromWatches(this.props.watches,this.props.trends);
-        debugger
         summaryWatch = Object.values(summaryWatch);
         if(summaryWatch.length === 0){
             summaryWatch = [];

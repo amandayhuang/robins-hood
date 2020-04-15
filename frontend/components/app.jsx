@@ -13,8 +13,8 @@ const App = () => {
     return(
     <div>
         <ProtectedRoute path='/stocks' component={NavBarContainerAuth} />
-        <ProtectedRoute exact path='/me' component={NavBarContainerAuth} />
-        <ProtectedRoute exact path='/me' component= {PortfolioContainer} />
+        <ProtectedRoute exact path='/portfolio' component={NavBarContainerAuth} />
+        <ProtectedRoute exact path='/portfolio' component= {PortfolioContainer} />
         <ProtectedRoute path='/stocks/:stockId' component={StockShowContainer}/>
         
 

@@ -16,6 +16,12 @@ class Api::WatchesController < ApplicationController
         end
     end
 
+    def destroy
+        @watch = Watch.find(params[:id])
+        @watch.delete;
+        render :show
+    end
+
     private
     def watch_params
         params.require(:watch).permit(:user_id, :ticker_name)

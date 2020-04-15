@@ -51,7 +51,7 @@ class NavBarAuth extends React.Component {
                             <li>
                                 {/* <img className='logo-black-auth' src={window.logoBlackURL} alt="robins hood logo" />
                                  */}
-                                <Link to='/me'><i className="far fa-laugh-wink nav-auth-logo"></i> </Link>
+                                <Link to='/portfolio'><i className="far fa-laugh-wink nav-auth-logo"></i> </Link>
                             </li>
 
                             <li>
@@ -67,7 +67,7 @@ class NavBarAuth extends React.Component {
                     </li>
                     <li>
                         <ul className='nav-auth-bar-right'>
-                            <li className='portfolio'><Link to='/me'> Portfolio</Link></li>
+                            <li className='portfolio'><Link to='/portfolio'> Portfolio</Link></li>
                             <div className='dropdown-trigger'>    
                                 <li onClick={this.toggleClass} className='account' ref="account">Account</li>
                                 <div className='dropdown-items' ref="menu">

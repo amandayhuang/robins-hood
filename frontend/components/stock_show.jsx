@@ -51,7 +51,7 @@ class StockShow extends React.Component{
                 </div>
                 </section>
 
-                <section className="show-form">
+                <section className="show-form scrollable">
                     <div className='trade-form-header'>
                         <h1 ref="buyHeader" onClick={this.toggleTabs} className="active-tab">Buy {this.props.stock.ticker_name}</h1>
                         <h1 ref="sellHeader" onClick={this.toggleTabs}> Sell {this.props.stock.ticker_name}</h1>
