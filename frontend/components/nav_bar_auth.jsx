@@ -73,9 +73,14 @@ class NavBarAuth extends React.Component {
                                 <div className='dropdown-items' ref="menu">
                                     <ul>
                                         <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>
-                                        <li> <button onClick={this.props.logout}>Log Out</button></li>
-                                        <li> Buying Power {cash.toFixed(2)}</li>
-                                        <li> Portfolio {(cash+stockValue).toFixed(2)}</li>
+                                        
+                                        <li>
+                                        <div className="nav-stats">
+                                                <div>  <div>${(cash + stockValue).toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</div> <span className="lighter">Portfolio Value</span></div>
+                                                <div> <div>${cash.toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </div> <span className="lighter">Buying Power</span> </div>
+                                        </div>
+                                        </li>
+                                        <li><i className="fas fa-sign-out-alt"></i><button onClick={this.props.logout}>Log Out</button></li>
                                     </ul>
                                 </div>
                             </div>
