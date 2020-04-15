@@ -10,6 +10,7 @@ class TradeForm extends React.Component{
         this.state.is_watched = this.props.currentUser.watched_stock_ids.includes(this.props.stock.ticker_name);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.makeWatch = this.makeWatch.bind(this);
+        this.removeWatch = this.removeWatch.bind(this);
     }
 
     update(field) {
@@ -50,7 +51,24 @@ class TradeForm extends React.Component{
     makeWatch(){
         const newWatch = { ticker_name: this.props.stock.ticker_name, user_id: this.props.currentUser.id };
         this.props.createWatch(newWatch);
-        this.setState({ message: 'Watched!' , is_watched:true});
+        this.setState({is_watched:true});
+    }
+
+    removeWatch() {
+        let watchId;
+        for (let i = 0; i < Object.values(this.props.watches).length; i++) {
+            const element = Object.values(this.props.watches)[i];
+            if(element.ticker_name === this.props.stock.ticker_name){
+                watchId = element.id;
+            }
+        }
+
+        if(watchId > 0){
+            this.props.deleteWatch(watchId);
+            this.setState({is_watched: false });
+        }else{
+            this.setState({ message: 'Error!'});
+        }
     }
 
 
@@ -81,13 +99,13 @@ class TradeForm extends React.Component{
 
                     <div className = 'watch'>
                         { 
-                        this.state.is_owned === false && this.state.is_watched == false &&
-                            <button onClick={this.makeWatch}> Add to Watchlist </button>
+                        this.state.is_owned === false && this.state.is_watched === false &&
+                            <button className='watch-button' onClick={this.makeWatch}> Add to Watchlist </button>
                         }
 
                         {
-                        this.state.is_owned === false && this.state.is_watched == true &&
-                            <button> Remove from Watchlist </button>
+                        this.state.is_owned === false && this.state.is_watched === true &&
+                            <button className='watch-button' onClick={this.removeWatch}> Remove from Watchlist </button>
                         }
                     </div>
                 </div>

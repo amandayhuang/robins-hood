@@ -2,6 +2,7 @@ import { createTrade } from '../actions/trade_actions'
 import { connect } from 'react-redux';
 import TradeForm from './trade_form'
 import { createWatch } from '../actions/watch_actions'
+import { deleteWatch } from '../actions/watch_actions'
 
 const msp = (state, ownProps) => {
     let stock = ownProps.stock;
@@ -14,13 +15,15 @@ const msp = (state, ownProps) => {
         word: 'Credit',
         stock: stock,
         verb: 'sold',
-        currentUser: state.session
+        currentUser: state.session,
+        watches: state.entities.watches
     };
 }
 
 const mdp = dispatch => ({
     createTrade: trade => dispatch(createTrade(trade)),
-    createWatch: watch => dispatch(createWatch(watch))
+    createWatch: watch => dispatch(createWatch(watch)),
+    deleteWatch: watchId => dispatch(deleteWatch(watchId))
 });
 
 export default connect(msp, mdp)(TradeForm);

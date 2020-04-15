@@ -12,3 +12,10 @@ export const fetchWatches = userId => (
         method: "GET"
     })
 )
+
+export const deleteWatch = (watchId) => (
+    $.ajax({
+        url: `/api/watches/${watchId}`,
+        method: 'DELETE'
+    })
+)

@@ -1,4 +1,4 @@
-import { RECEIVE_WATCHES, RECEIVE_WATCH } from '../actions/watch_actions'
+import { RECEIVE_WATCHES, RECEIVE_WATCH, REMOVE_WATCH } from '../actions/watch_actions'
 
 
 export default (state = {}, action) => {
@@ -8,6 +8,10 @@ export default (state = {}, action) => {
         case RECEIVE_WATCH:
             newState = Object.assign({}, state);
             newState[action.watch.id] = action.watch;
+            return newState;
+        case REMOVE_WATCH:
+            newState = Object.assign({}, state);
+            delete newState[action.watch.id];
             return newState;
         case RECEIVE_WATCHES:
             return action.watches

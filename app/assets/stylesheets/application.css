@@ -1048,3 +1048,16 @@ a {
 .lighter{
     font-weight: 400;
 }
+
+.watch .watch-button{
+    background-color: transparent;
+    border: 1px solid #F25431;
+    margin-bottom: 30px;
+    margin-top: -10px;
+    color: #F25431;
+}
+
+.watch .watch-button:hover{
+    background-color: transparent;
+    cursor: pointer;
+}
