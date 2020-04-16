@@ -569,6 +569,16 @@ a {
     cursor: pointer;
 }
 
+.search .search-suggestions a:focus li{
+    background-color: rgb(243, 243, 243);
+    cursor: pointer;
+    outline:none;
+}
+
+.search .search-suggestions a:focus{
+    outline:none;
+}
+
  .dropdown-trigger{
      position:relative;
  }
