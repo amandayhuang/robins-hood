@@ -1,14 +1,23 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+// import { render } from 'react-dom';
 
-const SearchItem = (props) => {
-    // let jsDate = new Date(props.article.publishedAt);
-    let stock = props.stock;
-    return (
-        <li className='search-item'>
-            <Link to={`/stocks/${stock.ticker_name}`}>{stock.ticker_name} {stock.display_name}</Link>
-        </li>
-    )
+class SearchItem extends React.Component {
+    constructor(props){
+        super(props);
+        this.itemRef = React.createRef();
+    }
+    
+    render(){
+        let stock = this.props.stock;
+        return (
+            <Link to={`/stocks/${stock.ticker_name}`} ref={this.itemRef} tabIndex="0" >
+            <li className='search-item'>
+            <span className='search-ticker'>{stock.ticker_name}</span><span className='search-display'> {stock.display_name}</span>
+            </li>
+            </Link>
+        )
+    }
 }
 
 export default SearchItem;

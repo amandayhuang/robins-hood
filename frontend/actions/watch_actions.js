@@ -14,9 +14,9 @@ const receiveWatch = watch => ({
     watch
 })
 
-const removeWatch = watchId =>({
+const removeWatch = watch =>({
     type: REMOVE_WATCH,
-    watchId
+    watch
 })
 
 
