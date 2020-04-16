@@ -20,16 +20,16 @@ demo = User.create!(email:"demo@robinhood.com", first_name:"Robin", last_name:"H
 fund = Fund.create!(user_id:demo.id, amount:1000.00, fund_type:"in", created_at:txn_date, updated_at:txn_date);
 BalanceChange.create!(user_id:fund.user_id, amount:fund.amount, balanceable: fund, created_at:txn_date, updated_at:txn_date)
 
+andrew = Stock.create!(display_name:"Andrew Cuomo", ticker_name:"CUO")
+beyonce = Stock.create!(display_name:"Beyonce", ticker_name:"BEY")
 amanda = Stock.create!(display_name:"Amanda Bynes", ticker_name:"AB")
 yoko = Stock.create!(display_name:"Yoko Ono", ticker_name:"ONO")
 selena = Stock.create!(display_name:"Selena Quintanilla", ticker_name:"SELQ")
 joe = Stock.create!(display_name:"Joe Exotic", ticker_name:"JX")
-ali = Stock.create!(display_name:"Ali Wong", ticker_name:"WONG")
-beyonce = Stock.create!(display_name:"Beyonce", ticker_name:"BEY")
-alexandria = Stock.create!(display_name:"Alexandria Ocasio-Cortez", ticker_name:"AOC")
 lebron = Stock.create!(display_name:"LeBron James", ticker_name:"LBJ")
+ali = Stock.create!(display_name:"Ali Wong", ticker_name:"WONG")
+alexandria = Stock.create!(display_name:"Alexandria Ocasio-Cortez", ticker_name:"AOC")
 grace = Stock.create!(display_name:"Grace Hopper", ticker_name:"HOPP")
-andrew = Stock.create!(display_name:"Andrew Cuomo", ticker_name:"CUO")
 mindy = Stock.create!(display_name:"Mindy Kaling", ticker_name:"MK")
 claire = Stock.create!(display_name:"Claire Saffitz", ticker_name:"SAF")
 

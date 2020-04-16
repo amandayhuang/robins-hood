@@ -1165,3 +1165,14 @@ a {
     margin: 20px 0 30px 0;
 }
 
+.portfolio-stocks .no-stocks{
+    border:none;
+    color:#6F787E;
+    font-family: 'Roboto', sans-serif;   
+    font-size:15px;
+    height:65px;
+    padding-top:20px;
+    padding-left:25px;
+    box-sizing: border-box;
+    font-weight: 400;
+}

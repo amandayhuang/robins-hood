@@ -23,9 +23,10 @@ const msp = state => {
                 endDate2 = new Date;
             }
             let summaryStock = PortfolioUtil.getStockSummaryFromTrades(state.entities.trades, state.entities.trends, endDate2);
+            console.log(summaryStock);
             let value = PortfolioUtil.getPortfolioValue(Object.values(summaryStock));
             let cash = PortfolioUtil.getCashFromBalanceChange(state.entities.balance_changes,endDate2);
-            // console.log(`end date: ${endDate2} value: ${value+cash}`);
+            console.log(`end date: ${endDate2} value: ${value+cash}`);
             portfolio.push({ name: element.name, $: value+cash });
         }
     }
