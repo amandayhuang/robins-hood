@@ -14,9 +14,10 @@ export default (state = _nullSession, action) => {
             newState.watched_stock_ids.push(action.watch.ticker_name);
             return newState;
         case REMOVE_WATCH:
+            debugger
             newState = Object.assign({}, state);
             const index = newState.watched_stock_ids.indexOf(action.watch.ticker_name)
-            delete newState.watched_stock_ids[element];
+            delete newState.watched_stock_ids[index];
             return newState;
         case LOGOUT_USER:
             return _nullSession

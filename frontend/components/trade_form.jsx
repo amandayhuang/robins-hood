@@ -75,6 +75,7 @@ class TradeForm extends React.Component{
 
     removeWatch() {
         let watchId;
+        debugger
         for (let i = 0; i < Object.values(this.props.watches).length; i++) {
             const element = Object.values(this.props.watches)[i];
             if(element.ticker_name === this.props.stock.ticker_name){

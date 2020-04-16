@@ -11,7 +11,7 @@ export default (state = {}, action) => {
             return newState;
         case REMOVE_WATCH:
             newState = Object.assign({}, state);
-            delete newState[action.watch.id];
+            delete newState[action.watchId];
             return newState;
         case RECEIVE_WATCHES:
             return action.watches
