@@ -10,6 +10,7 @@ class NavBarAuth extends React.Component {
         this.toggleClass = this.toggleClass.bind(this);
         this.state = {suggestions: []};
         this.handleSearch = this.handleSearch.bind(this);
+        this.state.userInput = '';
     }
 
     toggleClass(e) {
@@ -38,25 +39,32 @@ class NavBarAuth extends React.Component {
         }
     }
 
-    handleSearch(e){
-        debugger
-        if (e.key === "ArrowDown"){
-            // this.triggerKeyPress()
-            // const focus = ReactDOM.findDOMNode(this.refs.item0);
-            debugger
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.location !== this.props.location) {
+            console.log('going to a new page');
+            this.setState({userInput:"", suggestions:[]});
         }
-        let input = e.currentTarget.value;
+    }
+
+    handleSearch(e){
+    
+        // if (e.key === "ArrowDown"){
+        //     // this.triggerKeyPress()
+        //     // const focus = ReactDOM.findDOMNode(this.refs.item0);
+        //     debugger
+        // }
+        this.state.userInput = e.currentTarget.value;
         let suggestions = [];
         let stocks = Object.values(this.props.stocks);
-        if(input !== undefined){
+        if (this.state.userInput  !== undefined){
             for (let i = 0; i < stocks.length; i++) {
                 const stock = stocks[i];
-                if (stock.ticker_name.toLowerCase().includes(input.toLowerCase()) || stock.display_name.toLowerCase().includes(input.toLowerCase())){
+                if (stock.ticker_name.toLowerCase().includes(this.state.userInput.toLowerCase()) || stock.display_name.toLowerCase().includes(this.state.userInput.toLowerCase())){
                     suggestions.push(stock)
                 }
             }
         }
-        if(input === ''){
+        if(this.state.userInput  === ''){
             this.setState({ suggestions: [] });
         }else if(suggestions.length === 0){
             this.setState({ suggestions:[{ticker_name:"We were unable to find any results for your search."}] });
@@ -85,7 +93,7 @@ class NavBarAuth extends React.Component {
                                 <div className = 'search-container'>
                                     <div className="search">
                                         <div className='search-bar'>
-                                            <i className="fa fa-search"></i><input className='search-input' placeholder="Search" type="text" onChange={this.handleSearch} onKeyDown={this.handleSearch} />
+                                            <i className="fa fa-search"></i><input className='search-input' placeholder="Search" type="text" onChange={this.handleSearch} value={this.state.userInput} />
                                         </div>
 
                                         <ul className='search-suggestions'>
