@@ -49,16 +49,15 @@ class NavBarAuth extends React.Component {
                 suggestions.push(stock)
             }
         }
-        debugger
         if(input === ''){
             this.setState({ suggestions: [] });
         }else if(suggestions.length === 0){
             this.setState({ suggestions:[{ticker_name:"We were unable to find any results for your search."}] });
         }
         else{
+            // suggestions.push({ticker_name:"", display_name:""})
             this.setState({suggestions:suggestions});
         }
-        debugger
     }
 
 
@@ -81,20 +80,21 @@ class NavBarAuth extends React.Component {
                             </li>
 
                             <li>
-                                    <div className = 'search-container'>
+                                <div className = 'search-container'>
                                     <div className="search">
+                                        <div className='search-bar'>
                                         <i className="fa fa-search"></i><input className='search-input' placeholder="Search" type="text" onChange={this.handleSearch}/>
-                                    </div>
-                                    <div className='search-suggestions'>
-                                        <ul>
+                                        </div>
+
+                                        <ul className='search-suggestions'>
                                             {
                                                 this.state.suggestions.map(ele => (
-                                                    <SearchItem stock={ele}/>
+                                                    <SearchItem stock={ele} />
                                                 ))
                                             }
                                         </ul>
                                     </div>
-                                    </div>
+                                </div>
                             </li>
                             <li>
                                 
