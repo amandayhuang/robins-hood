@@ -5,9 +5,9 @@ A clone of [Robinhood](https://robinhood.com/) that lets you invest in public fi
 
 Visit the live site [here](https://robins-hood.herokuapp.com/).
 
-### Noted Features
+## Noted Features
 
-#### Portfolio
+### Portfolio
 Graphs a user's portfolio value over time based on daily share price.
 
 ![portflio](https://github.com/amandayhuang/robins-hood/blob/master/app/assets/images/portfolio.png)
@@ -52,12 +52,12 @@ export const getStockSummaryFromTrades = (trades, trends, endDate) =>{
 }
 ```
 
-#### Buy/Sell Shares
+### Buy/Sell Shares
 Allows a user to buy or sell shares of public figures.
 
 ![trade](https://github.com/amandayhuang/robins-hood/blob/master/app/assets/images/trade.png )
 
-### Technologies
+## Technologies
 * Ruby on Rails
 * Postgres
 * JavaScript
