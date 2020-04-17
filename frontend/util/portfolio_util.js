@@ -1,4 +1,4 @@
-// returns an integer of user's available cash as of the endDate
+// returns an float of user's available cash as of the endDate
 export const getCashFromBalanceChange = (balance_changes, endDate) =>{
     let cash = 0;
     let bcArray = Object.values(balance_changes);
