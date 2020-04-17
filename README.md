@@ -57,7 +57,7 @@ Allows a user to buy or sell shares of public figures.
 
 ![trade](https://github.com/amandayhuang/robins-hood/blob/master/app/assets/images/trade.png )
 
-Below function calls News API to get the number of news articles mentioning a search term on a particular day, used to determine what price a user can buy shares at. One challenge was determining the share price close to the beginning of the day. I chose to use the number of articles and hours through the day to extrapolate how many articles there would be in a full trend based on current trajectory.
+Below function calls News API to get the number of news articles mentioning a search term on a particular day, used to determine what price a user can buy shares at. One challenge was determining the share price close to the beginning of the day. I chose to use the number of articles and hours through the day to extrapolate how many articles there would be in a full day based on current trajectory.
 ```javascript
 export const getNews = (stockId) => {
     let displayName = '';
