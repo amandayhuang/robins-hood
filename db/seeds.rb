@@ -32,6 +32,14 @@ alexandria = Stock.create!(display_name:"Alexandria Ocasio-Cortez", ticker_name:
 grace = Stock.create!(display_name:"Grace Hopper", ticker_name:"HOPP")
 mindy = Stock.create!(display_name:"Mindy Kaling", ticker_name:"MK")
 claire = Stock.create!(display_name:"Claire Saffitz", ticker_name:"SAF")
+rupaul = Stock.create!(display_name:"RuPaul", ticker_name:"RUP")
+ruth = Stock.create!(display_name:"Ruth Bader Ginsburg", ticker_name:"RBG")
+dolly = Stock.create!(display_name:"Dolly Parton", ticker_name:"DOLL")
+timothee = Stock.create!(display_name:"Timothee Chalamet", ticker_name:"TIM")
+liz = Stock.create!(display_name:"Elizabeth Holmes", ticker_name:"SCAM")
+anna = Stock.create!(display_name:"Anna Delvey", ticker_name:"SORO")
+
+
 
 require 'date'
 trade_date = Date.today - 10

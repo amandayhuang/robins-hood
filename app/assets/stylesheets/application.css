@@ -692,9 +692,9 @@ a {
 
 
  .show-container{
-     display:flex;
-     justify-content: initial;
-     margin-top: 115px;
+    display:flex;
+    justify-content: initial;
+    margin-top: 115px;
     margin-left:80px;
     margin-right:80px;
     margin-bottom: 40px;
@@ -709,6 +709,8 @@ a {
      min-width:290px;
      position:fixed;
      right:120px;
+     flex-shrink: 0; 
+     
  }
 
  .show-graph h1{
@@ -720,6 +722,7 @@ a {
 
  .show-graph{
      margin-left:70px;
+     flex-shrink: 0; 
  }
 
   .top-price{
