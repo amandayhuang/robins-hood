@@ -3,7 +3,7 @@
 
 A clone of Robinhood that lets you invest in public figures. Share price is determined by the number of news articles a figure is mentioned in on a particular day (powered by News API).
 
-Visit the site here.
+Visit the site [here](https://robins-hood.herokuapp.com/).
 
 ## Noted Features
 
@@ -16,13 +16,13 @@ Visit the site here.
 ## Technologies
 * Ruby on Rails
 * Postgres
+* JavaScript
 * React / Redux
 * HTML / CSS
-
 ## 
-* NewsAPI
-* Recharts
-* FontAwesome
+* [NewsAPI](https://newsapi.org/)
+* [Recharts] (https://recharts.org/)
+* [Font Awesome] (https://fontawesome.com/)
 
 
 
