@@ -1,14 +1,15 @@
 import {fetchStock} from './stock_api_util'
 
-const keys = ['ec885fa30bfd47ea9ca9a19c922c974e', '8e1ab7dc651446068017d1d23bbe8cf3', '60b6e71280f24d15a105e0ca63bc8c63', '17b33ca218d24ad89ef9715a81e6d4fb', 'be5218bb2a91424fa1755577ede6fde1'];
-
+// const keys = ['ec885fa30bfd47ea9ca9a19c922c974e', '8e1ab7dc651446068017d1d23bbe8cf3', '60b6e71280f24d15a105e0ca63bc8c63', '17b33ca218d24ad89ef9715a81e6d4fb', 'be5218bb2a91424fa1755577ede6fde1'];
+const keys = ['060db197a76147cea83f519ea566585c', 'b96d374f6b3245ebb9b1b0b36634a90a', '516400c09b9a46b0abb9df2c7ca570a2', 'c0766a997e124d55a30b49353c094d7d', '34c90171b7c542b78e7f8ff67b2744f1', '8880d365c2d74af3a176aefd874464d9', 'b27cdde4a91144d09e04a27b8ac51cc2','0e797ff5745843f8873c16444b9b3430'];
 let randomKey = keys[Math.floor(Math.random() * keys.length)];
+
 // randomKey = '3bcf3c8abafc4786be68bd74e90677a2';
 // randomKey = 'bde33e3500614684b270fa5a75c27d2a'; //delete
 // randomKey = '098c2851ae1a455faf7c69b1ac2bc7e2';
 // randomKey = '7fc2e8cc4e63454e92ed536947860baf';
 // randomKey = 'd0f31208935e4270be18bd0d72595166';
-randomKey = '2580bfd7b3054b46aab57eb30790b3a6';
+// randomKey = '2580bfd7b3054b46aab57eb30790b3a6';
 
 export const getNews = (stockId) => {
     let displayName = '';

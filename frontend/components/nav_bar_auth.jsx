@@ -41,7 +41,6 @@ class NavBarAuth extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.location !== this.props.location) {
-            console.log('going to a new page');
             this.setState({userInput:"", suggestions:[]});
         }
     }
