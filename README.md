@@ -1,24 +1,26 @@
-# README
+# Robin's Hood
+A clone of Robinhood that lets you invest in public figures.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Visit the site here.
 
-Things you may want to cover:
+## Noted Features
 
-* Ruby version
+### Portfolio
 
-* System dependencies
 
-* Configuration
+### Search Bar
 
-* Database creation
+## Technologies
+* Ruby on Rails
+* Postgres
+* React / Redux
+* HTML / CSS
 
-* Database initialization
+## 
+* NewsAPI
+* Recharts
+* FontAwesome
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
