@@ -9,10 +9,12 @@ Visit the live site [here](https://robins-hood.herokuapp.com/).
 
 #### Portfolio
 Graphs a user's portfolio value over time based on daily share price.
+
 ![portflio](https://github.com/amandayhuang/robins-hood/blob/master/app/assets/images/portfolio.png)
 
 #### Buy/Sell Shares
 Allows a user to buy or sell shares of public figures.
+
 ![trade](https://github.com/amandayhuang/robins-hood/blob/master/app/assets/images/trade.png )
 
 ### Technologies
@@ -21,7 +23,6 @@ Allows a user to buy or sell shares of public figures.
 * JavaScript
 * React / Redux
 * HTML / CSS
-### 
 * [NewsAPI](https://newsapi.org/)
 * [Recharts](https://recharts.org/)
 * [Font Awesome](https://fontawesome.com/)
