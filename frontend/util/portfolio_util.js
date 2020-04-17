@@ -18,7 +18,6 @@ export const getCashFromBalanceChange = (balance_changes, endDate) =>{
 // and current value per share as of endDate
 export const getStockSummaryFromTrades = (trades, trends, endDate) =>{
     let summaryStock = {};
-    // debugger
     for (let i = 0; i < Object.values(trades).length; i++) {
         const trade = Object.values(trades)[i];
         const tradeDate = new Date(trade.created_at);
@@ -32,7 +31,12 @@ export const getStockSummaryFromTrades = (trades, trends, endDate) =>{
                         currentSharePrice = element.$;
                     }
                 }
-                summaryStock[trade.ticker_name] = { ticker_name: trade.ticker_name, quantity_bought: trade.quantity, quantity_sold: 0, total_paid: trade.quantity * trade.share_price, total_sold_for: 0, current_share_price: currentSharePrice};
+                summaryStock[trade.ticker_name] = { ticker_name: trade.ticker_name
+                    , quantity_bought: trade.quantity
+                    , quantity_sold: 0
+                    , total_paid: trade.quantity * trade.share_price
+                    , total_sold_for: 0
+                    , current_share_price: currentSharePrice};
             } else {
                 if (trade.trade_type === 'buy') {
                     summaryStock[trade.ticker_name].quantity_bought += trade.quantity;

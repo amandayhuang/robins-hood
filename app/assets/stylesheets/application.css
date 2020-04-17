@@ -355,6 +355,9 @@ a {
      overflow: hidden;
      height: 100%;
 }
+.login-image img{
+    height:100%;
+}
 
 .login-form form input:focus{
     outline: none;
