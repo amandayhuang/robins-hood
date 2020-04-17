@@ -31,7 +31,7 @@ class Portfolio extends React.Component{
         if(summaryWatch.length === 0){
             summaryWatch = [];
         }
-
+        
         return (
             <>
                 <div className='show-container'>
@@ -50,6 +50,11 @@ class Portfolio extends React.Component{
                         </div>
       
                         <div className="portfolio-stocks">
+                            {
+                                this.props.summaryStock.length === 0 &&
+                                <div className='no-stocks'> no stocks yet </div>
+                            }
+
                             {
                                 this.props.summaryStock.map( stock => (
                                     <SummaryStockItem key={stock.ticker_name} stock={stock} stockTrends={this.props.trends}/> 

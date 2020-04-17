@@ -631,13 +631,13 @@ a {
  .dropdown-items{
     display:none;
     position:absolute;
-    height:200px;
+    height:170px;
     width: 270px;
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
     right:10px;
     background-color: white;
     top: 25px;
-    padding-top:20px;
+    padding-top:10px;
     z-index:50;
     border-radius: 4px;
  }
@@ -692,9 +692,9 @@ a {
 
 
  .show-container{
-     display:flex;
-     justify-content: initial;
-     margin-top: 115px;
+    display:flex;
+    justify-content: initial;
+    margin-top: 115px;
     margin-left:80px;
     margin-right:80px;
     margin-bottom: 40px;
@@ -709,6 +709,8 @@ a {
      min-width:290px;
      position:fixed;
      right:120px;
+     flex-shrink: 0; 
+     
  }
 
  .show-graph h1{
@@ -720,6 +722,7 @@ a {
 
  .show-graph{
      margin-left:70px;
+     flex-shrink: 0; 
  }
 
   .top-price{
@@ -1137,6 +1140,11 @@ a {
 
 .nav-stats div{
     padding-right:20px;
+    padding-bottom:5px;
+}
+
+.nav-stats .nav-stats-num{
+    font-size:15px;
 }
 
 .lighter{
@@ -1165,3 +1173,14 @@ a {
     margin: 20px 0 30px 0;
 }
 
+.portfolio-stocks .no-stocks{
+    border:none;
+    color:#6F787E;
+    font-family: 'Roboto', sans-serif;   
+    font-size:15px;
+    height:65px;
+    padding-top:20px;
+    padding-left:25px;
+    box-sizing: border-box;
+    font-weight: 400;
+}

@@ -17,12 +17,14 @@ const msp = state => {
         for (let i = 0; i < Object.values(obj).length; i++) {
             const element = Object.values(obj)[i];
             let endDate2 = new Date(element.name);
-            endDate2 = endDate2.setDate(endDate2.getDate() + 1);
-            endDate2 = new Date(endDate2);
+            // endDate2 = endDate2.setDate(endDate2.getDate());
+            // endDate2 = new Date(endDate2);
             if (i === Object.values(obj).length -1){
                 endDate2 = new Date;
             }
             let summaryStock = PortfolioUtil.getStockSummaryFromTrades(state.entities.trades, state.entities.trends, endDate2);
+            console.log(`${endDate2}`);
+            console.log(summaryStock);
             let value = PortfolioUtil.getPortfolioValue(Object.values(summaryStock));
             let cash = PortfolioUtil.getCashFromBalanceChange(state.entities.balance_changes,endDate2);
             // console.log(`end date: ${endDate2} value: ${value+cash}`);
