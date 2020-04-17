@@ -1,4 +1,4 @@
-![logo](https://github.com/amandayhuang/robins-hood/blob/master/app/assets/images/robins-hood.png )
+![logo](https://github.com/amandayhuang/robins-hood/blob/master/app/assets/images/logo.png )
 
 
 A clone of Robinhood that lets you invest in public figures. Share price is determined by the number of news articles a figure is mentioned in on a particular day (powered by News API).
