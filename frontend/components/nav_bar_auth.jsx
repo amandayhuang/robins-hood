@@ -117,15 +117,15 @@ class NavBarAuth extends React.Component {
                         <ul className='nav-auth-bar-right'>
                             <li className='portfolio'><Link to='/portfolio'> Portfolio</Link></li>
                             <div className='dropdown-trigger'>    
-                                <li onClick={this.toggleClass} className='account' ref="account">Account</li>
+                                <li onClick={this.toggleClass} onBlur={this.toggleClass} className='account' ref="account">Account</li>
                                 <div className='dropdown-items' ref="menu">
                                     <ul>
                                         <li> {this.props.currentUser.first_name} {this.props.currentUser.last_name} </li>
                                         
                                         <li>
                                         <div className="nav-stats">
-                                                <div>  <div>${(cash + stockValue).toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</div> <span className="lighter">Portfolio Value</span></div>
-                                                <div> <div>${cash.toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </div> <span className="lighter">Buying Power</span> </div>
+                                                <div>  <div className='nav-stats-num'>${(cash + stockValue).toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</div> <span className="lighter">Portfolio Value</span></div>
+                                                <div> <div className='nav-stats-num'>${cash.toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </div> <span className="lighter">Buying Power</span> </div>
                                         </div>
                                         </li>
                                         <li><i className="fas fa-sign-out-alt"></i><button onClick={this.props.logout}>Log Out</button></li>
