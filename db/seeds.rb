@@ -34,29 +34,29 @@ mindy = Stock.create!(display_name:"Mindy Kaling", ticker_name:"MK")
 claire = Stock.create!(display_name:"Claire Saffitz", ticker_name:"SAF")
 
 require 'date'
-trade_date = Date.today - 30
-trade_1 = Trade.create!(user_id:demo.id, ticker_name:amanda.ticker_name, trade_type:'buy', quantity:4, share_price:12.50, created_at:trade_date, updated_at:trade_date)
+trade_date = Date.today - 10
+trade_1 = Trade.create!(user_id:demo.id, ticker_name:andrew.ticker_name, trade_type:'buy', quantity:4, share_price:10.50, created_at:trade_date, updated_at:trade_date)
 BalanceChange.create!(user_id:trade_1.user_id, amount:trade_1.share_price*trade_1.quantity*-1, balanceable: trade_1, created_at:trade_date, updated_at:trade_date)
 
-trade_date = Date.today - 25
-trade_2 = Trade.create!(user_id:demo.id, ticker_name:yoko.ticker_name, trade_type:'buy', quantity:2, share_price:14.99, created_at:trade_date, updated_at:trade_date)
+trade_date = Date.today - 6
+trade_2 = Trade.create!(user_id:demo.id, ticker_name:beyonce.ticker_name, trade_type:'buy', quantity:10, share_price:12.50, created_at:trade_date, updated_at:trade_date)
 BalanceChange.create!(user_id:trade_2.user_id, amount:trade_2.share_price*trade_2.quantity*-1, balanceable: trade_2, created_at:trade_date, updated_at:trade_date)
 
-trade_date = Date.today - 20
-trade_3 = Trade.create!(user_id:demo.id, ticker_name:joe.ticker_name, trade_type:'buy', quantity:1, share_price:108.88, created_at:trade_date, updated_at:trade_date)
+trade_date = Date.today - 5
+trade_3 = Trade.create!(user_id:demo.id, ticker_name:yoko.ticker_name, trade_type:'buy', quantity:2, share_price:38.88, created_at:trade_date, updated_at:trade_date)
 BalanceChange.create!(user_id:trade_3.user_id, amount:trade_3.share_price*trade_3.quantity*-1, balanceable: trade_3, created_at:trade_date, updated_at:trade_date)
 
-trade_date = Date.today - 15
-trade_4 = Trade.create!(user_id:demo.id, ticker_name:yoko.ticker_name, trade_type:'sell', quantity:1, share_price:18.50, created_at:trade_date, updated_at:trade_date)
+trade_date = Date.today - 3
+trade_4 = Trade.create!(user_id:demo.id, ticker_name:yoko.ticker_name, trade_type:'sell', quantity:1, share_price:15.50, created_at:trade_date, updated_at:trade_date)
 BalanceChange.create!(user_id:trade_4.user_id, amount:trade_4.share_price*trade_4.quantity, balanceable: trade_4, created_at:trade_date, updated_at:trade_date)
 
-trade_date = Date.today - 10
-trade_5 = Trade.create!(user_id:demo.id, ticker_name:beyonce.ticker_name, trade_type:'buy', quantity:1, share_price:199.21, created_at:trade_date, updated_at:trade_date)
+trade_date = Date.today - 1
+trade_5 = Trade.create!(user_id:demo.id, ticker_name:beyonce.ticker_name, trade_type:'buy', quantity:1, share_price:89.21, created_at:trade_date, updated_at:trade_date)
 BalanceChange.create!(user_id:trade_5.user_id, amount:trade_5.share_price*trade_5.quantity*-1, balanceable: trade_5, created_at:trade_date, updated_at:trade_date)
 
 #make this trade now
-trade_6 = Trade.create!(user_id:demo.id, ticker_name:amanda.ticker_name, trade_type:'sell', quantity:2, share_price:300.33)
+trade_6 = Trade.create!(user_id:demo.id, ticker_name:beyonce.ticker_name, trade_type:'sell', quantity:5, share_price:100.01)
 BalanceChange.create!(user_id:trade_6.user_id, amount:trade_6.share_price*trade_6.quantity, balanceable: trade_6)
 
-watch_1 = Watch.create!(user_id:demo.id, ticker_name:mindy.ticker_name)
+watch_1 = Watch.create!(user_id:demo.id, ticker_name:amanda.ticker_name)
 watch_2 = Watch.create!(user_id:demo.id, ticker_name:alexandria.ticker_name)

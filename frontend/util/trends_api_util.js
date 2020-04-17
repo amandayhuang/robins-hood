@@ -4,8 +4,8 @@ const keys = ['ec885fa30bfd47ea9ca9a19c922c974e', '8e1ab7dc651446068017d1d23bbe8
 
 let randomKey = keys[Math.floor(Math.random() * keys.length)];
 // randomKey = '3bcf3c8abafc4786be68bd74e90677a2';
-randomKey = 'bde33e3500614684b270fa5a75c27d2a'; //delete
-// randomKey = '098c2851ae1a455faf7c69b1ac2bc7e2';
+// randomKey = 'bde33e3500614684b270fa5a75c27d2a'; //delete
+randomKey = '098c2851ae1a455faf7c69b1ac2bc7e2';
 // randomKey = '7fc2e8cc4e63454e92ed536947860baf';
 // randomKey = 'd0f31208935e4270be18bd0d72595166';
 // randomKey = '2580bfd7b3054b46aab57eb30790b3a6';
@@ -15,7 +15,7 @@ export const getNews = (stockId) => {
     fetchStock(stockId).then(response => displayName = response.display_name);
 
     let dates = [];
-    let i = 1; // number of days to lookback
+    let i = 7; // number of days to lookback
     let news = [];
 
     while (i >= 0) {
