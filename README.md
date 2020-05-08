@@ -1,7 +1,7 @@
 ![logo](https://github.com/amandayhuang/robins-hood/blob/master/app/assets/images/logo.png )
 
 
-A clone of [Robinhood](https://robinhood.com/) that lets you invest in public figures. Share price is determined by the number of news articles a figure is mentioned in on a particular day (powered by [NewsAPI](https://newsapi.org/)).
+Single page app in the spirit of [Robinhood](https://robinhood.com/) that lets you invest in public figures. Share price is determined by the number of news articles a figure is mentioned in on a particular day (powered by [NewsAPI](https://newsapi.org/)).
 
 Visit the live site [here](https://robins-hood.herokuapp.com/).
 
@@ -118,13 +118,14 @@ export const getNews = (stockId) => {
 
 ## Technologies
 * Ruby on Rails
-* Postgres
-* JavaScript
+* PostgreSQL
+* Javascript
 * React / Redux
 * HTML / CSS
 * [NewsAPI](https://newsapi.org/)
 * [Recharts](https://recharts.org/)
 * [Font Awesome](https://fontawesome.com/)
+* [favicon.io](https://favicon.io/)
 
 
 
