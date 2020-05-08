@@ -157,6 +157,13 @@ a {
     cursor: pointer;
   }
 
+  .home-1-right img{
+      margin-left:70px;
+      margin-top:30px;
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+      border-radius: 3px;
+  }
+
  .signup-container{
      display: flex;
      flex-direction: column;
