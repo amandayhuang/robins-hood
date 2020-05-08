@@ -40,7 +40,7 @@ class NavBar extends React.Component{
                 </div>
 
                 <div className="home-1-right">
-                <img src={window.home1URL} alt="phone"/>
+                <img src={window.rbgURL} alt="rbg"/>
                 </div>
             </div>
             </>
