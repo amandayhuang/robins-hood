@@ -41,7 +41,7 @@ export const getNews = (stockId) => {
             method: "GET",
             async: false
         }).then(data => {
-            console.log(`${displayName} : ${key} : ${data.totalResults}`);
+            // console.log(`${displayName} : ${key} : ${data.totalResults}`);
             if (i === dates.length - 1){
                 const d = new Date;
                 const mult = 1/(d.getUTCHours()/24);

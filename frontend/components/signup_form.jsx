@@ -51,7 +51,7 @@ class SignupForm extends React.Component{
         const email = ReactDOM.findDOMNode(this.refs.email);
         const password = ReactDOM.findDOMNode(this.refs.password);
 
-        debugger
+        // debugger
         if (this.state.first_name.length < 1) {
             first.classList.add('active');
             firstInput.classList.add('red-border');
@@ -69,7 +69,7 @@ class SignupForm extends React.Component{
         }
 
         if (first.classList.contains('active') || last.classList.contains('active') || email.classList.contains('active') || password.classList.contains('active')){
-            console.log('cant sumbit');
+            // console.log('cant sumbit');
         }else{
             this.props.createUser(this.state);
             this.setState({ first_name: this.state.first_name, last_name: this.state.last_name, email: this.state.email, password: "" })
@@ -89,7 +89,7 @@ class SignupForm extends React.Component{
             
             <>
                 <div className='signup-progress'>
-                    <Link to="/"><i class="far fa-laugh-wink signup-logo"></i></Link>
+                    <Link to="/"><i className="far fa-laugh-wink signup-logo"></i></Link>
                     <div> Account</div>
                     <div>Basic Info </div>
                     <div> Identity</div>
@@ -110,7 +110,7 @@ class SignupForm extends React.Component{
                 </ul>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    <div class='name-section'>
+                    <div className='name-section'>
                     <section className='signup-first'>
                     <input type="text" placeholder="First name" ref="firstInput" value={this.state.first_name} onChange={this.update("first_name")}/>
                                 <div className='signup-first-error error-box' ref="first">Please enter your first name.</div>

@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(<Root store={store} />, root)
 
     //TESTING
-    window.signup = signup;
-    window.getState = store.getState;
-    window.getNews = getNews;
-    window.fetchTrades = fetchTrades;
-    window.getArticles = getArticles;
+    // window.signup = signup;
+    // window.getState = store.getState;
+    // window.getNews = getNews;
+    // window.fetchTrades = fetchTrades;
+    // window.getArticles = getArticles;
     //TESTING
 })
