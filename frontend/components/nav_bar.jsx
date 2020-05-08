@@ -35,7 +35,7 @@ class NavBar extends React.Component{
             <div className="home-1">
                 <div className="home-1-left">
                 <h1>It's Time to Do Gossip</h1>
-                <h3>Robin's Hood, a pioneer of spilling the tea, gives you more ways to make your money work pettier.</h3>
+                <h3>Robin's Hood, a pioneer of spilling the tea, lets you invest in shares of public figures.</h3>
                 <Link to="/signup"><button>Sign Up </button></Link>
                 </div>
 
