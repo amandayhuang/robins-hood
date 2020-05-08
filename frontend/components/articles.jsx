@@ -14,7 +14,7 @@ class Articles extends React.Component{
                 <hr /> 
             {
             this.props.articles.map(article => (
-                <ArticleItem article={article}/>
+                <ArticleItem key={article.url} article={article}/>
             )
             )
             }

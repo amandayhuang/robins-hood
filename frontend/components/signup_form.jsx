@@ -51,7 +51,7 @@ class SignupForm extends React.Component{
         const email = ReactDOM.findDOMNode(this.refs.email);
         const password = ReactDOM.findDOMNode(this.refs.password);
 
-        debugger
+        // debugger
         if (this.state.first_name.length < 1) {
             first.classList.add('active');
             firstInput.classList.add('red-border');
