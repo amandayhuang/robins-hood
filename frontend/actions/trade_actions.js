@@ -1,4 +1,5 @@
 import * as TradeAPIUtil from '../util/trade_api_util';
+import {fetchBalanceChanges} from './balance_change_actions'
 
 export const RECEIVE_TRADES = "RECEIVE_TRADES";
 export const RECEIVE_TRADE = "RECEIVE_TRADE";
@@ -22,7 +23,8 @@ const receiveTradeErrors = (errors) => ({
 export const createTrade = (trade) => dispatch =>{
     // debugger
     return TradeAPIUtil.createTrade(trade)
-    .then(trade => dispatch(receiveTrade(trade)));
+    .then(trade => dispatch(receiveTrade(trade)))
+    .then(() => dispatch(fetchBalanceChanges(trade.user_id)))
 }
 
 export const fetchTrades = userId => dispatch => (
