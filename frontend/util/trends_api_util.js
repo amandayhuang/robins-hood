@@ -13,6 +13,8 @@ let randomKey = keys[Math.floor(Math.random() * keys.length)];
 
 export const getNews = (stockId) => {
     let displayName = '';
+    // const proxyUrl = "https://cors-anywhere.herokuapp.com/"; 
+    const proxyUrl = "https://murmuring-mesa-42195.herokuapp.com/";
     fetchStock(stockId).then(response => displayName = response.display_name);
 
     let dates = [];
@@ -29,7 +31,9 @@ export const getNews = (stockId) => {
     
     for (let i = 0; i < dates.length; i++) {
         const key = dates[i];
-        const url = 'https://newsapi.org/v2/everything?' +
+        const url = 
+            `${proxyUrl}` +
+            'https://newsapi.org/v2/everything?' +
             `q=${displayName}&` +
             `from=${key}&` +
             `to=${key}&` +
