@@ -75,10 +75,12 @@ export const getArticles = stockId =>{
     let displayName = '';
     fetchStock(stockId).then(response => displayName = response.display_name);
 
-    const url = 'https://newsapi.org/v2/everything?' +
-        `q=${displayName}&` +
-        'sortBy=popularity&' +
-        `apiKey=${randomKey}`;
+    const url =
+      `${proxyUrl}` +
+      "https://newsapi.org/v2/everything?" +
+      `q=${displayName}&` +
+      "sortBy=popularity&" +
+      `apiKey=${randomKey}`;
 
     return $.ajax({
         url: url,
@@ -88,10 +90,12 @@ export const getArticles = stockId =>{
 }
 
 export const getTopArticles = () => {
-    const url = 'https://newsapi.org/v2/top-headlines?' +
-        `country=us&` +
-        'category=entertainment&' +
-        `apiKey=${randomKey}`;
+    const url =
+      `${proxyUrl}` +
+      "https://newsapi.org/v2/top-headlines?" +
+      `country=us&` +
+      "category=entertainment&" +
+      `apiKey=${randomKey}`;
 
     return $.ajax({
         url: url,
