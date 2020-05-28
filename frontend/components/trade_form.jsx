@@ -152,7 +152,7 @@ class TradeForm extends React.Component{
                         }
 
                         {
-                        this.state.is_owned === false && this.state.is_watched === true &&
+                        this.state.is_watched === true &&
                             <button className='watch-button' onClick={this.removeWatch}> Remove from Watchlist </button>
                         }
                     </div>
