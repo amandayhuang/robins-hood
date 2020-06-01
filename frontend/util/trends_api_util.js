@@ -33,7 +33,7 @@ export const getNews = (stockId) => {
     for (let i = 0; i < dates.length; i++) {
         const key = dates[i];
         const url = 
-            `${proxyUrl}` +
+            // `${proxyUrl}` +
             'https://newsapi.org/v2/everything?' +
             `q=${displayName}&` +
             `from=${key}&` +
@@ -77,7 +77,7 @@ export const getArticles = stockId =>{
     fetchStock(stockId).then(response => displayName = response.display_name);
 
     const url =
-      `${proxyUrl}` +
+    //   `${proxyUrl}` +
       "https://newsapi.org/v2/everything?" +
       `q=${displayName}&` +
       "sortBy=popularity&" +
@@ -92,7 +92,7 @@ export const getArticles = stockId =>{
 
 export const getTopArticles = () => {
     const url =
-      `${proxyUrl}` +
+    //   `${proxyUrl}` +
       "https://newsapi.org/v2/top-headlines?" +
       `country=us&` +
       "category=entertainment&" +
