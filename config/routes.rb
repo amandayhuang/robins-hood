@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :stocks, only: [:show, :index]
     resources :watches, only: [:destroy]
 
+    resources :externals
+
     # post '/search', to: 'users#search'
 
   end

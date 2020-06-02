@@ -24,39 +24,40 @@ export const getNews = (stockId) => {
     
     for (let i = 0; i < dates.length; i++) {
         const key = dates[i];
-        const url = 
-            `${proxyUrl}` +
-            'https://newsapi.org/v2/everything?' +
-            `q=${displayName}&` +
-            `from=${key}&` +
-            `to=${key}&` +
-            'sortBy=publishedAt&' +
-            `apiKey=${randomKey}`;
+        // const url = 
+        //     // `${proxyUrl}` +
+        //     'https://newsapi.org/v2/everything?' +
+        //     `q=${displayName}&` +
+        //     `from=${key}&` +
+        //     `to=${key}&` +
+        //     'sortBy=publishedAt&' +
+        //     `apiKey=${randomKey}`;
 
         $.ajax({
-            url: url,
-            method: "GET",
-            async: false
-        }).then(data => {
-            // console.log(`${displayName} : ${key} : ${data.totalResults}`);
-            if (i === dates.length - 1){
-                const d = new Date;
-                const mult = 1/(d.getUTCHours()/24);
-                if (d.getUTCHours === 0){
-                    mult = 24;
-                }
-                let rand = Math.random() * 5;
-                let newNum = Math.round(data.totalResults * mult);
-                if(newNum === Infinity){
-                    newNum = Math.round(data.totalResults * 24)
-                }
-                if (data.totalResults === 0 || data.totalResults === undefined){
-                    newNum = Math.round(1 + rand);
-                }
-                news.push({ name: key, $: newNum});
-            }else{
-                news.push({name: key, $: data.totalResults});
+          url: `/api/externals`,
+          method: "GET",
+          async: false,
+          data: {displayName, startDate:key}
+        }).then((data) => {
+          console.log(`${displayName} : ${key} : ${data.totalResults}`);
+          if (i === dates.length - 1) {
+            const d = new Date();
+            const mult = 1 / (d.getUTCHours() / 24);
+            if (d.getUTCHours === 0) {
+              mult = 24;
             }
+            let rand = Math.random() * 5;
+            let newNum = Math.round(data.totalResults * mult);
+            if (newNum === Infinity) {
+              newNum = Math.round(data.totalResults * 24);
+            }
+            if (data.totalResults === 0 || data.totalResults === undefined) {
+              newNum = Math.round(1 + rand);
+            }
+            news.push({ name: key, $: newNum });
+          } else {
+            news.push({ name: key, $: data.totalResults });
+          }
         });
     } 
 
@@ -68,31 +69,46 @@ export const getArticles = stockId =>{
     let displayName = '';
     fetchStock(stockId).then(response => displayName = response.display_name);
 
-    const url =
-      `${proxyUrl}` +
-      "https://newsapi.org/v2/everything?" +
-      `q=${displayName}&` +
-      "sortBy=popularity&" +
-      `apiKey=${randomKey}`;
+    // const url =
+    //   `${proxyUrl}` +
+    //   "https://newsapi.org/v2/everything?" +
+    //   `q=${displayName}&` +
+    //   "sortBy=popularity&" +
+    //   `apiKey=${randomKey}`;
 
     return $.ajax({
-        url: url,
-        method: "GET",
-        async: false
-    })
+      url: `/api/externals`,
+      method: "GET",
+      async: false,
+      data: { displayName },
+    });
 }
+
+// export const getTopArticles = () => {
+//     const url =
+//       "https://newsapi.org/v2/top-headlines?" +
+//       `country=us&` +
+//       "category=entertainment&" +
+//       `apiKey=${randomKey}`;
+
+//     return $.ajax({
+//         url: url,
+//         method: "GET",
+//         async: false
+//     })
+// }
 
 export const getTopArticles = () => {
-    const url =
-      `${proxyUrl}` +
-      "https://newsapi.org/v2/top-headlines?" +
-      `country=us&` +
-      "category=entertainment&" +
-      `apiKey=${randomKey}`;
+//   const url =
+//     "https://newsapi.org/v2/top-headlines?" +
+//     `country=us&` +
+//     "category=entertainment&" +
+//     `apiKey=${randomKey}`;
 
-    return $.ajax({
-        url: url,
-        method: "GET",
-        async: false
-    })
-}
+  return $.ajax({
+    url: `/api/externals`,
+    method: "GET",
+    async: false,
+    // data: {stockId}
+  });
+};

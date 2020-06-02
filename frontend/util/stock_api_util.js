@@ -3,7 +3,7 @@ export const fetchStock = stockId =>(
         url: `/api/stocks/${stockId}`,
         method: 'GET',
         async: false,
-        data: stockId
+        // data: {stockId}
     })
 )
 
