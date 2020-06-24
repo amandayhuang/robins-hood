@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "cors-anywhere": "^0.4.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-ujs": "^1.2.2",
     "lodash": "^4.17.15",
     "node-loader": "^0.6.0",
