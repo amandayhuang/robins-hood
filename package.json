@@ -5,7 +5,7 @@
     "cors-anywhere": "^0.4.3",
     "jquery": "^3.5.0",
     "jquery-ujs": "^1.2.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "node-loader": "^0.6.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
