@@ -59,7 +59,7 @@
     "jest-enzyme": "^7.0.2",
     "react-test-renderer": "^16.8.6",
     "redux-mock-store": "^1.5.3",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   },
   "engines": {
     "node": "10.13.0",
